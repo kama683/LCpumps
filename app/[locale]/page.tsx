@@ -57,9 +57,7 @@ export default async function HomePage() {
               style={{ animationDelay: "200ms" }}
             >
               <Button href="/contact">{t("Common.contactUs")}</Button>
-              <Button href="/products" variant="secondary">
-                {t("Home.catalogButton")}
-              </Button>
+              <Button href="/products">{t("Home.catalogButton")}</Button>
             </div>
           </div>
         </PageContainer>
