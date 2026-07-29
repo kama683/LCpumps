@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getAboutSubpages, getGenericAboutMessage } from "@/data/content";
 import type { AppLocale } from "@/i18n/routing";
-import { getCompanyParagraphs } from "@/lib/catalog";
+import { getCompanyParagraphs } from "@/lib/catalog-helpers";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 

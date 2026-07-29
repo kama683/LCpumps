@@ -2,21 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Check, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import {
   aboutCertifications,
   aboutClients,
-  aboutSubsidiaries,
   getAboutAwards,
-  getAboutEquipment,
   getAboutStats,
 } from "@/data/content";
 import type { AppLocale } from "@/i18n/routing";
-import { getCompanyParagraphs } from "@/lib/catalog";
 import { ASSETS } from "@/lib/assets";
+import { getCompanyParagraphs } from "@/lib/catalog-helpers";
+import { AboutVideo } from "@/components/ui/AboutVideo";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Button } from "@/components/ui/Button";
-import { ProductImage } from "@/components/ui/ProductImage";
 import {
   Breadcrumb,
   PageContainer,
@@ -34,21 +32,9 @@ export default async function AboutPage() {
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations();
   const company = getCompanyParagraphs(locale);
-  const intro = company[0] ?? "";
-  const industries = company[2] ?? "";
-  const parks = company[1] ?? "";
-  const production = company[3] ?? "";
-  const innovation = company[4] ?? "";
   const cert = company[6] ?? "";
   const service = company[5] ?? "";
   const clients = company[9] ?? "";
-
-  const aboutEquipment = getAboutEquipment(locale);
-  const equipCols = [
-    aboutEquipment.slice(0, 3),
-    aboutEquipment.slice(3, 6),
-    aboutEquipment.slice(6),
-  ];
 
   return (
     <>
@@ -57,96 +43,67 @@ export default async function AboutPage() {
           <Breadcrumb
             items={[{ label: t("Common.home"), href: "/" }, { label: t("Nav.aboutUs") }]}
           />
-          <div className="grid grid-cols-1 tablet:grid-cols-2 gap-10 items-center mt-7">
-            <div>
-              <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,48px)] text-heading leading-tight">
-                {t("AboutUs.title")}
-              </h1>
-              <p className="text-[17px] leading-relaxed text-muted mt-6">{intro}</p>
-              <p className="text-[17px] leading-relaxed text-muted mt-5">
-                {industries}
-              </p>
-            </div>
-            <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-border-light shadow-card-sm">
-              <Image
-                src={ASSETS.aboutPhoto.src}
-                alt={ASSETS.aboutPhoto.alt}
-                fill
-                sizes="(max-width: 900px) 100vw, 50vw"
-                priority
-                className="object-cover"
-              />
-            </div>
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-border-light shadow-card-sm mt-7">
+            <AboutVideo />
+          </div>
+
+          <div className="max-w-205 mt-10">
+            <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,48px)] text-heading leading-tight">
+              {t("AboutUs.title")}
+            </h1>
+            <p className="text-[17px] leading-relaxed text-muted mt-6">
+              Bellary Pumps — официальный эксклюзивный представитель Shanghai
+              Liancheng (Group) Co., Ltd. в Казахстане, Центральной Азии и СНГ.
+            </p>
+            <p className="text-[17px] leading-relaxed text-muted mt-5">
+              Shanghai Liancheng — один из ведущих производителей насосного
+              оборудования Китая с более чем 30-летним опытом, собственными
+              научно-исследовательскими институтами, современными
+              производственными мощностями и годовым оборотом 4,8 млрд юаней.
+              Решения компании успешно применяются на промышленных,
+              энергетических, нефтегазовых, инфраструктурных и коммунальных
+              объектах по всему миру.
+            </p>
+            <p className="text-[17px] leading-relaxed text-muted mt-5">
+              Как официальный представитель производителя, Bellary Pumps
+              предоставляет полный ассортимент оборудования, запасных частей и
+              инженерных решений Shanghai Liancheng непосредственно в регионе.
+              Наши клиенты получают прямой доступ к технологиям мирового
+              производителя без посредников.
+            </p>
+            <p className="text-[17px] leading-relaxed text-muted mt-5">
+              В компании сформирована вся необходимая инфраструктура для
+              оперативной реализации проектов: собственный складской комплекс
+              и шоурум площадью 1 600 м², оборудование и комплектующие в
+              наличии, выстроенная система прямых поставок с завода,
+              международной логистики и таможенного сопровождения. Благодаря
+              этому мы обеспечиваем оптимальные сроки поставки,
+              конкурентоспособную стоимость и стабильное наличие оборудования.
+            </p>
+            <p className="text-[17px] leading-relaxed text-muted mt-5">
+              Команда опытных инженеров и технических специалистов в
+              кратчайшие сроки подбирает оптимальное решение под задачи
+              заказчика, сопровождает проект на всех этапах его реализации и
+              обеспечивает профессиональную сервисную поддержку.
+            </p>
+            <p className="text-[17px] leading-relaxed text-muted mt-5">
+              Bellary Pumps — это официальный представитель мирового
+              производителя, оборудование в наличии, прямые поставки, сильная
+              инженерная команда и комплексные решения, позволяющие
+              реализовывать проекты быстро, эффективно и с гарантированным
+              результатом.
+            </p>
           </div>
         </PageContainer>
       </section>
 
-      <section className="bg-surface border-y border-[#eef4f7] py-14">
+      <section className="bg-surface border-y border-[#f7eeef] py-14">
         <PageContainer>
           <StatGrid items={getAboutStats(locale)} />
         </PageContainer>
       </section>
 
       <PageContainer className="pt-16">
-        <Reveal>
-          <h2 className="font-heading font-bold text-[clamp(26px,3vw,34px)] text-heading">
-            {t("AboutUs.subsidiariesTitle")}
-          </h2>
-          <p className="text-base leading-relaxed text-muted mt-4.5 max-w-[960px]">
-            {parks}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {aboutSubsidiaries.map((name) => (
-              <span
-                key={name}
-                className="inline-block bg-pill-blue-bg text-primary text-sm font-semibold px-4.5 py-2.5 rounded-pill transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-primary hover:text-white"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-      </PageContainer>
-
-      <section className="bg-surface mt-18 border-y border-[#eef4f7]">
-        <PageContainer className="py-18">
-          <Reveal>
-            <h2 className="font-heading font-bold text-[clamp(26px,3vw,34px)] text-heading">
-              {t("AboutUs.productionTitle")}
-            </h2>
-            <p className="text-base leading-relaxed text-muted mt-4.5 max-w-[960px]">
-              {production}
-            </p>
-            <p className="text-base leading-relaxed text-muted mt-4 max-w-[960px]">
-              {innovation}
-            </p>
-            <div className="grid grid-cols-1 tablet:grid-cols-3 gap-8 mt-9">
-              {equipCols.map((col, index) => (
-                <ul key={index} className="list-none p-0 m-0">
-                  {col.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-2.5 mb-3.5 text-[15px] text-muted leading-snug"
-                    >
-                      <Check
-                        className="mt-0.5 size-4 shrink-0 text-primary"
-                        strokeWidth={2.5}
-                        aria-hidden
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              ))}
-            </div>
-            <ArrowLink href="/about-us/production" className="mt-8">
-              {t("AboutUs.productionLink")}
-            </ArrowLink>
-          </Reveal>
-        </PageContainer>
-      </section>
-
-      <PageContainer className="pt-18">
         <Reveal>
           <h2 className="font-heading font-bold text-[clamp(26px,3vw,34px)] text-heading">
             {t("AboutUs.certificationsTitle")}
@@ -215,7 +172,7 @@ export default async function AboutPage() {
 
       <PageContainer className="py-18 pb-20">
         <Reveal>
-          <div className="bg-gradient-to-br from-surface-alt to-[#e4f2f8] border border-[#d8eaf2] rounded-3xl p-7 tablet:p-12 tablet:px-14 grid grid-cols-1 tablet:grid-cols-[1.1fr_0.9fr] gap-8 tablet:gap-10 items-center max-tablet:text-center">
+          <div className="bg-gradient-to-br from-surface-alt to-[#f8e4e6] border border-[#f2d8db] rounded-3xl p-7 tablet:p-12 tablet:px-14 grid grid-cols-1 tablet:grid-cols-[1.1fr_0.9fr] gap-8 tablet:gap-10 items-center max-tablet:text-center">
             <div>
               <h2 className="font-heading font-bold text-[clamp(24px,3vw,32px)] text-heading leading-tight">
                 {COMPANY_NAME}
@@ -228,11 +185,19 @@ export default async function AboutPage() {
                 {t("Common.contactUs")}
               </Button>
             </div>
-            <ProductImage
-              alt="Bellery industrial pump technical illustration"
-              aspectRatio="4/3"
-              className="max-tablet:order-first"
-            />
+            <div className="relative flex items-center justify-center max-tablet:order-first">
+              <div
+                aria-hidden
+                className="hero-blueprint-grid absolute left-1/2 top-1/2 aspect-square w-[min(420px,90%)] -translate-x-1/2 -translate-y-1/2"
+              />
+              <Image
+                src={ASSETS.heroPump.src}
+                alt="LCPumps industrial pump technical illustration"
+                width={ASSETS.heroPump.width}
+                height={ASSETS.heroPump.height}
+                className="relative z-1 w-[min(420px,100%)] h-auto object-contain opacity-90"
+              />
+            </div>
           </div>
         </Reveal>
       </PageContainer>

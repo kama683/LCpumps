@@ -10,7 +10,7 @@ import { getApplicationsCards } from "@/data/content";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { IconBox } from "@/components/ui/IconBox";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
-import { getCompanyParagraphs } from "@/lib/catalog";
+import { getCompanyParagraphs } from "@/lib/catalog-helpers";
 
 export const metadata: Metadata = {
   title: "Применения",

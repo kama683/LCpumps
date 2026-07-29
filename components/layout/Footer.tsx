@@ -9,7 +9,7 @@ import {
   LOGO_PATH,
 } from "@/lib/site";
 
-const CONTACT_EMAIL = "export@bellery-pumps.com";
+const CONTACT_EMAIL = "export@lcpumps.com";
 const CONTACT_PHONE = "+86 21 XXXX XXXX";
 
 export function Footer() {
@@ -26,8 +26,8 @@ export function Footer() {
               <Image
                 src={LOGO_PATH}
                 alt={BRAND}
-                width={38}
-                height={46}
+                width={44}
+                height={44}
                 className="object-contain bg-white rounded-sm p-1"
               />
               <span className="font-heading font-bold text-lg text-white">

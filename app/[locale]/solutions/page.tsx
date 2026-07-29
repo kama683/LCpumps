@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { getWaterProducts } from "@/lib/catalog";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
@@ -8,10 +8,13 @@ export const metadata: Metadata = {
   title: "Решения",
 };
 
-export default function SolutionsPage() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const products = getWaterProducts(locale);
+// Water-supply products are DB-backed and admin-editable at runtime.
+export const dynamic = "force-dynamic";
+
+export default async function SolutionsPage() {
+  const t = await getTranslations();
+  const locale = await getLocale();
+  const products = await getWaterProducts(locale);
 
   return (
     <>

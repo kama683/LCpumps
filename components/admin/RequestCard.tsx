@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Building2, Mail, Paperclip, Phone } from "lucide-react";
-import type { ContactSubmission } from "@/lib/admin/types";
+import type { SubmissionListItem } from "@/lib/repositories/submissions";
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleString("ru-RU", {
@@ -12,11 +12,11 @@ function formatDate(iso: string): string {
   });
 }
 
-export function RequestCard({ submission }: { submission: ContactSubmission }) {
+export function RequestCard({ submission }: { submission: SubmissionListItem }) {
   return (
     <Link
       href={`/admin/requests/${submission.id}`}
-      className="group relative block rounded-2xl border border-border bg-white p-5 no-underline transition-all hover:-translate-y-0.5 hover:border-[#d8eaf2] hover:shadow-card-sm"
+      className="group relative block rounded-2xl border border-border bg-white p-5 no-underline transition-all hover:-translate-y-0.5 hover:border-[#f2d8db] hover:shadow-card-sm"
     >
       {submission.status === "new" && (
         <span
@@ -49,10 +49,10 @@ export function RequestCard({ submission }: { submission: ContactSubmission }) {
           <Phone className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
           {submission.phone || "—"}
         </span>
-        {submission.attachments.length > 0 && (
+        {submission.attachmentCount > 0 && (
           <span className="inline-flex items-center gap-1.5">
             <Paperclip className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
-            {submission.attachments.length}
+            {submission.attachmentCount}
           </span>
         )}
       </div>

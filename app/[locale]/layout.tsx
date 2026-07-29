@@ -38,7 +38,7 @@ export async function generateMetadata({
   return {
     title: {
       default: t("title"),
-      template: `%s | Bellery`,
+      template: `%s | LCPumps`,
     },
     description: COMPANY_NAME,
   };

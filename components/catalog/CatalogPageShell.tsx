@@ -6,7 +6,7 @@ import { CatalogLayout } from "@/components/catalog/CatalogLayout";
 import { CatalogPanelProvider, useCatalogPanel } from "@/components/catalog/CatalogPanelContext";
 import { CategoryHeroImage } from "@/components/catalog/CategoryHeroImage";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
-import { getCatalogIntro } from "@/lib/catalog";
+import { getCatalogIntro } from "@/lib/catalog-helpers";
 import type { CatalogPanel, SearchIndexItem } from "@/lib/types";
 
 interface CatalogPageShellProps {

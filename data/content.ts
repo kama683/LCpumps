@@ -1,4 +1,4 @@
-import { getCompanyParagraphs } from "@/lib/catalog";
+import { getCompanyParagraphs } from "@/lib/catalog-helpers";
 import type { AppLocale } from "@/i18n/routing";
 import type { AboutSubpage, FaqItem } from "@/lib/types";
 
@@ -45,13 +45,13 @@ export function getAboutStats(locale: AppLocale) {
 }
 
 export const aboutSubsidiaries = [
-  "Bellery Pump Manufacturing",
-  "Bellery Motor",
-  "Bellery Valve",
-  "Bellery Logistics",
-  "Bellery General Equipment Engineering",
+  "LCPumps Pump Manufacturing",
+  "LCPumps Motor",
+  "LCPumps Valve",
+  "LCPumps Logistics",
+  "LCPumps General Equipment Engineering",
   "Shanghai Ametek Industrial Equipment",
-  "Bellery Suzhou",
+  "LCPumps Suzhou",
 ];
 
 const EQUIPMENT: Record<AppLocale, string[]> = {
@@ -188,10 +188,10 @@ export function getAboutSubpages(locale: AppLocale): AboutSubpage[] {
 }
 
 const GENERIC_ABOUT_MESSAGE: Record<AppLocale, string> = {
-  ru: "Информация о Bellery pumps доступна в разделе О компании.",
-  kk: "Bellery pumps туралы ақпаратты «Компания туралы» бөлімінен алуға болады.",
-  en: "Information about Bellery pumps is available in the About Us section.",
-  zh: "有关Bellery pumps的信息，请查看“关于我们”板块。",
+  ru: "Информация о LCPumps доступна в разделе О компании.",
+  kk: "LCPumps туралы ақпаратты «Компания туралы» бөлімінен алуға болады.",
+  en: "Information about LCPumps is available in the About Us section.",
+  zh: "有关LCPumps的信息，请查看“关于我们”板块。",
 };
 
 export function getGenericAboutMessage(locale: AppLocale) {
@@ -205,7 +205,7 @@ export function getFaqItems(locale: string = "ru"): FaqItem[] {
 
   return [
     {
-      question: "Какие категории продукции выпускает Bellery pumps?",
+      question: "Какие категории продукции выпускает LCPumps?",
       answer:
         "Насосы, трубопроводная арматура, электрические шкафы управления и оборудование для водоснабжения.",
     },

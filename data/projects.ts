@@ -47,6 +47,36 @@ const PROJECT_META: ProjectMeta[] = [
     equipmentSlugs: [...DEFAULT_EQUIPMENT_SLUGS],
     equipmentType: "building",
   },
+  {
+    slug: "pelabuhan-ratu-power-plant",
+    image: "/assets/projects/pelabuhan-ratu-power-plant.jpg",
+    equipmentSlugs: [...DEFAULT_EQUIPMENT_SLUGS],
+    equipmentType: "industrial",
+  },
+  {
+    slug: "guangzhou-baiyun-airport",
+    image: "/assets/projects/guangzhou-baiyun-airport.jpg",
+    equipmentSlugs: [...DEFAULT_EQUIPMENT_SLUGS],
+    equipmentType: "building",
+  },
+  {
+    slug: "beijing-olympic-park",
+    image: "/assets/projects/beijing-olympic-park.jpg",
+    equipmentSlugs: [...DEFAULT_EQUIPMENT_SLUGS],
+    equipmentType: "building",
+  },
+  {
+    slug: "beijing-capital-airport",
+    image: "/assets/projects/beijing-capital-airport.jpg",
+    equipmentSlugs: [...DEFAULT_EQUIPMENT_SLUGS],
+    equipmentType: "building",
+  },
+  {
+    slug: "qinhuangdao-olympic-stadium",
+    image: "/assets/projects/qinhuangdao-olympic-stadium.jpg",
+    equipmentSlugs: [...DEFAULT_EQUIPMENT_SLUGS],
+    equipmentType: "building",
+  },
 ];
 
 type FeaturedText = Pick<
@@ -81,7 +111,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Обеспечение систем водоснабжения и дренажа для крупного спортивного комплекса с высокой пропускной способностью.",
       equipment: RELATED_PRODUCTS.ru,
       benefits:
-        "Надёжное насосное оборудование Bellery обеспечивает стабильную работу инженерных систем объекта мирового уровня.",
+        "Надёжное насосное оборудование LCPumps обеспечивает стабильную работу инженерных систем объекта мирового уровня.",
       description:
         "Национальный стадион, ласково называемый «Птичье гнездо», расположен в Олимпийской зелёной деревне, районе Чаоян города Пекина. Он был спроектирован как главный стадион Олимпийских игр 2008 года в Пекине. Там проводились олимпийские соревнования по лёгкой атлетике, футболу, гавлоку, метанию штанги и метанию диска. С октября 2008 года, после окончания Олимпиады, он был открыт как туристическая достопримечательность. Теперь это центр международных и внутренних спортивных соревнований и мероприятий по отдыху. В 2022 году здесь прошли церемонии открытия и закрытия Зимних Олимпийских игр.",
       short:
@@ -97,7 +127,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Инженерное обеспечение оперного, концертного и драматического театров общей вместимостью 5452 зрителя.",
       equipment: RELATED_PRODUCTS.ru,
       benefits:
-        "Оборудование Bellery обеспечивает надёжную работу систем водоснабжения и дренажа уникального культурного объекта.",
+        "Оборудование LCPumps обеспечивает надёжную работу систем водоснабжения и дренажа уникального культурного объекта.",
       description:
         "Национальный Большой театр, также известный как Пекинский национальный центр исполнительских искусств, окружён искусственным озером, впечатляющим стеклом и титановым оперным театром в форме яйца, спроектированным французским архитектором Полем Андре. Он вмещает 5452 зрителя в театрах: в центре находится Оперный театр, на востоке — Концертный зал, а на западе — Драматический театр. Купол имеет размеры 212 метров в направлении восток-запад, 144 метра в направлении север-юг и высоту 46 метров. Главный вход находится с северной стороны. Гости попадают в здание, пройдя через коридор, который идёт под озером.",
       short:
@@ -113,7 +143,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Обеспечение инженерных систем аэропорта пропускной способностью до 80 миллионов пассажиров в год.",
       equipment: RELATED_PRODUCTS.ru,
       benefits:
-        "Насосное оборудование Bellery соответствует высоким требованиям к надёжности объектов гражданской авиации.",
+        "Насосное оборудование LCPumps соответствует высоким требованиям к надёжности объектов гражданской авиации.",
       description:
         "Международный аэропорт Пудун — главный международный аэропорт, обслуживающий город Шанхай, Китай. Аэропорт расположен в 30 км (19 милях) к востоку от центра Шанхая. Международный аэропорт Пудун — крупный авиационный узел Китая и служит главным узлом для China Eastern Airlines и Shanghai Airlines. Кроме того, он является хабом для Spring Airlines, Juneyao Airlines и второстепенным хабом для China Southern Airlines. В настоящее время аэропорт PVG имеет четыре параллельные взлётно-посадочные полосы, а недавно был открыт дополнительный спутниковый терминал с ещё двумя взлётно-посадочными полосами. Его строительство обеспечивает аэропорту пропускную способность 80 миллионов пассажиров в год. В 2017 году аэропорт обслужил 70 001 237 пассажиров. Эта цифра делает аэропорт Шанхая вторым по загруженности аэропортом в материковом Китае и позиционирует его как 9-й по загруженности аэропорт в мире. К концу 2016 года аэропорт PVG обслуживал 210 направлений и принимал 104 авиакомпании.",
       short:
@@ -129,7 +159,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Обеспечение циркуляции и подготовки воды для семи тематических залов и океанариума.",
       equipment: RELATED_PRODUCTS.ru,
       benefits:
-        "Оборудование Bellery обеспечивает стабильную работу сложных гидротехнических систем аквариума.",
+        "Оборудование LCPumps обеспечивает стабильную работу сложных гидротехнических систем аквариума.",
       description:
         "Расположенный в Пекинском зоопарке по адресу № 137, Xizhimen Outer Street, Xicheng District, Пекинский аквариум является крупнейшим и самым передовым внутренним аквариумом в Китае, занимая общую площадь 30 акров (12 гектаров). Он спроектирован в форме раковины с оранжевым и синим в качестве основных цветов, символизирующих таинственное огромное море и бесконечную жизненную силу морской жизни. Пекинский аквариум имеет семь залов: Rainforest Wonder, Bering Proliv, Whale and Dolphin Bay, Chinese Sturgeon Hall, Seabed Travel, Feel Pool и Ocean Theater.",
       short:
@@ -145,7 +175,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Инженерное обеспечение современного музейного комплекса для хранения и демонстрации культурных реликвий.",
       equipment: RELATED_PRODUCTS.ru,
       benefits:
-        "Насосные решения Bellery обеспечивают надёжную работу инженерных систем общественного здания.",
+        "Насосные решения LCPumps обеспечивают надёжную работу инженерных систем общественного здания.",
       description:
         "Музей Тяньцзиня — крупнейший музей в Тяньцзине, Китай, в котором представлен целый ряд культурных и исторических реликвий, имеющих значение для Тяньцзиня. Музей находится на площади Иньхэ в районе Хэси города Тяньцзинь и занимает площадь около 50 000 кв. метров. Уникальный архитектурный стиль музея, внешний вид которого напоминает лебедя, расправляющего крылья, означает, что он быстро становится одним из знаковых зданий города. Он построен как большое современное место для сбора, защиты и исследования исторических реликвий, а также как место для образования, отдыха и туризма.",
       short:
@@ -161,11 +191,91 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Создание инженерной инфраструктуры аэропорта с расчётом на 35 миллионов пассажиров к 2025 году.",
       equipment: RELATED_PRODUCTS.ru,
       benefits:
-        "Оборудование Bellery соответствует требованиям крупных транспортных и инфраструктурных объектов.",
+        "Оборудование LCPumps соответствует требованиям крупных транспортных и инфраструктурных объектов.",
       description:
         "Международный аэропорт Циндао Цзяодун — это аэропорт, строящийся для обслуживания города Циндао в провинции Шаньдун, Китай. Он получил одобрение в декабре 2013 года и заменит существующий международный аэропорт Циндао Лютин в качестве главного аэропорта города. Он будет расположен в Цзяодуне, Цзяочжоу, в 39 километрах (24 мили) от центра Циндао. После завершения строительства в 2019 году он станет крупнейшим аэропортом в Шаньдуне. К 2025 году новый аэропорт будет иметь 178 стоянок самолётов и обеспечивать транспортные услуги для 35 миллионов пассажиров и 500 000 тонн грузов в год. К 2045 году ожидается в общей сложности 290 стоянок самолётов, что обеспечит перевозку 55 миллионов пассажиров и одного миллиона тонн грузов.",
       short:
         "Международный аэропорт Циндао Цзяодун — новый главный аэропорт города и крупнейший в Шаньдуне.",
+    },
+    "pelabuhan-ratu-power-plant": {
+      name: "Угольная электростанция «Пелабухан-Рату» (3×350 МВт)",
+      industry: "Энергетика",
+      location: "Пелабухан-Рату, провинция Западная Ява, Индонезия",
+      features:
+        "Угольная электростанция установленной мощностью 3×350 МВт, расположенная на южном побережье острова Ява.",
+      tasks:
+        "Обеспечение систем водоснабжения, охлаждения и золошлакоудаления для крупного теплоэнергетического объекта.",
+      equipment: RELATED_PRODUCTS.ru,
+      benefits:
+        "Насосное оборудование LCPumps обеспечивает надёжную работу инженерных систем крупного энергетического объекта.",
+      description:
+        "Индонезия — государство в Юго-Восточной Азии, расположенное у побережья материковой части региона в Индийском и Тихом океанах. Это архипелаг, лежащий поперёк экватора и охватывающий расстояние, эквивалентное одной восьмой окружности Земли: Большие Зондские острова Суматра, Ява и южная часть Калимантана и Сулавеси, Малые Зондские острова с Бали, Молуккские острова и западная часть Новой Гвинеи. Столица страны, Джакарта, расположена у северо-западного побережья Явы; Индонезия — самая густонаселённая страна Юго-Восточной Азии и четвёртая по численности населения в мире. Угольная электростанция «Пелабухан-Рату» установленной мощностью 3×350 МВт расположена на южном побережье острова Ява, в провинции Западная Ява, и входит в число ключевых объектов государственной программы развития энергетики Индонезии, обеспечивая электроснабжение густонаселённых районов острова.",
+      short:
+        "Угольная электростанция «Пелабухан-Рату» (3×350 МВт) на южном побережье острова Ява — один из ключевых энергетических объектов Индонезии.",
+    },
+    "guangzhou-baiyun-airport": {
+      name: "Международный аэропорт Гуанчжоу Байюнь",
+      industry: "Муниципальная инфраструктура",
+      location: "Район Байюнь, Гуанчжоу, провинция Гуандун, Китай",
+      features:
+        "Крупнейший транспортный узел Китая, база авиакомпаний China Southern Airlines, 9 Air, Shenzhen Airlines и Hainan Airlines.",
+      tasks:
+        "Инженерное обеспечение систем водоснабжения и дренажа аэропорта, обслуживающего более 69 миллионов пассажиров в год.",
+      equipment: RELATED_PRODUCTS.ru,
+      benefits:
+        "Насосное оборудование LCPumps соответствует высоким требованиям к надёжности объектов гражданской авиации.",
+      description:
+        "Аэропорт Гуанчжоу, также известный как Международный аэропорт Гуанчжоу Байюнь, — основной аэропорт, обслуживающий город Гуанчжоу, столицу провинции Гуандун. Он расположен в 28 километрах к северу от центра города, в районе Байюнь, и является крупнейшим транспортным узлом Китая. Аэропорт служит хабом для China Southern Airlines, 9 Air, Shenzhen Airlines и Hainan Airlines. В 2018 году он занял третье место по загруженности среди аэропортов Китая и 13-е место в мире, обслужив более 69 миллионов пассажиров.",
+      short:
+        "Международный аэропорт Гуанчжоу Байюнь — крупнейший авиаузел провинции Гуандун и один из самых загруженных аэропортов мира.",
+    },
+    "beijing-olympic-park": {
+      name: "Пекинский Олимпийский парк",
+      industry: "Строительство",
+      location: "Пекин, Китай",
+      features:
+        "Место проведения Олимпийских и Паралимпийских игр 2008 года общей площадью 1159 гектаров.",
+      tasks:
+        "Инженерное обеспечение водоснабжения и дренажа комплекса из десяти спортивных объектов, Олимпийской деревни и парковых зон.",
+      equipment: RELATED_PRODUCTS.ru,
+      benefits:
+        "Оборудование LCPumps обеспечивает надёжную работу инженерных систем масштабного общественного комплекса.",
+      description:
+        "Пекинский Олимпийский парк — место проведения Олимпийских и Паралимпийских игр 2008 года в Пекине. Он занимает общую площадь 1159 гектаров, из которых 680 гектаров на севере занимает Олимпийский лесной парк, 315 гектаров составляют центральную часть, а 164 гектара на юге приходятся на объекты Азиатских игр 1990 года. Парк был спроектирован для размещения десяти спортивных объектов, Олимпийской деревни и вспомогательной инфраструктуры, а впоследствии преобразован в комплексный многофункциональный центр активности для широкой публики.",
+      short:
+        "Пекинский Олимпийский парк — комплекс площадью 1159 гектаров, объединяющий объекты Олимпиады-2008 и общественные пространства.",
+    },
+    "beijing-capital-airport": {
+      name: "Международный аэропорт Пекин Столичный",
+      industry: "Муниципальная инфраструктура",
+      location: "Район Шуньи, Пекин, Китай",
+      features:
+        "Главный международный аэропорт Пекина, один из самых загруженных аэропортов мира по пассажиропотоку.",
+      tasks:
+        "Инженерное обеспечение систем водоснабжения и дренажа крупнейшего авиационного узла Китая.",
+      equipment: RELATED_PRODUCTS.ru,
+      benefits:
+        "Насосное оборудование LCPumps соответствует высоким требованиям к надёжности объектов гражданской авиации.",
+      description:
+        "Международный аэропорт Пекин Столичный — главный международный аэропорт, обслуживающий город Пекин. Он расположен в 32 км к северо-востоку от центра города, в пригородном районе Шуньи. За последнее десятилетие аэропорт превратился в один из самых загруженных в мире: это самый загруженный аэропорт Азии по пассажиропотоку и второй по загруженности в мире с 2010 года. Аэропорт служит основным хабом для Air China, China Southern Airlines, Hainan Airlines и China Eastern Airlines.",
+      short:
+        "Международный аэропорт Пекин Столичный — главный авиаузел столицы Китая и один из самых загруженных аэропортов мира.",
+    },
+    "qinhuangdao-olympic-stadium": {
+      name: "Стадион Олимпийского центра Циньхуандао",
+      industry: "Строительство",
+      location: "Проспект Хэбэй, Циньхуандао, провинция Хэбэй, Китай",
+      features:
+        "Многофункциональный стадион площадью 168 000 кв. метров, вмещающий 33 600 зрителей, построенный к Олимпиаде 2008 года.",
+      tasks:
+        "Инженерное обеспечение водоснабжения и дренажа стадиона олимпийского стандарта.",
+      equipment: RELATED_PRODUCTS.ru,
+      benefits:
+        "Оборудование LCPumps обеспечивает надёжную работу инженерных систем крупного спортивного объекта.",
+      description:
+        "Стадион Олимпийского спортивного центра Циньхуандао — один из стадионов Китая, использовавшийся для проведения предварительных футбольных матчей Олимпиады 2008 года. Многофункциональный стадион расположен в Олимпийском спортивном центре Циньхуандао на проспекте Хэбэй. Строительство началось в мае 2002 года и завершилось в июле 2004 года: стадион олимпийского стандарта площадью 168 000 квадратных метров вмещает 33 600 зрителей, часть мест зарезервирована для людей с ограниченными возможностями. В рамках подготовки к Олимпиаде 2008 года на стадионе прошли матчи Международного женского футбольного турнира по приглашению, обеспечившие проверку готовности объекта.",
+      short:
+        "Стадион Олимпийского центра Циньхуандао — одна из арен футбольного турнира Олимпиады-2008, вмещающая 33 600 зрителей.",
     },
   },
   kk: {
@@ -179,7 +289,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Өткізу қабілеті жоғары ірі спорт кешені үшін сумен жабдықтау және дренаж жүйелерін қамтамасыз ету.",
       equipment: RELATED_PRODUCTS.kk,
       benefits:
-        "Bellery компаниясының сенімді сорғы жабдығы әлемдік деңгейдегі нысанның инженерлік жүйелерінің тұрақты жұмысын қамтамасыз етеді.",
+        "LCPumps компаниясының сенімді сорғы жабдығы әлемдік деңгейдегі нысанның инженерлік жүйелерінің тұрақты жұмысын қамтамасыз етеді.",
       description:
         "«Құс ұясы» деп жылы аталатын Ұлттық стадион Пекиннің Чаоян ауданындағы Олимпиадалық жасыл ауылда орналасқан. Ол 2008 жылғы Пекин Олимпиада ойындарының басты стадионы ретінде жобаланды. Онда жеңіл атлетика, футбол және лақтыру түрлері бойынша олимпиада жарыстары өтті. 2008 жылдың қазан айынан бастап, Олимпиада аяқталғаннан кейін, ол туристік көрікті жер ретінде ашылды. Қазір бұл халықаралық және ішкі спорт жарыстары мен демалыс іс-шараларының орталығы. 2022 жылы мұнда Қысқы Олимпиада ойындарының ашылу және жабылу салтанаттары өтті.",
       short:
@@ -195,7 +305,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Жалпы сыйымдылығы 5452 көрермен болатын опера, концерт және драма театрларын инженерлік қамтамасыз ету.",
       equipment: RELATED_PRODUCTS.kk,
       benefits:
-        "Bellery жабдығы бірегей мәдени нысанның сумен жабдықтау және дренаж жүйелерінің сенімді жұмысын қамтамасыз етеді.",
+        "LCPumps жабдығы бірегей мәдени нысанның сумен жабдықтау және дренаж жүйелерінің сенімді жұмысын қамтамасыз етеді.",
       description:
         "Ұлттық үлкен театр деп те аталатын Ұлттық өнер орталығы жасанды көлмен қоршалған, оны француз сәулетшісі Пол Андреу жобалаған әйнек пен титаннан жасалған әсерлі жұмыртқа тәрізді опера театры әшекейлейді. Ол өз театрларында 5452 көрерменге арналған: ортасында — Опера театры, шығысында — Концерт залы, ал батысында — Драма театры орналасқан. Күмбездің өлшемі шығыс-батыс бағытында 212 метр, солтүстік-оңтүстік бағытында 144 метр, биіктігі 46 метр. Басты кіреберіс солтүстік жағында орналасқан. Қонақтар көл астынан өтетін дәліз арқылы ғимаратқа кіреді.",
       short:
@@ -211,7 +321,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Жылына 80 миллионға дейін жолаушыны қабылдай алатын әуежайдың инженерлік жүйелерін қамтамасыз ету.",
       equipment: RELATED_PRODUCTS.kk,
       benefits:
-        "Bellery сорғы жабдығы азаматтық авиация нысандарына қойылатын жоғары сенімділік талаптарына сай келеді.",
+        "LCPumps сорғы жабдығы азаматтық авиация нысандарына қойылатын жоғары сенімділік талаптарына сай келеді.",
       description:
         "Пудун халықаралық әуежайы — Қытайдың Шанхай қаласына қызмет көрсететін басты халықаралық әуежай. Әуежай Шанхай орталығынан шығысқа қарай 30 км (19 миль) жерде орналасқан. Пудун халықаралық әуежайы — Қытайдың ірі әуе тораптарының бірі, China Eastern Airlines және Shanghai Airlines үшін басты торап болып табылады. Сонымен қатар ол Spring Airlines, Juneyao Airlines үшін торап, ал China Southern Airlines үшін қосымша торап қызметін атқарады. Қазіргі уақытта PVG әуежайында төрт параллель ұшу-қону жолағы бар, жақында тағы екі ұшу-қону жолағы бар қосымша спутниктік терминал ашылды. Бұл құрылыс әуежайдың өткізу қабілетін жылына 80 миллион жолаушыға дейін жеткізеді. 2017 жылы әуежай 70 001 237 жолаушыға қызмет көрсетті. Бұл көрсеткіш Шанхай әуежайын құрлықтық Қытайдағы екінші iрі жүктелген әуежай, ал әлем бойынша 9-шы орынға қояды. 2016 жыл соңында PVG әуежайы 210 бағыт бойынша қызмет көрсетіп, 104 әуе компаниясын қабылдады.",
       short:
@@ -227,7 +337,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Жеті тақырыптық зал мен океанариум үшін судың айналымы мен дайындалуын қамтамасыз ету.",
       equipment: RELATED_PRODUCTS.kk,
       benefits:
-        "Bellery жабдығы аквариумның күрделі гидротехникалық жүйелерінің тұрақты жұмысын қамтамасыз етеді.",
+        "LCPumps жабдығы аквариумның күрделі гидротехникалық жүйелерінің тұрақты жұмысын қамтамасыз етеді.",
       description:
         "Пекин хайуанаттар бағында, Сичэн ауданы, Сицимэнь Вай көшесі, 137-үйде орналасқан Пекин аквариумы — Қытайдағы ең ірі және ең озық жабық аквариум, жалпы ауданы 30 акр (12 гектар). Ол теңіздің құпия кеңдігі мен теңіз тіршілігінің шексіз күш-қуатын білдіретін қызғылт сары мен көк түстерді негізгі түс ретінде пайдаланып, раковина пішінінде жобаланған. Пекин аквариумында жеті зал бар: Rainforest Wonder, Берингов бұғазы, Кит және дельфин шығанағы, Қытай осетрі залы, Теңіз түбі саяхаты, Feel Pool және Ocean Theater.",
       short:
@@ -243,7 +353,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Мәдени жәдігерлерді сақтау және көрсету үшін заманауи мұражай кешенін инженерлік қамтамасыз ету.",
       equipment: RELATED_PRODUCTS.kk,
       benefits:
-        "Bellery сорғы шешімдері қоғамдық ғимараттың инженерлік жүйелерінің сенімді жұмысын қамтамасыз етеді.",
+        "LCPumps сорғы шешімдері қоғамдық ғимараттың инженерлік жүйелерінің сенімді жұмысын қамтамасыз етеді.",
       description:
         "Тяньцзинь мұражайы — Қытайдың Тяньцзинь қаласындағы ең ірі мұражай, онда Тяньцзинь үшін маңызды мәдени-тарихи жәдігерлердің кең қатары ұсынылған. Мұражай Тяньцзиньнің Хэси ауданындағы Иньхэ алаңында орналасқан және ауданы шамамен 50 000 шаршы метрді құрайды. Қанаттарын жайған аққуды еске түсіретін мұражайдың бірегей сәулет стилі оны қаланың айрықша ғимараттарының біріне айналдырды. Ол тарихи жәдігерлерді жинау, қорғау және зерттеу үшін ірі заманауи орын, сондай-ақ білім беру, демалыс пен туризм орны ретінде салынды.",
       short:
@@ -259,11 +369,91 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "2025 жылға қарай 35 миллион жолаушыға есептелген әуежайдың инженерлік инфрақұрылымын құру.",
       equipment: RELATED_PRODUCTS.kk,
       benefits:
-        "Bellery жабдығы ірі көлік және инфрақұрылым нысандарының талаптарына сай келеді.",
+        "LCPumps жабдығы ірі көлік және инфрақұрылым нысандарының талаптарына сай келеді.",
       description:
         "Циндао Цзяодун халықаралық әуежайы — Қытайдың Шаньдун провинциясындағы Циндао қаласына қызмет көрсету үшін салынып жатқан әуежай. Ол 2013 жылдың желтоқсанында бекітілді және қаланың басты әуежайы ретінде қолданыстағы Циндао Лютин халықаралық әуежайын алмастырады. Ол Циндао орталығынан 39 шақырым (24 миль) қашықтықта, Цзяочжоудың Цзяодун ауданында орналасады. 2019 жылы құрылысы аяқталғаннан кейін ол Шаньдундағы ең ірі әуежайға айналды. 2025 жылға қарай жаңа әуежайда 178 ұшақ тұрағы болып, жылына 35 миллион жолаушы мен 500 000 тонна жүкті тасымалдайтын болады. 2045 жылға қарай жалпы 290 ұшақ тұрағы болады деп күтілуде, бұл 55 миллион жолаушы мен бір миллион тонна жүкті тасымалдауды қамтамасыз етеді.",
       short:
         "Циндао Цзяодун халықаралық әуежайы — қаланың жаңа басты әуежайы әрі Шаньдундағы ең ірісі.",
+    },
+    "pelabuhan-ratu-power-plant": {
+      name: "«Пелабухан-Рату» көмір электр станциясы (3×350 МВт)",
+      industry: "Энергетика",
+      location: "Пелабухан-Рату, Батыс Ява провинциясы, Индонезия",
+      features:
+        "Ява аралының оңтүстік жағалауында орналасқан, қуаты 3×350 МВт көмірмен жұмыс істейтін электр станциясы.",
+      tasks:
+        "Ірі жылу энергетикасы нысаны үшін сумен жабдықтау, салқындату және күл-қож шығару жүйелерін қамтамасыз ету.",
+      equipment: RELATED_PRODUCTS.kk,
+      benefits:
+        "LCPumps сорғы жабдығы ауқымды энергетикалық нысанның инженерлік жүйелерінің сенімді жұмысын қамтамасыз етеді.",
+      description:
+        "Индонезия — Оңтүстік-Шығыс Азия аймағының материктік жағалауында, Үнді және Тынық мұхиттарында орналасқан мемлекет. Бұл экватор бойымен созылып жатқан, Жер шеңберінің сегізден бір бөлігіне тең қашықтықты алып жатқан архипелаг: Суматра, Ява, Калимантан мен Сулавесидің оңтүстік бөліктерінен тұратын Үлкен Зонд аралдары; Бали кіретін Кіші Зонд аралдары; Молукка аралдары; және Жаңа Гвинеяның батыс бөлігі. Ел астанасы Джакарта Ява аралының солтүстік-батыс жағалауына жақын орналасқан; Индонезия — Оңтүстік-Шығыс Азиядағы ең көп халықты мемлекет әрі әлем бойынша халық саны жағынан төртінші орында. Қуаты 3×350 МВт «Пелабухан-Рату» көмір электр станциясы Ява аралының оңтүстік жағалауында, Батыс Ява провинциясында орналасқан және Индонезияның ұлттық энергетиканы дамыту бағдарламасының негізгі нысандарының бірі болып табылады, аралдың тығыз қоныстанған аудандарын электр энергиясымен қамтамасыз етеді.",
+      short:
+        "Ява аралының оңтүстік жағалауындағы «Пелабухан-Рату» көмір электр станциясы (3×350 МВт) — Индонезияның негізгі энергетикалық нысандарының бірі.",
+    },
+    "guangzhou-baiyun-airport": {
+      name: "Гуанчжоу Байюнь халықаралық әуежайы",
+      industry: "Муниципалдық инфрақұрылым",
+      location: "Байюнь ауданы, Гуанчжоу, Гуандун провинциясы, Қытай",
+      features:
+        "Қытайдың ең ірі көлік торабы, China Southern Airlines, 9 Air, Shenzhen Airlines және Hainan Airlines әуе компанияларының базасы.",
+      tasks:
+        "Жылына 69 миллионнан астам жолаушыға қызмет көрсететін әуежайдың сумен жабдықтау және дренаж жүйелерін инженерлік қамтамасыз ету.",
+      equipment: RELATED_PRODUCTS.kk,
+      benefits:
+        "LCPumps сорғы жабдығы ірі азаматтық авиация нысандарына қойылатын жоғары сенімділік талаптарына сай келеді.",
+      description:
+        "Гуанчжоу Байюнь халықаралық әуежайы деп те аталатын Гуанчжоу әуежайы — Гуандун провинциясының астанасы Гуанчжоу қаласына қызмет көрсететін негізгі әуежай. Ол қала орталығынан солтүстікке қарай 28 шақырым жерде, Байюнь ауданында орналасқан және Қытайдың ең ірі көлік торабы болып табылады. Әуежай China Southern Airlines, 9 Air, Shenzhen Airlines және Hainan Airlines үшін торап қызметін атқарады. 2018 жылы ол Қытайдағы жүктелуі бойынша үшінші, әлем бойынша 13-ші орынға ие болып, 69 миллионнан астам жолаушыға қызмет көрсетті.",
+      short:
+        "Гуанчжоу Байюнь халықаралық әуежайы — Гуандун провинциясының ең ірі әуе торабы әрі әлемдегі ең жүктелген әуежайлардың бірі.",
+    },
+    "beijing-olympic-park": {
+      name: "Пекин Олимпиада паркі",
+      industry: "Құрылыс",
+      location: "Пекин, Қытай",
+      features:
+        "2008 жылғы Пекин Олимпиада және Паралимпиада ойындарының алаңы, жалпы ауданы 1159 гектар.",
+      tasks:
+        "Он спорт нысанынан, Олимпиада ауылынан және саябақ аумағынан тұратын кешен үшін сумен жабдықтау мен дренажды инженерлік қамтамасыз ету.",
+      equipment: RELATED_PRODUCTS.kk,
+      benefits:
+        "LCPumps жабдығы ауқымды қоғамдық кешеннің инженерлік жүйелерінің сенімді жұмысын қамтамасыз етеді.",
+      description:
+        "Пекин Олимпиада паркі — 2008 жылғы Пекин Олимпиада және Паралимпиада ойындарының алаңы. Оның жалпы ауданы 1159 гектарды құрайды, соның ішінде солтүстігінде 680 гектарды Олимпиада орман паркі, орталық бөлігінде 315 гектарды алаңдар, ал оңтүстігінде 164 гектарды 1990 жылғы Азия ойындарының нысандары алып жатыр. Парк он нысанды, Олимпиада ауылын және қосымша инфрақұрылымды сыйдыру үшін жобаланған, кейін ол қоғам үшін кешенді көпфункционалды белсенділік орталығына айналды.",
+      short:
+        "Пекин Олимпиада паркі — 2008 жылғы Олимпиада нысандары мен қоғамдық кеңістікті біріктірген 1159 гектарлық кешен.",
+    },
+    "beijing-capital-airport": {
+      name: "Пекин астаналық халықаралық әуежайы",
+      industry: "Муниципалдық инфрақұрылым",
+      location: "Шуньи ауданы, Пекин, Қытай",
+      features:
+        "Пекиннің басты халықаралық әуежайы әрі жолаушы ағыны бойынша әлемдегі ең жүктелген әуежайлардың бірі.",
+      tasks:
+        "Қытайдың ең жүктелген әуе торабының сумен жабдықтау және дренаж жүйелерін инженерлік қамтамасыз ету.",
+      equipment: RELATED_PRODUCTS.kk,
+      benefits:
+        "LCPumps сорғы жабдығы ірі азаматтық авиация нысандарына қойылатын жоғары сенімділік талаптарына сай келеді.",
+      description:
+        "Пекин астаналық халықаралық әуежайы — Пекинге қызмет көрсететін негізгі халықаралық әуежай. Ол қала орталығынан солтүстік-шығысқа қарай 32 шақырым жерде, Шуньи маңы ауданында орналасқан. Соңғы онжылдықта әуежай әлемдегі ең жүктелген әуежайлардың біріне айналды: ол жолаушы ағыны бойынша Азиядағы ең жүктелген әуежай, ал 2010 жылдан бері әлем бойынша екінші орында тұр. Әуежай Air China, China Southern Airlines, Hainan Airlines және China Eastern Airlines үшін негізгі торап қызметін атқарады.",
+      short:
+        "Пекин астаналық халықаралық әуежайы — Қытайдың ең жүктелген әуе торабы әрі әлемдегі ең жүктелген әуежайлардың бірі.",
+    },
+    "qinhuangdao-olympic-stadium": {
+      name: "Циньхуандао Олимпиада спорт орталығының стадионы",
+      industry: "Құрылыс",
+      location: "Хэбэй даңғылы, Циньхуандао, Хэбэй провинциясы, Қытай",
+      features:
+        "2008 жылғы Олимпиада үшін салынған, ауданы 168 000 шаршы метр, 33 600 көрерменге арналған көпфункционалды стадион.",
+      tasks:
+        "Олимпиада стандартындағы стадионның сумен жабдықтау және дренаж жүйелерін инженерлік қамтамасыз ету.",
+      equipment: RELATED_PRODUCTS.kk,
+      benefits:
+        "LCPumps жабдығы ірі спорт нысанының инженерлік жүйелерінің сенімді жұмысын қамтамасыз етеді.",
+      description:
+        "Циньхуандао Олимпиада спорт орталығының стадионы — 2008 жылғы Олимпиада алдындағы футбол матчтары өткізілген Қытайдағы стадиондардың бірі. Көпфункционалды стадион Хэбэй даңғылындағы Циньхуандао Олимпиада спорт орталығында орналасқан. Құрылыс 2002 жылдың мамырында басталып, 2004 жылдың шілдесінде аяқталды: ауданы 168 000 шаршы метр Олимпиада стандартындағы стадион 33 600 көрерменге арналған, орындықтардың бір бөлігі мүмкіндігі шектеулі адамдарға бөлінген. 2008 жылғы Олимпиадаға дайындық аясында стадионда халықаралық әйелдер футболы шақыру турнирінің кездесулері өтті, бұл стадионның дайындығын тексеруге мүмкіндік берді.",
+      short:
+        "Циньхуандао Олимпиада спорт орталығының стадионы — 2008 жылғы Олимпиада алдындағы футбол матчтары өткен, 33 600 орындық стадион.",
     },
   },
   en: {
@@ -277,7 +467,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Providing water supply and drainage systems for a large, high-capacity sports complex.",
       equipment: RELATED_PRODUCTS.en,
       benefits:
-        "Reliable Bellery pump equipment ensures the stable operation of the engineering systems at this world-class venue.",
+        "Reliable LCPumps pump equipment ensures the stable operation of the engineering systems at this world-class venue.",
       description:
         "The National Stadium, affectionately known as the 'Bird's Nest,' is located in Olympic Green, Chaoyang District, Beijing. It was designed as the main stadium of the 2008 Beijing Olympic Games, hosting Olympic athletics, football, and track and field throwing events. Since October 2008, following the end of the Olympics, it has been open as a tourist attraction. It is now a hub for international and domestic sporting events and leisure activities. In 2022, it hosted the opening and closing ceremonies of the Winter Olympic Games.",
       short:
@@ -293,7 +483,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Engineering support for the opera, concert, and drama theatres with a combined capacity of 5,452 seats.",
       equipment: RELATED_PRODUCTS.en,
       benefits:
-        "Bellery equipment ensures the reliable operation of the water supply and drainage systems at this unique cultural venue.",
+        "LCPumps equipment ensures the reliable operation of the water supply and drainage systems at this unique cultural venue.",
       description:
         "The National Centre for the Performing Arts, also known as the National Grand Theatre, is surrounded by an artificial lake and features an impressive glass-and-titanium, egg-shaped opera house designed by French architect Paul Andreu. It seats 5,452 people across its theatres: the Opera Hall at the centre, the Concert Hall to the east, and the Theatre Hall to the west. The dome measures 212 meters east-west, 144 meters north-south, and 46 meters in height. The main entrance is on the north side, with visitors entering the building through a corridor that passes beneath the lake.",
       short:
@@ -309,7 +499,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Providing engineering systems for the airport with a capacity of up to 80 million passengers per year.",
       equipment: RELATED_PRODUCTS.en,
       benefits:
-        "Bellery pump equipment meets the high reliability requirements of civil aviation facilities.",
+        "LCPumps pump equipment meets the high reliability requirements of civil aviation facilities.",
       description:
         "Pudong International Airport is the main international airport serving Shanghai, China, located 30 km (19 miles) east of the city centre. It is a major aviation hub in China and serves as the primary hub for China Eastern Airlines and Shanghai Airlines, as well as a hub for Spring Airlines and Juneyao Airlines, and a secondary hub for China Southern Airlines. PVG currently has four parallel runways, and an additional satellite terminal with two more runways has recently opened, bringing the airport's capacity to 80 million passengers per year. In 2017, the airport served 70,001,237 passengers, making it the second-busiest airport in mainland China and the 9th busiest in the world. By the end of 2016, PVG served 210 destinations and hosted 104 airlines.",
       short:
@@ -325,7 +515,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Providing water circulation and treatment for seven themed halls and the oceanarium.",
       equipment: RELATED_PRODUCTS.en,
       benefits:
-        "Bellery equipment ensures the stable operation of the aquarium's complex hydraulic systems.",
+        "LCPumps equipment ensures the stable operation of the aquarium's complex hydraulic systems.",
       description:
         "Located within Beijing Zoo at No. 137 Xizhimen Outer Street, Xicheng District, the Beijing Aquarium is China's largest and most advanced indoor aquarium, covering a total area of 30 acres (12 hectares). It is designed in the shape of a seashell, with orange and blue as its primary colours, symbolising the mysterious vastness of the sea and the boundless vitality of marine life. The Beijing Aquarium has seven halls: Rainforest Wonder, Bering Strait, Whale and Dolphin Bay, Chinese Sturgeon Hall, Seabed Travel, Touch Pool, and Ocean Theatre.",
       short:
@@ -341,7 +531,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Engineering support for a modern museum complex for the storage and display of cultural relics.",
       equipment: RELATED_PRODUCTS.en,
       benefits:
-        "Bellery pump solutions ensure the reliable operation of the engineering systems in this public building.",
+        "LCPumps pump solutions ensure the reliable operation of the engineering systems in this public building.",
       description:
         "The Tianjin Museum is the largest museum in Tianjin, China, showcasing a wide range of cultural and historical relics significant to the city. The museum is located at Yinhe Square in Hexi District, Tianjin, and covers an area of approximately 50,000 square meters. Its unique architectural style, resembling a swan spreading its wings, has quickly made it one of the city's landmark buildings. It was built as a large, modern venue for collecting, preserving, and researching historical relics, as well as a place for education, leisure, and tourism.",
       short:
@@ -357,11 +547,91 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
         "Building the airport's engineering infrastructure designed for 35 million passengers by 2025.",
       equipment: RELATED_PRODUCTS.en,
       benefits:
-        "Bellery equipment meets the requirements of major transport and infrastructure facilities.",
+        "LCPumps equipment meets the requirements of major transport and infrastructure facilities.",
       description:
         "Qingdao Jiaodong International Airport is an airport built to serve the city of Qingdao in Shandong Province, China. Approved in December 2013, it replaces the existing Qingdao Liuting International Airport as the city's main airport. It is located in Jiaodong, Jiaozhou, 39 kilometers (24 miles) from central Qingdao. Following its completion in 2019, it became the largest airport in Shandong. By 2025, the new airport will have 178 aircraft stands and provide transport services for 35 million passengers and 500,000 tons of cargo per year. By 2045, a total of 290 aircraft stands is expected, handling 55 million passengers and one million tons of cargo.",
       short:
         "Qingdao Jiaodong International Airport is the city's new main airport and the largest in Shandong.",
+    },
+    "pelabuhan-ratu-power-plant": {
+      name: "Pelabuhan Ratu Coal-Fired Power Plant (3×350 MW)",
+      industry: "Energy",
+      location: "Pelabuhan Ratu, West Java Province, Indonesia",
+      features:
+        "A coal-fired power plant with an installed capacity of 3×350 MW, located on the southern coast of Java.",
+      tasks:
+        "Providing water supply, cooling, and ash-handling systems for a major thermal power facility.",
+      equipment: RELATED_PRODUCTS.en,
+      benefits:
+        "LCPumps pump equipment ensures the reliable operation of the engineering systems at this large-scale energy facility.",
+      description:
+        "Indonesia is a country in Southeast Asia, lying off the mainland coast of the region in the Indian and Pacific Oceans. It is an archipelago straddling the equator that spans a distance equivalent to one-eighth of the Earth's circumference: the Greater Sunda Islands of Sumatra, Java, and the southern parts of Kalimantan and Sulawesi; the Lesser Sunda Islands, including Bali; the Maluku Islands; and the western part of New Guinea. The capital, Jakarta, lies near the northwest coast of Java; Indonesia is the most populous country in Southeast Asia and the fourth most populous in the world. The Pelabuhan Ratu coal-fired power plant, with an installed capacity of 3×350 MW, is located on the southern coast of Java in West Java Province and is one of the key facilities in Indonesia's national power development program, supplying electricity to densely populated areas of the island.",
+      short:
+        "The Pelabuhan Ratu coal-fired power plant (3×350 MW) on Java's southern coast is one of Indonesia's key energy facilities.",
+    },
+    "guangzhou-baiyun-airport": {
+      name: "Guangzhou Baiyun International Airport",
+      industry: "Municipal Infrastructure",
+      location: "Baiyun District, Guangzhou, Guangdong Province, China",
+      features:
+        "China's largest transport hub, serving as a base for China Southern Airlines, 9 Air, Shenzhen Airlines, and Hainan Airlines.",
+      tasks:
+        "Engineering support for the water supply and drainage systems of an airport serving more than 69 million passengers per year.",
+      equipment: RELATED_PRODUCTS.en,
+      benefits:
+        "LCPumps pump equipment meets the high reliability requirements of major civil aviation facilities.",
+      description:
+        "Guangzhou Airport, also known as Guangzhou Baiyun International Airport, is the main airport serving Guangzhou, the capital of Guangdong Province. It is located 28 kilometers north of the city center, in Baiyun District, and is China's largest transport hub. The airport serves as a hub for China Southern Airlines, 9 Air, Shenzhen Airlines, and Hainan Airlines. In 2018, it ranked as the third-busiest airport in China and the 13th-busiest in the world, serving more than 69 million passengers.",
+      short:
+        "Guangzhou Baiyun International Airport is Guangdong's largest aviation hub and one of the world's busiest airports.",
+    },
+    "beijing-olympic-park": {
+      name: "Beijing Olympic Park",
+      industry: "Construction",
+      location: "Beijing, China",
+      features:
+        "The venue for the 2008 Beijing Olympic and Paralympic Games, covering a total area of 1,159 hectares.",
+      tasks:
+        "Engineering support for water supply and drainage across a complex of ten sports venues, the Olympic Village, and park grounds.",
+      equipment: RELATED_PRODUCTS.en,
+      benefits:
+        "LCPumps equipment ensures the reliable operation of the engineering systems across this large public complex.",
+      description:
+        "Beijing Olympic Park is the venue for the 2008 Beijing Olympic and Paralympic Games. It covers a total area of 1,159 hectares, of which 680 hectares in the north form the Olympic Forest Park, 315 hectares make up the central zone, and 164 hectares in the south are occupied by facilities from the 1990 Asian Games. The park was designed to house ten venues, the Olympic Village, and supporting facilities, and has since been transformed into an integrated, multifunctional activity center for the public.",
+      short:
+        "Beijing Olympic Park is a 1,159-hectare complex combining the venues of the 2008 Olympics with public recreational space.",
+    },
+    "beijing-capital-airport": {
+      name: "Beijing Capital International Airport",
+      industry: "Municipal Infrastructure",
+      location: "Shunyi District, Beijing, China",
+      features:
+        "Beijing's main international airport and one of the busiest airports in the world by passenger traffic.",
+      tasks:
+        "Engineering support for the water supply and drainage systems of China's busiest aviation hub.",
+      equipment: RELATED_PRODUCTS.en,
+      benefits:
+        "LCPumps pump equipment meets the high reliability requirements of major civil aviation facilities.",
+      description:
+        "Beijing Capital International Airport is the main international airport serving Beijing. It is located 32 km northeast of the city center, in the suburban Shunyi District. Over the past decade, the airport has grown into one of the busiest in the world: it is the busiest airport in Asia by passenger traffic and has been the second-busiest in the world since 2010. The airport serves as a primary hub for Air China, China Southern Airlines, Hainan Airlines, and China Eastern Airlines.",
+      short:
+        "Beijing Capital International Airport is China's busiest aviation hub and one of the world's busiest airports.",
+    },
+    "qinhuangdao-olympic-stadium": {
+      name: "Qinhuangdao Olympic Sports Center Stadium",
+      industry: "Construction",
+      location: "Hebei Avenue, Qinhuangdao, Hebei Province, China",
+      features:
+        "A multi-purpose stadium covering 168,000 square meters with a capacity of 33,600 spectators, built for the 2008 Olympics.",
+      tasks:
+        "Engineering support for the water supply and drainage systems of an Olympic-standard stadium.",
+      equipment: RELATED_PRODUCTS.en,
+      benefits:
+        "LCPumps equipment ensures the reliable operation of the engineering systems at this large sports venue.",
+      description:
+        "Qinhuangdao Olympic Sports Center Stadium is one of the stadiums in China used for preliminary football matches during the 2008 Olympics. The multi-purpose stadium is located within the Qinhuangdao Olympic Sports Center on Hebei Avenue. Construction began in May 2002 and was completed in July 2004: the Olympic-standard stadium, covering 168,000 square meters, seats 33,600 spectators, with a portion of seats reserved for people with disabilities. As part of preparations for the 2008 Olympics, the stadium hosted matches of the International Women's Football Invitational Tournament to test its readiness.",
+      short:
+        "Qinhuangdao Olympic Sports Center Stadium hosted preliminary 2008 Olympic football matches and seats 33,600 spectators.",
     },
   },
   zh: {
@@ -373,7 +643,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
       tasks: "为大型高承载力体育设施提供供水与排水系统保障。",
       equipment: RELATED_PRODUCTS.zh,
       benefits:
-        "Bellery可靠的水泵设备保障了这一世界级场馆工程系统的稳定运行。",
+        "LCPumps可靠的水泵设备保障了这一世界级场馆工程系统的稳定运行。",
       description:
         "国家体育场,昵称\"鸟巢\",位于北京市朝阳区奥林匹克公园内。它是2008年北京奥运会的主体育场,承办了田径、足球及各类投掷项目的奥运赛事。2008年10月奥运会结束后,该场馆作为旅游景点对外开放,如今已成为国际及国内体育赛事和休闲活动的中心。2022年,这里举办了冬季奥运会的开闭幕式。",
       short: "\"鸟巢\"国家体育场是2008年奥运会及2022年北京冬奥会的主赛场。",
@@ -385,7 +655,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
       features: "北京国家表演艺术中心,呈蛋形设计,四周环绕人工湖。",
       tasks: "为总容纳量5452名观众的歌剧院、音乐厅及话剧场提供工程保障。",
       equipment: RELATED_PRODUCTS.zh,
-      benefits: "Bellery设备保障了这一独特文化场馆供水与排水系统的可靠运行。",
+      benefits: "LCPumps设备保障了这一独特文化场馆供水与排水系统的可靠运行。",
       description:
         "国家大剧院,又称国家表演艺术中心,四周环绕人工湖,由法国建筑师保罗·安德鲁设计,呈现出令人惊叹的玻璃钛金属蛋形外观。剧院可容纳5452名观众,中部为歌剧院,东侧为音乐厅,西侧为戏剧场。穹顶东西向长212米,南北向长144米,高46米。主入口位于北侧,观众需经过湖底通道进入场馆。",
       short: "北京国家大剧院是集歌剧院、音乐厅与戏剧场于一体的文化综合体。",
@@ -397,7 +667,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
       features: "上海最大的国际航空枢纽,拥有四条平行跑道及一座卫星厅。",
       tasks: "为年旅客吞吐量高达8000万人次的机场提供工程系统保障。",
       equipment: RELATED_PRODUCTS.zh,
-      benefits: "Bellery水泵设备满足民航设施对可靠性的高标准要求。",
+      benefits: "LCPumps水泵设备满足民航设施对可靠性的高标准要求。",
       description:
         "浦东国际机场是服务于中国上海的主要国际机场,位于上海市中心以东30公里(19英里)处。它是中国的重要航空枢纽,也是中国东方航空和上海航空的主要基地,同时也是春秋航空、吉祥航空的枢纽机场以及中国南方航空的次要枢纽。目前浦东机场拥有四条平行跑道,近期新开通的卫星厅又新增两条跑道,使机场年旅客吞吐能力达到8000万人次。2017年,机场旅客吞吐量达70,001,237人次,是中国大陆第二繁忙机场,位列全球第9繁忙机场。截至2016年底,浦东机场通航210个目的地,共有104家航空公司在此运营。",
       short: "浦东国际机场是上海的主要航空枢纽,也是中国最大的机场之一。",
@@ -409,7 +679,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
       features: "中国最大、最先进的室内水族馆,占地12公顷,外形呈贝壳状。",
       tasks: "为七大主题展厅及海洋剧场提供水循环与水处理保障。",
       equipment: RELATED_PRODUCTS.zh,
-      benefits: "Bellery设备保障了水族馆复杂水利系统的稳定运行。",
+      benefits: "LCPumps设备保障了水族馆复杂水利系统的稳定运行。",
       description:
         "北京海洋馆坐落于北京动物园内,地址为西城区西直门外大街137号,是中国最大、最先进的室内水族馆,总占地面积30英亩(12公顷)。场馆呈贝壳造型,以橙色和蓝色为主色调,象征着神秘浩瀚的海洋与生生不息的海洋生命力。北京海洋馆设有七大展区:雨林奇观、白令海峡、鲸豚湾、中华鲟馆、海底漫游、抚摸池及海洋剧场。",
       short: "北京海洋馆是中国最大的室内海洋馆,设有七大主题展区。",
@@ -421,7 +691,7 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
       features: "天津最大的博物馆,建筑面积约5万平方米,外形设计为天鹅造型。",
       tasks: "为用于收藏与展示文物的现代化博物馆综合体提供工程保障。",
       equipment: RELATED_PRODUCTS.zh,
-      benefits: "Bellery水泵解决方案保障了这一公共建筑工程系统的可靠运行。",
+      benefits: "LCPumps水泵解决方案保障了这一公共建筑工程系统的可靠运行。",
       description:
         "天津博物馆是天津最大的博物馆,馆藏丰富,展示了众多对天津具有重要意义的文化历史文物。博物馆位于天津市河西区银河广场,占地面积约5万平方米。其独特的建筑风格宛如展翅的天鹅,迅速成为这座城市的地标性建筑之一。博物馆建设定位为大型现代化的文物收藏、保护与研究场所,同时也是教育、休闲与旅游的场所。",
       short: "天津博物馆是该市最大的博物馆,拥有独特的天鹅造型建筑。",
@@ -433,10 +703,70 @@ const FEATURED_TEXT: Record<AppLocale, Record<string, FeaturedText>> = {
       features: "取代青岛流亭机场的新建国际机场,成为山东省最大的机场。",
       tasks: "建设面向2025年3500万旅客吞吐量设计的机场工程基础设施。",
       equipment: RELATED_PRODUCTS.zh,
-      benefits: "Bellery设备满足大型交通及基础设施项目的要求。",
+      benefits: "LCPumps设备满足大型交通及基础设施项目的要求。",
       description:
         "青岛胶东国际机场是为服务中国山东省青岛市而建设的机场。该项目于2013年12月获批,将取代现有的青岛流亭国际机场,成为该市的主要机场。机场位于胶州胶东,距青岛市中心39公里(24英里)。2019年建成后,该机场已成为山东省最大的机场。到2025年,新机场将拥有178个机位,年运输能力达3500万人次旅客及50万吨货物。到2045年,预计机位总数将达290个,可运送5500万人次旅客及100万吨货物。",
       short: "青岛胶东国际机场是该市新的主要机场,也是山东省最大的机场。",
+    },
+    "pelabuhan-ratu-power-plant": {
+      name: "帕拉布罕拉图燃煤电厂(3×350兆瓦)",
+      industry: "能源",
+      location: "印度尼西亚西爪哇省帕拉布罕拉图",
+      features: "装机容量为3×350兆瓦的燃煤电厂,位于爪哇岛南岸。",
+      tasks: "为大型火力发电设施提供供水、冷却及除灰渣系统保障。",
+      equipment: RELATED_PRODUCTS.zh,
+      benefits: "LCPumps水泵设备保障了这一大型能源设施工程系统的可靠运行。",
+      description:
+        "印度尼西亚是位于东南亚大陆沿海、地跨印度洋与太平洋的国家。它是一个横跨赤道的群岛,绵延距离相当于地球周长的八分之一,包括苏门答腊岛、爪哇岛以及加里曼丹岛和苏拉威西岛南部的大巽他群岛;包含巴厘岛在内的小巽他群岛;马鲁古群岛;以及新几内亚岛西部。首都雅加达位于爪哇岛西北海岸附近;印度尼西亚是东南亚人口最多的国家,也是世界第四人口大国。装机容量为3×350兆瓦的帕拉布罕拉图燃煤电厂位于爪哇岛南岸的西爪哇省,是印度尼西亚国家电力发展规划的重点项目之一,为该岛人口稠密地区提供电力供应。",
+      short: "爪哇岛南岸的帕拉布罕拉图燃煤电厂(3×350兆瓦)是印度尼西亚重要的能源设施之一。",
+    },
+    "guangzhou-baiyun-airport": {
+      name: "广州白云国际机场",
+      industry: "市政基础设施",
+      location: "中国广东省广州市白云区",
+      features: "中国最大的交通枢纽,是中国南方航空、九元航空、深圳航空及海南航空的基地机场。",
+      tasks: "为年客运量超过6900万人次的机场提供供水与排水系统工程保障。",
+      equipment: RELATED_PRODUCTS.zh,
+      benefits: "LCPumps水泵设备满足大型民航设施对可靠性的高标准要求。",
+      description:
+        "广州机场,又称广州白云国际机场,是服务于广东省省会广州市的主要机场,位于市中心以北28公里的白云区,是中国最大的交通枢纽。机场是中国南方航空、九元航空、深圳航空及海南航空的枢纽机场。2018年,广州机场在中国机场中吞吐量排名第三,在全球机场中排名第13位,旅客吞吐量超过6900万人次。",
+      short: "广州白云国际机场是广东省最大的航空枢纽,也是全球最繁忙的机场之一。",
+    },
+    "beijing-olympic-park": {
+      name: "北京奥林匹克公园",
+      industry: "建筑",
+      location: "中国北京",
+      features: "2008年北京奥运会及残奥会的比赛场地,总面积达1159公顷。",
+      tasks: "为包含十座场馆、奥运村及园区在内的综合体提供供水与排水工程保障。",
+      equipment: RELATED_PRODUCTS.zh,
+      benefits: "LCPumps设备保障了这一大型公共综合体工程系统的可靠运行。",
+      description:
+        "北京奥林匹克公园是2008年北京奥运会及残奥会的比赛场地,总占地面积达1159公顷,其中北部680公顷为奥林匹克森林公园,中部315公顷为核心区,南部164公顷分布着1990年亚运会的相关设施。公园设计可容纳十座场馆、奥运村及配套设施,后来已转变为面向公众的综合性多功能活动中心。",
+      short: "北京奥林匹克公园占地1159公顷,集2008年奥运场馆与公共休闲空间于一体。",
+    },
+    "beijing-capital-airport": {
+      name: "北京首都国际机场",
+      industry: "市政基础设施",
+      location: "中国北京市顺义区",
+      features: "北京的主要国际机场,按客运量计为全球最繁忙的机场之一。",
+      tasks: "为中国客流量最大的航空枢纽提供供水与排水系统工程保障。",
+      equipment: RELATED_PRODUCTS.zh,
+      benefits: "LCPumps水泵设备满足大型民航设施对可靠性的高标准要求。",
+      description:
+        "北京首都国际机场是服务于北京市的主要国际机场,位于市中心东北方向32公里的顺义区。过去十年间,首都机场已发展成为全球最繁忙的机场之一:按客运量计,它是亚洲最繁忙的机场,自2010年以来一直位居全球第二。机场是中国国际航空、中国南方航空、海南航空及中国东方航空的主要基地机场。",
+      short: "北京首都国际机场是中国客流量最大的航空枢纽,也是全球最繁忙的机场之一。",
+    },
+    "qinhuangdao-olympic-stadium": {
+      name: "秦皇岛奥林匹克体育中心体育场",
+      industry: "建筑",
+      location: "中国河北省秦皇岛市河北大街",
+      features: "为2008年奥运会而建的多功能体育场,占地16.8万平方米,可容纳33600名观众。",
+      tasks: "为奥运标准体育场提供供水与排水系统工程保障。",
+      equipment: RELATED_PRODUCTS.zh,
+      benefits: "LCPumps设备保障了这一大型体育场馆工程系统的可靠运行。",
+      description:
+        "秦皇岛奥林匹克体育中心体育场是中国用于2008年奥运会足球预赛的体育场之一,该多功能体育场位于河北大街的秦皇岛奥林匹克体育中心内。场馆于2002年5月开工建设,2004年7月竣工,占地16.8万平方米的奥运标准体育场可容纳33600名观众,其中部分座位为残障人士保留。作为2008年奥运会的备战工作之一,该体育场曾举办国际女子足球邀请赛,以检验场馆的运行状况。",
+      short: "秦皇岛奥林匹克体育中心体育场曾用于2008年奥运会足球预赛,可容纳33600名观众。",
     },
   },
 };
@@ -463,6 +793,8 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "Национальный театр",
         "Пекинский аквариум",
         "Музей Тяньцзиня",
+        "Пекинский Олимпийский парк",
+        "Стадион Олимпийского центра Циньхуандао",
       ],
     },
     energy: {
@@ -475,6 +807,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "Qinshan Third Nuclear Power Co.",
         "Таньшаньская электростанция",
         "Электростанция Цзямусы",
+        "Угольная электростанция «Пелабухан-Рату» (3×350 МВт)",
       ],
     },
     water: {
@@ -506,7 +839,8 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
       items: [
         "Международный аэропорт Пудун",
         "Международный аэропорт Циндао Цзяодун",
-        "Столичный аэропорт",
+        "Международный аэропорт Пекин Столичный",
+        "Международный аэропорт Гуанчжоу Байюнь",
         "Шанхайский международный аэропорт Хунцяо",
         "Аэропорт Тяньхэ в Ухань",
       ],
@@ -514,7 +848,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
     industrial: {
       title: "Промышленность",
       intro:
-        "Компания Bellery поставляет разнообразные насосы для перекачки жидкости для многих промышленных предприятий.",
+        "Компания LCPumps поставляет разнообразные насосы для перекачки жидкости для многих промышленных предприятий.",
       items: ["BaoSteel", "Shougang Group", "Siemens", "Bayer Pharmaceuticals"],
     },
   },
@@ -528,6 +862,8 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "Ұлттық театр",
         "Пекин аквариумы",
         "Тяньцзинь мұражайы",
+        "Пекин Олимпиада паркі",
+        "Циньхуандао Олимпиада спорт орталығының стадионы",
       ],
     },
     energy: {
@@ -540,6 +876,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "Qinshan Third Nuclear Power Co.",
         "Таньшань электр станциясы",
         "Цзямусы электр станциясы",
+        "«Пелабухан-Рату» көмір электр станциясы (3×350 МВт)",
       ],
     },
     water: {
@@ -571,7 +908,8 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
       items: [
         "Пудун халықаралық әуежайы",
         "Циндао Цзяодун халықаралық әуежайы",
-        "Пекин астаналық әуежайы",
+        "Пекин астаналық халықаралық әуежайы",
+        "Гуанчжоу Байюнь халықаралық әуежайы",
         "Шанхай Хунцяо халықаралық әуежайы",
         "Ухандағы Тяньхэ әуежайы",
       ],
@@ -579,7 +917,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
     industrial: {
       title: "Өнеркәсіп",
       intro:
-        "Bellery компаниясы көптеген өнеркәсіптік кәсіпорындарға сұйықтық айдауға арналған әртүрлі сорғыларды жеткізеді.",
+        "LCPumps компаниясы көптеген өнеркәсіптік кәсіпорындарға сұйықтық айдауға арналған әртүрлі сорғыларды жеткізеді.",
       items: ["BaoSteel", "Shougang Group", "Siemens", "Bayer Pharmaceuticals"],
     },
   },
@@ -593,6 +931,8 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "National Theatre",
         "Beijing Aquarium",
         "Tianjin Museum",
+        "Beijing Olympic Park",
+        "Qinhuangdao Olympic Sports Center Stadium",
       ],
     },
     energy: {
@@ -605,6 +945,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "Qinshan Third Nuclear Power Co.",
         "Tangshan Power Plant",
         "Jiamusi Power Plant",
+        "Pelabuhan Ratu Coal-Fired Power Plant (3×350 MW)",
       ],
     },
     water: {
@@ -636,7 +977,8 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
       items: [
         "Pudong International Airport",
         "Qingdao Jiaodong International Airport",
-        "Beijing Capital Airport",
+        "Beijing Capital International Airport",
+        "Guangzhou Baiyun International Airport",
         "Shanghai Hongqiao International Airport",
         "Wuhan Tianhe Airport",
       ],
@@ -644,7 +986,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
     industrial: {
       title: "Industry",
       intro:
-        "Bellery supplies a wide range of liquid transfer pumps to many industrial enterprises.",
+        "LCPumps supplies a wide range of liquid transfer pumps to many industrial enterprises.",
       items: ["BaoSteel", "Shougang Group", "Siemens", "Bayer Pharmaceuticals"],
     },
   },
@@ -653,7 +995,14 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
       title: "建筑",
       intro:
         "建筑建设是城市发展的重要组成部分,而供水系统则是建筑建设中的重要环节。",
-      items: ["北京国家体育场", "国家大剧院", "北京海洋馆", "天津博物馆"],
+      items: [
+        "北京国家体育场",
+        "国家大剧院",
+        "北京海洋馆",
+        "天津博物馆",
+        "北京奥林匹克公园",
+        "秦皇岛奥林匹克体育中心体育场",
+      ],
     },
     energy: {
       title: "能源",
@@ -665,6 +1014,7 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
         "Qinshan Third Nuclear Power Co.",
         "唐山电厂",
         "佳木斯电厂",
+        "帕拉布罕拉图燃煤电厂(3×350兆瓦)",
       ],
     },
     water: {
@@ -695,14 +1045,15 @@ const INDUSTRY_TEXT: Record<AppLocale, Record<string, IndustryText>> = {
       items: [
         "浦东国际机场",
         "青岛胶东国际机场",
-        "首都机场",
+        "北京首都国际机场",
+        "广州白云国际机场",
         "上海虹桥国际机场",
         "武汉天河机场",
       ],
     },
     industrial: {
       title: "工业",
-      intro: "Bellery为众多工业企业提供多样化的液体输送水泵。",
+      intro: "LCPumps为众多工业企业提供多样化的液体输送水泵。",
       items: ["BaoSteel", "Shougang Group", "Siemens", "Bayer Pharmaceuticals"],
     },
   },
@@ -718,6 +1069,11 @@ const COMPACT: Record<AppLocale, string[]> = {
     "Пекинский аквариум",
     "Музей Тяньцзиня",
     "Международный аэропорт Циндао Цзяодун",
+    "Международный аэропорт Гуанчжоу Байюнь",
+    "Пекинский Олимпийский парк",
+    "Международный аэропорт Пекин Столичный",
+    "Стадион Олимпийского центра Циньхуандао",
+    "Угольная электростанция «Пелабухан-Рату» (3×350 МВт)",
     "Шанхайский сад Луцзяцзуй",
     "Сад Гуандун Цзядуо",
     "Второй дом социального обеспечения в Шанхае",
@@ -749,6 +1105,11 @@ const COMPACT: Record<AppLocale, string[]> = {
     "Пекин аквариумы",
     "Тяньцзинь мұражайы",
     "Циндао Цзяодун халықаралық әуежайы",
+    "Гуанчжоу Байюнь халықаралық әуежайы",
+    "Пекин Олимпиада паркі",
+    "Пекин астаналық халықаралық әуежайы",
+    "Циньхуандао Олимпиада спорт орталығының стадионы",
+    "«Пелабухан-Рату» көмір электр станциясы (3×350 МВт)",
     "Шанхай Луцзяцзуй бағы",
     "Гуандун Цзядуо бағы",
     "Шанхайдағы екінші әлеуметтік қамсыздандыру үйі",
@@ -780,6 +1141,11 @@ const COMPACT: Record<AppLocale, string[]> = {
     "Beijing Aquarium",
     "Tianjin Museum",
     "Qingdao Jiaodong International Airport",
+    "Guangzhou Baiyun International Airport",
+    "Beijing Olympic Park",
+    "Beijing Capital International Airport",
+    "Qinhuangdao Olympic Sports Center Stadium",
+    "Pelabuhan Ratu Coal-Fired Power Plant (3×350 MW)",
     "Shanghai Lujiazui Garden",
     "Guangdong Jiaduo Garden",
     "Shanghai No. 2 Social Welfare Home",
@@ -811,6 +1177,11 @@ const COMPACT: Record<AppLocale, string[]> = {
     "北京海洋馆",
     "天津博物馆",
     "青岛胶东国际机场",
+    "广州白云国际机场",
+    "北京奥林匹克公园",
+    "北京首都国际机场",
+    "秦皇岛奥林匹克体育中心体育场",
+    "帕拉布罕拉图燃煤电厂(3×350兆瓦)",
     "上海陆家嘴花园",
     "广东嘉多花园",
     "上海市第二社会福利院",
@@ -836,10 +1207,10 @@ const COMPACT: Record<AppLocale, string[]> = {
 };
 
 const HERO_INTRO: Record<AppLocale, string> = {
-  ru: "Сегодня компания принимает участие в проектах строительства, водоснабжения и энергетики — от атомной и теплоэнергетики до нефтяной, химической и горнодобывающей промышленности. Продукция Bellery широко используется в коммунальном хозяйстве, охране водных ресурсов, строительстве, противопожарной защите и электроэнергетике. Компания реализует большое количество локальных и зарубежных типовых проектов; оборудование применяется в проектах всемирно известных компаний в Китае.",
-  kk: "Бүгінде компания құрылыс, сумен жабдықтау және энергетика саласындағы жобаларға — атом және жылу энергетикасынан бастап мұнай, химия және тау-кен өнеркәсібіне дейін қатысады. Bellery өнімі коммуналдық шаруашылықта, су ресурстарын қорғауда, құрылыста, өртке қарсы қорғанышта және электр энергетикасында кеңінен қолданылады. Компания жергілікті және шетелдік үлгілі жобалардың үлкен санын жүзеге асырады; жабдық Қытайдағы әлемге әйгілі компаниялардың жобаларында қолданылады.",
-  en: "Today the company takes part in construction, water supply, and energy projects — from nuclear and thermal power to the oil, chemical, and mining industries. Bellery products are widely used in public utilities, water resource protection, construction, fire protection, and power engineering. The company carries out a large number of typical local and international projects; its equipment is used in the projects of world-renowned companies in China.",
-  zh: "如今,公司参与建筑、供水及能源领域的众多项目——涵盖核电、火电,乃至石油、化工和采矿等行业。Bellery产品广泛应用于市政公用事业、水资源保护、建筑、消防及电力等领域。公司实施了大量国内外典型项目,其设备被应用于众多世界知名企业在华的项目中。",
+  ru: "Сегодня компания принимает участие в проектах строительства, водоснабжения и энергетики — от атомной и теплоэнергетики до нефтяной, химической и горнодобывающей промышленности. Продукция LCPumps широко используется в коммунальном хозяйстве, охране водных ресурсов, строительстве, противопожарной защите и электроэнергетике. Компания реализует большое количество локальных и зарубежных типовых проектов; оборудование применяется в проектах всемирно известных компаний в Китае.",
+  kk: "Бүгінде компания құрылыс, сумен жабдықтау және энергетика саласындағы жобаларға — атом және жылу энергетикасынан бастап мұнай, химия және тау-кен өнеркәсібіне дейін қатысады. LCPumps өнімі коммуналдық шаруашылықта, су ресурстарын қорғауда, құрылыста, өртке қарсы қорғанышта және электр энергетикасында кеңінен қолданылады. Компания жергілікті және шетелдік үлгілі жобалардың үлкен санын жүзеге асырады; жабдық Қытайдағы әлемге әйгілі компаниялардың жобаларында қолданылады.",
+  en: "Today the company takes part in construction, water supply, and energy projects — from nuclear and thermal power to the oil, chemical, and mining industries. LCPumps products are widely used in public utilities, water resource protection, construction, fire protection, and power engineering. The company carries out a large number of typical local and international projects; its equipment is used in the projects of world-renowned companies in China.",
+  zh: "如今,公司参与建筑、供水及能源领域的众多项目——涵盖核电、火电,乃至石油、化工和采矿等行业。LCPumps产品广泛应用于市政公用事业、水资源保护、建筑、消防及电力等领域。公司实施了大量国内外典型项目,其设备被应用于众多世界知名企业在华的项目中。",
 };
 
 export function getProjectsData(locale: AppLocale): ProjectsData {

@@ -1,0 +1,79 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-lcpumps}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required, set it in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-lcpumps}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-lcpumps} -d ${POSTGRES_DB:-lcpumps}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Derived from the same POSTGRES_* vars as the postgres service above
+      # (rather than a separately-typed DATABASE_URL in .env) so the two can
+      # never drift out of sync. `postgres` is the Compose service hostname,
+      # reachable only on the internal network.
+      DATABASE_URL: postgresql://${POSTGRES_USER:-lcpumps}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-lcpumps}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - uploads_public:/app/public/uploads
+      - uploads_private:/app/data/uploads
+    expose:
+      - "3000"
+
+  # Not started by `docker compose up` (see profiles). Reuses the builder
+  # stage (full node_modules + drizzle-kit/tsx + source), which the slim
+  # `app` image intentionally doesn't carry. Run on demand:
+  #   docker compose run --rm migrator npm run db:migrate
+  #   docker compose run --rm migrator npm run db:seed-catalog
+  #   docker compose run --rm migrator npm run db:seed-admin -- --username admin --password <pwd>
+  migrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    profiles: ["tools"]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-lcpumps}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-lcpumps}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: ["echo", "Specify a command, e.g.: docker compose run --rm migrator npm run db:migrate"]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN is required, set it in .env (e.g. lcpumps.com)}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pgdata:
+  uploads_public:
+  uploads_private:
+  caddy_data:
+  caddy_config:

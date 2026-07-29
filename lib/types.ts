@@ -2,6 +2,9 @@ export interface CatalogProductRef {
   code: string;
   name: string;
   slug: string;
+  /** Precomputed at the data layer (code !== canonical RU name) — see
+   * hasModelCode() in lib/catalog.ts, which just reads this field. */
+  hasModelCode: boolean;
 }
 
 export interface CatalogSection {
@@ -17,12 +20,17 @@ export interface ProductDetail {
   code: string;
   name: string;
   slug: string;
+  /** RU section title — an internal join/keyword-matching key (see
+   * getProjectEquipmentProducts), never translated, never displayed
+   * directly. Use `sectionId` for grouping instead. */
   section: string;
+  sectionId: string | null;
   category: ProductCategory;
   description: string[];
   specs: string[];
   applications: string[];
   image?: string;
+  hasModelCode: boolean;
 }
 
 export type ProductCategory = "pumps" | "valves" | "control" | "water";
@@ -100,4 +108,5 @@ export interface SearchIndexItem {
   code: string;
   name: string;
   slug: string;
+  hasModelCode: boolean;
 }

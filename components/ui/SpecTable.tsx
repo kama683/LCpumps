@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/navigation";
-import { parseSpecRow } from "@/lib/catalog";
+import { parseSpecRow } from "@/lib/catalog-helpers";
 import { cn } from "@/lib/utils";
 import { BreadcrumbChevron } from "./Accordion";
 import { Eyebrow } from "./Eyebrow";

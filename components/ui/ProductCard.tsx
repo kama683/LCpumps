@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/Card";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ProductImage } from "@/components/ui/ProductImage";
-import { hasModelCode } from "@/lib/catalog";
+import { hasModelCode } from "@/lib/catalog-helpers";
 import { getProductImageSrc } from "@/lib/product-images";
 import type { CatalogProductRef, ProductDetail } from "@/lib/types";
 

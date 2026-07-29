@@ -14,6 +14,9 @@ interface ProjectPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
+// Equipment products are DB-backed and admin-editable at runtime.
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
 }
@@ -42,7 +45,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     index < projectsData.featured.length - 1
       ? projectsData.featured[index + 1]
       : null;
-  const equipmentProducts = getProductsBySlugs(project.equipmentSlugs, appLocale);
+  const equipmentProducts = await getProductsBySlugs(project.equipmentSlugs, appLocale);
 
   return (
     <>
@@ -78,7 +81,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               {project.description}
             </p>
 
-            <div className="bg-surface border border-[#eef4f7] rounded-2xl p-9 mt-10">
+            <div className="bg-surface border border-[#f7eeef] rounded-2xl p-9 mt-10">
               <h2 className="font-heading font-bold text-[22px] text-heading mb-6">
                 {t("ProjectDetail.infoTitle")}
               </h2>
@@ -139,9 +142,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 key={item.slug}
                 href={`/project/${item.slug}`}
                 className={cn(
-                  "flex gap-3.5 p-3.5 rounded-lg border border-border-light bg-white mb-3 transition-all no-underline hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#d8eaf2]",
+                  "flex gap-3.5 p-3.5 rounded-lg border border-border-light bg-white mb-3 transition-all no-underline hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db]",
                   item.slug === slug &&
-                    "bg-surface-alt border-[#d8eaf2] pointer-events-none"
+                    "bg-surface-alt border-[#f2d8db] pointer-events-none"
                 )}
               >
                 <div className="w-[68px] h-[52px] shrink-0 rounded-sm overflow-hidden relative bg-surface">

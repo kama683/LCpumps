@@ -65,11 +65,11 @@ export function PumpDimensionsTable() {
   const t = useTranslations("PumpTable");
 
   return (
-    <div className="rounded-xl border border-[#cfe0e8] bg-white overflow-hidden">
+    <div className="rounded-xl border border-[#e8cfd2] bg-white overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-[12px] text-body min-w-245">
           <thead>
-            <tr className="bg-surface-alt border-b border-[#cfe0e8]">
+            <tr className="bg-surface-alt border-b border-[#e8cfd2]">
               <th className={cn(HEAD_CELL, "text-left")} rowSpan={2}>
                 {t("pumpSeries")}
               </th>
@@ -100,7 +100,7 @@ export function PumpDimensionsTable() {
                 {t("baseWeightUnit")}
               </th>
             </tr>
-            <tr className="bg-surface-alt border-b border-[#cfe0e8]">
+            <tr className="bg-surface-alt border-b border-[#e8cfd2]">
               {DIMENSION_COLUMNS.map((col) => (
                 <th key={col} className={HEAD_CELL}>
                   {col}
@@ -173,12 +173,12 @@ function FragmentGroup({
           className={cn(
             "border-b border-border-light",
             alt && "bg-surface/60",
-            rowIndex === 0 && "border-t border-t-[#cfe0e8]"
+            rowIndex === 0 && "border-t border-t-[#e8cfd2]"
           )}
         >
           {rowIndex === 0 && (
             <td
-              className={cn(CELL, "text-left font-bold text-heading bg-[#eef8fb] align-middle")}
+              className={cn(CELL, "text-left font-bold text-heading bg-[#fbeeef] align-middle")}
               rowSpan={rows.length}
             >
               {series}

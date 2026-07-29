@@ -9,7 +9,7 @@ import { ProductCard } from "@/components/ui/ProductCard";
 import { ProductImage } from "@/components/ui/ProductImage";
 import { SearchField } from "@/components/ui/SearchField";
 import { useCatalogPanel } from "@/components/catalog/CatalogPanelContext";
-import { hasModelCode } from "@/lib/catalog";
+import { hasModelCode } from "@/lib/catalog-helpers";
 import { CATALOG_NAV } from "@/lib/site";
 import type { CatalogPanel, SearchIndexItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -121,8 +121,8 @@ export function CatalogLayout({
                   href={`/products/${hit.slug}`}
                   onMouseEnter={() => setHighlightedIndex(index)}
                   className={cn(
-                    "block py-2.5 px-3 rounded-sm text-sm text-muted leading-snug no-underline hover:bg-[#f0f9fc] hover:text-primary",
-                    index === highlightedIndex && "bg-[#f0f9fc] text-primary"
+                    "block py-2.5 px-3 rounded-sm text-sm text-muted leading-snug no-underline hover:bg-[#fcf0f1] hover:text-primary",
+                    index === highlightedIndex && "bg-[#fcf0f1] text-primary"
                   )}
                 >
                   {hasModelCode(hit) ? (
@@ -184,7 +184,7 @@ export function CatalogLayout({
                       className={cn(
                         "block w-full text-left py-4 px-5 text-sm font-semibold border-b border-border-light leading-snug transition-[background,color,box-shadow] duration-150",
                         active
-                          ? "bg-surface-alt text-primary shadow-[inset_3px_0_0_#17a5cc]"
+                          ? "bg-surface-alt text-primary shadow-[inset_3px_0_0_#f70620]"
                           : "text-muted hover:bg-surface hover:text-primary"
                       )}
                     >
@@ -212,7 +212,7 @@ export function CatalogLayout({
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-surface-alt to-[#e4f2f8] border border-[#d8eaf2] rounded-xl p-5.5 mt-6">
+        <div className="bg-gradient-to-br from-surface-alt to-[#f8e4e6] border border-[#f2d8db] rounded-xl p-5.5 mt-6">
           <MessageCircle
             className="size-6 text-primary mb-3"
             strokeWidth={1.75}

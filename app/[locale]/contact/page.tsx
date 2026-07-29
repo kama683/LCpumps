@@ -17,14 +17,14 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative bg-surface overflow-hidden border-b border-[#eef4f7]">
+      <section className="relative bg-surface overflow-hidden border-b border-[#f7eeef]">
         <HeroBgImage variant="contact" />
         <PageContainer className="relative z-10 py-10 pb-24">
           <Breadcrumb
             items={[{ label: t("Common.home"), href: "/" }, { label: t("Nav.contacts") }]}
           />
           <div className="max-w-[640px] mt-6">
-            <div className="inline-block text-xs font-bold tracking-[1.4px] uppercase text-primary bg-white border border-[#e3f2f7] px-4.5 py-2.5 rounded-pill mb-6">
+            <div className="inline-block text-xs font-bold tracking-[1.4px] uppercase text-primary bg-white border border-[#f7e3e5] px-4.5 py-2.5 rounded-pill mb-6">
               {t("Nav.contacts")}
             </div>
             <h1 className="font-heading font-bold text-[clamp(36px,4.5vw,52px)] text-heading leading-tight">

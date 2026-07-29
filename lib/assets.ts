@@ -2,10 +2,10 @@
 
 export const ASSETS = {
   logo: {
-    src: "/assets/logo/updated-logo.png",
-    width: 470,
-    height: 575,
-    alt: "Bellery",
+    src: "/assets/logo/newlogo(v3).png",
+    width: 1024,
+    height: 1024,
+    alt: "LCPumps",
   },
   heroBg: {
     src: "/assets/logo/chatgpt-image-8-2026-10_18_08-mrc55t9q-removebg-preview.png",
@@ -14,19 +14,19 @@ export const ASSETS = {
     alt: "",
   },
   logoBackground: {
-    src: "/assets/logo/background logo.png",
+    src: "/assets/logo/newlogo(v3).png",
     width: 1024,
-    height: 1536,
+    height: 1024,
     alt: "",
   },
   logoColor: {
-    src: "/assets/logo/logo-color.png",
+    src: "/assets/logo/newlogo(v3).png",
     width: 1024,
     height: 1024,
-    alt: "Bellery",
+    alt: "LCPumps",
   },
   logoFaint: {
-    src: "/assets/logo/logo-faint.png",
+    src: "/assets/logo/newlogo(v3).png",
     width: 1024,
     height: 1024,
     alt: "",
@@ -47,7 +47,7 @@ export const ASSETS = {
     src: "/assets/hero/lainc.jpg",
     width: 1200,
     height: 800,
-    alt: "Bellery pumps",
+    alt: "LCPumps",
   },
 } as const;
 

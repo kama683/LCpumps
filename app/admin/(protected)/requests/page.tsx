@@ -1,11 +1,9 @@
-"use client";
-
 import { Inbox } from "lucide-react";
 import { RequestCard } from "@/components/admin/RequestCard";
-import { useContactSubmissions } from "@/hooks/useContactSubmissions";
+import { listSubmissionsForAdmin } from "@/lib/repositories/submissions";
 
-export default function AdminRequestsPage() {
-  const submissions = useContactSubmissions();
+export default async function AdminRequestsPage() {
+  const submissions = await listSubmissionsForAdmin();
 
   return (
     <div>

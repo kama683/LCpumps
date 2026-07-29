@@ -1,0 +1,10 @@
+{$DOMAIN} {
+	reverse_proxy app:3000
+	encode gzip zstd
+}
+
+# Local/domain-less testing: reach the app directly at http://localhost:8080
+# without needing DNS or a certificate.
+:8080 {
+	reverse_proxy app:3000
+}

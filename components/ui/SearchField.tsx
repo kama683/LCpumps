@@ -23,7 +23,7 @@ export function SearchField({
       <input
         type="search"
         className={cn(
-          "w-full rounded-md border border-border-mid bg-white py-3 pl-10 pr-4 text-sm text-body focus:border-primary focus:shadow-[0_0_0_3px_rgba(23,165,204,0.12)] focus:outline-none",
+          "w-full rounded-md border border-border-mid bg-white py-3 pl-10 pr-4 text-sm text-body focus:border-primary focus:shadow-[0_0_0_3px_rgba(247,6,32,0.12)] focus:outline-none",
           className
         )}
         {...props}

@@ -30,15 +30,13 @@ export function Header() {
           <Image
             src={LOGO_PATH}
             alt={BRAND}
-            width={40}
-            height={49}
-            className="object-contain size-10 tablet:h-14 tablet:w-auto"
+            width={88}
+            height={88}
+            className="object-contain size-20 tablet:h-28 tablet:w-auto"
             priority
           />
-          <span className="font-heading font-bold text-sm tablet:text-base text-body tracking-[1.1px] leading-[1.15]">
-            BELLERY
-            <br />
-            PUMPS
+          <span className="font-heading font-bold text-[28px] tablet:text-[32px] text-body tracking-[1.1px] leading-[1.15]">
+            LCPUMPS
           </span>
         </Link>
 

@@ -1,14 +1,14 @@
-import { AdminLoginGate } from "@/components/admin/AdminLoginGate";
 import { AdminShell } from "@/components/admin/AdminShell";
+import { verifySession } from "@/lib/auth/dal";
 
-export default function ProtectedAdminLayout({
+export default async function ProtectedAdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <AdminLoginGate>
-      <AdminShell>{children}</AdminShell>
-    </AdminLoginGate>
-  );
+  // proxy.ts already did an optimistic (cookie-only) redirect before this
+  // ever runs. This is the real, non-optimistic check — see lib/auth/dal.ts.
+  await verifySession();
+
+  return <AdminShell>{children}</AdminShell>;
 }

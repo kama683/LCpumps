@@ -9,7 +9,7 @@ export function HomeCtaSection() {
 
   return (
     <PageContainer className="pt-20">
-      <div className="bg-gradient-to-br from-surface-alt to-[#e8f4f9] border border-[#d8eaf2] rounded-3xl overflow-hidden grid grid-cols-1 tablet:grid-cols-2 items-center gap-8 p-10 tablet:px-16 tablet:py-14 max-tablet:text-center">
+      <div className="bg-gradient-to-br from-surface-alt to-[#f9e8ea] border border-[#f2d8db] rounded-3xl overflow-hidden grid grid-cols-1 tablet:grid-cols-2 items-center gap-8 p-10 tablet:px-16 tablet:py-14 max-tablet:text-center">
         <div>
           <h2 className="font-heading font-bold text-[clamp(26px,3vw,34px)] text-heading leading-tight">
             {t("title")}

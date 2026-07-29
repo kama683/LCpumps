@@ -1,27 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Pencil } from "lucide-react";
-import { ProductEditModal } from "@/components/admin/ProductEditModal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ProductImage } from "@/components/ui/ProductImage";
 import { Breadcrumb, PageContainer, SpecTable } from "@/components/ui/SpecTable";
-import { useIsAdmin } from "@/hooks/useIsAdmin";
-import { useProductOverride } from "@/hooks/useProductOverride";
-import { hasModelCode } from "@/lib/catalog";
+import { hasModelCode } from "@/lib/catalog-helpers";
 import { getProductImageSrc } from "@/lib/product-images";
 import type { ProductDetail } from "@/lib/types";
 
-export function ProductDetailView({ product: canonical }: { product: ProductDetail }) {
+export function ProductDetailView({ product }: { product: ProductDetail }) {
   const t = useTranslations();
-  const isAdmin = useIsAdmin();
-  const product = useProductOverride(canonical);
-  const [editing, setEditing] = useState(false);
-  const showModel = hasModelCode(canonical);
+  const showModel = hasModelCode(product);
 
   const categoryHref =
-    canonical.category === "pumps" ? "/products" : `/products/${canonical.category}`;
+    product.category === "pumps" ? "/products" : `/products/${product.category}`;
 
   return (
     <>
@@ -32,26 +24,14 @@ export function ProductDetailView({ product: canonical }: { product: ProductDeta
               { label: t("Common.home"), href: "/" },
               { label: t("Common.products"), href: "/products" },
               { label: t("ProductDetail.category"), href: categoryHref },
-              { label: showModel ? canonical.code : canonical.name },
+              { label: showModel ? product.code : product.name },
             ]}
           />
-          <div className="flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              {showModel && <Eyebrow>{canonical.code}</Eyebrow>}
-              <h1 className="font-heading font-bold text-[clamp(28px,4.2vw,40px)] text-heading mt-2.5 leading-tight max-w-[900px]">
-                {product.name}
-              </h1>
-            </div>
-            {isAdmin && (
-              <button
-                type="button"
-                onClick={() => setEditing(true)}
-                className="mt-2 inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-sm border border-border-mid bg-white px-4 py-2.5 text-sm font-bold text-body transition-colors hover:border-primary hover:text-primary"
-              >
-                <Pencil className="size-4 shrink-0" strokeWidth={2.25} aria-hidden />
-                Редактировать
-              </button>
-            )}
+          <div className="min-w-0">
+            {showModel && <Eyebrow>{product.code}</Eyebrow>}
+            <h1 className="font-heading font-bold text-[clamp(28px,4.2vw,40px)] text-heading mt-2.5 leading-tight max-w-[900px]">
+              {product.name}
+            </h1>
           </div>
         </PageContainer>
       </section>
@@ -61,7 +41,7 @@ export function ProductDetailView({ product: canonical }: { product: ProductDeta
           <ProductImage
             alt={
               showModel
-                ? `${canonical.code} — ${product.name} product photo`
+                ? `${product.code} — ${product.name} product photo`
                 : `${product.name} product photo`
             }
             src={getProductImageSrc(product)}
@@ -101,10 +81,6 @@ export function ProductDetailView({ product: canonical }: { product: ProductDeta
           </>
         )}
       </PageContainer>
-
-      {editing && (
-        <ProductEditModal product={product} onClose={() => setEditing(false)} />
-      )}
     </>
   );
 }

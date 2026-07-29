@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { PumpsCatalogPage } from "@/components/catalog/CatalogPage";
 
+// Catalog data is DB-backed and admin-editable at runtime.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {

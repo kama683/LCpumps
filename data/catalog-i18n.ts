@@ -10,9 +10,9 @@ export interface ProductTranslation {
 type OtherLocale = Exclude<AppLocale, "ru">;
 
 export const CATALOG_INTRO_TRANSLATIONS: Record<OtherLocale, string> = {
-  en: "Bellery is a leading pump manufacturer in China. Its products are widely used in key national sectors such as municipal management, water resources, construction, fire protection, power engineering, environmental protection, and the oil, chemical, and mining industries, as well as in medicine. Thanks to its strong technical foundation and R&D capabilities, Bellery provides high-quality centrifugal pump solutions for enterprises and projects around the world.",
-  zh: "Bellery是中国领先的水泵制造商。其产品广泛应用于市政管理、水利、建筑、消防、电力、环保以及石油、化工、采矿等国家重点支柱领域,并涉及医疗领域。凭借深厚的技术积累和研发能力,Bellery为全球企业和项目提供高品质的离心泵解决方案。",
-  kk: "Bellery — Қытайдағы жетекші сорғы өндірушісі. Өнім муниципалдық басқару, су шаруашылығы, құрылыс, өртке қарсы қорғаныш, электр энергетикасы, қоршаған ортаны қорғау, мұнай, химия өнеркәсібі, тау-кен өнеркәсібі және медицина сияқты ұлттық тірек салаларында кеңінен қолданылады. Bellery қуатты техникалық жинақталған тәжірибесі мен ҒЗТКЖ мүмкіндіктерінің арқасында әлемнің түкпір-түкпіріндегі кәсіпорындар мен жобалар үшін жоғары сапалы центрифугалық сорғы шешімдерін ұсынады.",
+  en: "LCPumps is a leading pump manufacturer in China. Its products are widely used in key national sectors such as municipal management, water resources, construction, fire protection, power engineering, environmental protection, and the oil, chemical, and mining industries, as well as in medicine. Thanks to its strong technical foundation and R&D capabilities, LCPumps provides high-quality centrifugal pump solutions for enterprises and projects around the world.",
+  zh: "LCPumps是中国领先的水泵制造商。其产品广泛应用于市政管理、水利、建筑、消防、电力、环保以及石油、化工、采矿等国家重点支柱领域,并涉及医疗领域。凭借深厚的技术积累和研发能力,LCPumps为全球企业和项目提供高品质的离心泵解决方案。",
+  kk: "LCPumps — Қытайдағы жетекші сорғы өндірушісі. Өнім муниципалдық басқару, су шаруашылығы, құрылыс, өртке қарсы қорғаныш, электр энергетикасы, қоршаған ортаны қорғау, мұнай, химия өнеркәсібі, тау-кен өнеркәсібі және медицина сияқты ұлттық тірек салаларында кеңінен қолданылады. LCPumps қуатты техникалық жинақталған тәжірибесі мен ҒЗТКЖ мүмкіндіктерінің арқасында әлемнің түкпір-түкпіріндегі кәсіпорындар мен жобалар үшін жоғары сапалы центрифугалық сорғы шешімдерін ұсынады.",
 };
 
 interface SectionTextTranslation {

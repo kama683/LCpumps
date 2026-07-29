@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { Droplets, Waves } from "lucide-react";
-import { getCompanyParagraphs } from "@/lib/catalog";
+import { getCompanyParagraphs } from "@/lib/catalog-helpers";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { IconBox } from "@/components/ui/IconBox";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";

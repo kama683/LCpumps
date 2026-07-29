@@ -14,8 +14,8 @@ const variantClasses: Record<"page" | "catalog", string> = {
 const pumpLayouts = {
   home: {
     frame:
-      "absolute right-0 top-1/2 -translate-y-1/2 w-[min(700px,60vw)] max-tablet:w-[min(640px,90vw)]",
-    grid: "w-[min(1220px,94vw)] max-tablet:w-[min(860px,105vw)]",
+      "absolute right-32 top-[45%] -translate-y-1/2 w-[min(620px,66vw)] max-tablet:w-[min(640px,90vw)]",
+    grid: "w-[min(790px,60vw)] max-tablet:w-[min(570px,68vw)]",
   },
   contact: {
     frame:
@@ -50,7 +50,7 @@ function PumpHeroBackdrop({
     >
       <div
         className={cn(
-          "hero-blueprint-grid absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square",
+          "hero-blueprint-grid absolute left-[60%] top-[40%] -translate-x-1/2 -translate-y-1/2 aspect-square",
           sizes.grid
         )}
       />
@@ -60,20 +60,8 @@ function PumpHeroBackdrop({
         width={ASSETS.heroPump.width}
         height={ASSETS.heroPump.height}
         priority={priority}
-        className={cn(
-          "relative z-[1] w-full h-auto object-contain",
-          layout === "home" && "scale-[0.55] translate-y-[-50%] translate-x-[5%]"
-        )}
+        className="relative z-[1] w-full h-auto object-contain"
       />
-      {layout === "home" && (
-        <Image
-          src={ASSETS.logoBackground.src}
-          alt=""
-          width={ASSETS.logoBackground.width}
-          height={ASSETS.logoBackground.height}
-          className="absolute left-0 bottom-0 translate-x-[3%] translate-y-[22%] w-[min(400px,44vw)] h-auto object-contain opacity-80 z-2 pointer-events-none"
-        />
-      )}
     </div>
   );
 }

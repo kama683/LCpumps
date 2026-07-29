@@ -1,4 +1,4 @@
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import {
   buildCatalogPanels,
@@ -16,14 +16,16 @@ interface CatalogPageConfig {
   breadcrumb: { label: string; href?: string }[];
 }
 
-function CatalogPageView({
+async function CatalogPageView({
   config,
 }: {
   config: CatalogPageConfig;
 }) {
-  const locale = useLocale();
-  const panels = buildCatalogPanels(config.categoryFilter, locale);
-  const searchIndex = getSearchIndex(config.categoryFilter, locale);
+  const locale = await getLocale();
+  const [panels, searchIndex] = await Promise.all([
+    buildCatalogPanels(config.categoryFilter, locale),
+    getSearchIndex(config.categoryFilter, locale),
+  ]);
   const defaultPanelId =
     panels.find((p) => p.id === config.defaultPanelId)?.id ??
     panels[0]?.id ??
@@ -42,8 +44,8 @@ function CatalogPageView({
   );
 }
 
-export function PumpsCatalogPage() {
-  const t = useTranslations();
+export async function PumpsCatalogPage() {
+  const t = await getTranslations();
 
   return (
     <CatalogPageView
@@ -63,7 +65,7 @@ export function PumpsCatalogPage() {
   );
 }
 
-export function CategoryCatalogPage({
+export async function CategoryCatalogPage({
   category,
   title,
   route,
@@ -74,7 +76,7 @@ export function CategoryCatalogPage({
   route: string;
   defaultPanelId: string;
 }) {
-  const t = useTranslations();
+  const t = await getTranslations();
 
   return (
     <CatalogPageView

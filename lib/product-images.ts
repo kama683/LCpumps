@@ -115,7 +115,7 @@ export function getCategoryPanelHeroAlt(panelId: string): string {
 }
 
 export function getProductImageSrc(
-  product: { slug: string; image?: string }
+  product: { slug: string; image?: string | null }
 ): string {
   return (
     product.image ??

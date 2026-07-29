@@ -14,7 +14,7 @@ export function ImagePlaceholder({
   return (
     <div
       className={cn(
-        "bg-[repeating-linear-gradient(135deg,#e2ecf1_0_11px,#d5e2e9_11px_22px)] flex items-end p-3",
+        "bg-[repeating-linear-gradient(135deg,#f1e2e4_0_11px,#e9d5d7_11px_22px)] flex items-end p-3",
         className
       )}
       style={{ aspectRatio }}

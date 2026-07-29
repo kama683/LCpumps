@@ -3,8 +3,8 @@
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #33424c;
-  --color-primary: #17a5cc;
-  --color-primary-dark: #0f88ab;
+  --color-primary: #f70620;
+  --color-primary-dark: #bb0518;
   --color-heading: #26333c;
   --color-body: #2b3a44;
   --color-muted: #5a6b74;
@@ -15,13 +15,13 @@
   --color-border-light: #eef2f4;
   --color-border-mid: #e2e8ec;
   --color-surface: #f6fbfd;
-  --color-surface-alt: #eef7fb;
+  --color-surface-alt: #fbeeef;
   --color-footer: #1f2c34;
   --color-footer-text: #c3ced4;
   --color-footer-muted: #8fa0aa;
   --color-footer-link: #b6c3ca;
   --color-stat-grid: #e6eef2;
-  --color-pill-blue-bg: #e8f6fa;
+  --color-pill-blue-bg: #fae8ea;
   --color-error: #e07a7a;
   --color-success: #3fa66a;
 
@@ -37,7 +37,7 @@
   --radius-pill: 999px;
 
   --shadow-card: 0 14px 32px rgba(38, 51, 60, 0.1);
-  --shadow-btn: 0 8px 20px rgba(23, 165, 204, 0.28);
+  --shadow-btn: 0 8px 20px rgba(247, 6, 32, 0.28);
   --shadow-card-sm: 0 12px 28px rgba(38, 51, 60, 0.08);
   --shadow-contact: 0 20px 48px rgba(38, 51, 60, 0.06);
 
@@ -155,8 +155,8 @@ h4 {
   Radial mask fades the mesh into white; no circle border.
 */
 .hero-blueprint-grid {
-  --grid-minor: rgba(184, 217, 232, 0.5);
-  --grid-major: #b8d9e8;
+  --grid-minor: rgba(232, 184, 189, 0.5);
+  --grid-major: #e8b8bd;
   background-color: transparent;
   background-image:
     /* major vertical */
@@ -178,18 +178,18 @@ h4 {
     circle closest-side at center,
     #000 0%,
     #000 38%,
-    rgba(0, 0, 0, 0.75) 55%,
-    rgba(0, 0, 0, 0.35) 72%,
-    rgba(0, 0, 0, 0.08) 88%,
+    rgba(0, 0, 0, 0.92) 55%,
+    rgba(0, 0, 0, 0.75) 72%,
+    rgba(0, 0, 0, 0.45) 88%,
     transparent 100%
   );
   mask-image: radial-gradient(
     circle closest-side at center,
     #000 0%,
     #000 38%,
-    rgba(0, 0, 0, 0.75) 55%,
-    rgba(0, 0, 0, 0.35) 72%,
-    rgba(0, 0, 0, 0.08) 88%,
+    rgba(0, 0, 0, 0.92) 55%,
+    rgba(0, 0, 0, 0.75) 72%,
+    rgba(0, 0, 0, 0.45) 88%,
     transparent 100%
   );
   -webkit-mask-size: 100% 100%;

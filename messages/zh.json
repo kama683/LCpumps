@@ -88,7 +88,16 @@
         "hint": "PDF、DWG、DOCX、XLSX、图片——最大10 MB"
       },
       "submit": "发送咨询",
-      "submitHint": "我们将在24小时内回复。"
+      "submitHint": "我们将在24小时内回复。",
+      "success": "谢谢！我们将在24小时内与您联系。",
+      "errors": {
+        "missingFields": "请填写您的姓名和电子邮箱。",
+        "invalidFileType": "不支持的文件类型：{detail}",
+        "fileTooLarge": "文件“{detail}”过大（最大 15 MB）。",
+        "totalSizeExceeded": "附件总大小超过 40 MB。",
+        "unknown": "出现问题，请重试或直接联系我们。"
+      },
+      "submitting": "发送中…"
     },
     "direct": {
       "title": "还有疑问？",
@@ -145,7 +154,7 @@
   "News": {
     "label": "新闻",
     "title": "新闻与出版物",
-    "body": "新闻栏目正在建设中。如需了解Bellery pumps产品与项目的最新信息，请通过联系表单与我们取得联系。"
+    "body": "新闻栏目正在建设中。如需了解LCPumps产品与项目的最新信息，请通过联系表单与我们取得联系。"
   },
   "Services": {
     "label": "服务",
@@ -170,7 +179,7 @@
     "intro": "为供水、消防、工业、石油化工和能源领域提供3000多种产品。价格合理，质量可靠，拥有自主研发与生产能力。",
     "catalogButton": "产品目录",
     "productsEyebrow": "产品",
-    "catalogTitle": "Bellery pumps 产品目录",
+    "catalogTitle": "LCPumps 产品目录",
     "wholeCatalogButton": "查看全部产品",
     "companyParagraph": "公司拥有五大工业园区，分布于上海、江苏和浙江等经济发达地区，占地55万平方米。总部位于中国上海奉贤工业园区。",
     "aboutButton": "了解更多公司信息",
@@ -178,7 +187,7 @@
   },
   "HomeCta": {
     "title": "需要设备选型建议吗？",
-    "description": "Bellery专家将根据您的参数——流量、扬程、介质和运行方式——帮助您选择合适的水泵或系统。",
+    "description": "LCPumps专家将根据您的参数——流量、扬程、介质和运行方式——帮助您选择合适的水泵或系统。",
     "button": "申请咨询"
   },
   "Projects": {
@@ -208,7 +217,7 @@
     "productionTitle": "生产与检测",
     "productionLink": "了解更多生产信息",
     "certificationsTitle": "认证与荣誉",
-    "awardsIntro": "Bellery pumps 荣获以下荣誉：",
+    "awardsIntro": "LCPumps 荣获以下荣誉：",
     "certificationsLink": "查看全部认证",
     "clientsTitle": "产品应用于知名企业项目",
     "sectionsTitle": "关于我们各板块",
@@ -239,7 +248,9 @@
     "specsHeading": "技术参数",
     "applications": "应用领域",
     "relatedTitle": "相关产品",
-    "backLink": "← 返回产品目录"
+    "backLink": "← 返回产品目录",
+    "download": "下载",
+    "downloading": "正在下载…"
   },
   "CategoryPage": {
     "allPumpsTitle": "工业水泵",
@@ -257,9 +268,9 @@
     "title": "联系我们",
     "responseTime": "我们将在24小时内回复",
     "intro": "一份申请，同时服务于客户与工程师。请描述您的需求，如有需要可补充技术参数。",
-    "faqIntro": "关于与Bellery pumps合作的常见问题解答"
+    "faqIntro": "关于与LCPumps合作的常见问题解答"
   },
   "RootMetadata": {
-    "title": "Bellery — 产品目录"
+    "title": "LCPumps — 产品目录"
   }
 }

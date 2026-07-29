@@ -1,45 +1,29 @@
-"use client";
-
 import Link from "next/link";
-import { useSyncExternalStore } from "react";
 import { Inbox, Mail, Package } from "lucide-react";
 import { StatCard } from "@/components/admin/StatCard";
-import { useContactSubmissions } from "@/hooks/useContactSubmissions";
-import { subscribe } from "@/lib/admin/events";
-import { listOverriddenSlugs } from "@/lib/admin/product-overrides";
-import { STORAGE_KEYS } from "@/lib/admin/storage-keys";
+import { listProductsForAdmin } from "@/lib/repositories/products";
+import { listSubmissionsForAdmin } from "@/lib/repositories/submissions";
 
-function useOverriddenCount(): number {
-  return useSyncExternalStore(
-    (callback) => subscribe("product-overrides", STORAGE_KEYS.productOverrides, callback),
-    () => listOverriddenSlugs().length,
-    () => 0
-  );
-}
-
-export default function AdminDashboardPage() {
-  const submissions = useContactSubmissions();
-  const overriddenCount = useOverriddenCount();
+export default async function AdminDashboardPage() {
+  const [products, submissions] = await Promise.all([listProductsForAdmin(), listSubmissionsForAdmin()]);
 
   const today = new Date().toDateString();
-  const todayCount = submissions.filter(
-    (s) => new Date(s.createdAt).toDateString() === today
-  ).length;
+  const todayCount = submissions.filter((s) => new Date(s.createdAt).toDateString() === today).length;
   const newCount = submissions.filter((s) => s.status === "new").length;
 
   return (
     <div>
       <h1 className="font-heading text-[28px] font-bold text-heading">Дашборд</h1>
-      <p className="mt-2 text-muted">Обзор заявок и товаров с правками.</p>
+      <p className="mt-2 text-muted">Обзор заявок и товаров каталога.</p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 tablet:grid-cols-3">
         <StatCard icon={Inbox} label="Всего заявок" value={submissions.length} />
         <StatCard icon={Mail} label="Новых заявок" value={newCount} />
-        <StatCard icon={Package} label="Товаров с правками" value={overriddenCount} />
+        <StatCard icon={Inbox} label="Заявок сегодня" value={todayCount} />
       </div>
 
       <div className="mt-4 grid grid-cols-1 gap-4 tablet:grid-cols-3">
-        <StatCard icon={Inbox} label="Заявок сегодня" value={todayCount} />
+        <StatCard icon={Package} label="Всего товаров" value={products.length} />
       </div>
 
       <div className="mt-10 flex flex-wrap gap-4">

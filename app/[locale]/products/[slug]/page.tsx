@@ -3,34 +3,28 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HomeCtaSection } from "@/components/sections/HomeCtaSection";
+import { ProductDownloadButton } from "@/components/products/ProductDownloadButton";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ProductImage } from "@/components/ui/ProductImage";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Breadcrumb, PageContainer, SpecTable } from "@/components/ui/SpecTable";
-import {
-  getAllProducts,
-  getProductBySlug,
-  getProductSlugs,
-  hasModelCode,
-} from "@/lib/catalog";
+import { getAllProducts, getProductBySlug, hasModelCode } from "@/lib/catalog";
 import { getProductImageSrc } from "@/lib/product-images";
 import { RESERVED_PRODUCT_SLUGS } from "@/lib/site";
 
+// Products are now DB-backed and admin-editable at runtime — no
+// generateStaticParams here, so `next build` never needs a live database.
+export const dynamic = "force-dynamic";
+
 interface ProductPageProps {
   params: Promise<{ locale: string; slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return getProductSlugs()
-    .filter((slug) => !RESERVED_PRODUCT_SLUGS.has(slug))
-    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const product = getProductBySlug(slug, locale);
+  const product = await getProductBySlug(slug, locale);
   if (!product) {
     const t = await getTranslations({ locale, namespace: "CategoryPage" });
     return { title: t("pumpsTitle") };
@@ -47,12 +41,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const t = await getTranslations({ locale });
   if (RESERVED_PRODUCT_SLUGS.has(slug)) notFound();
 
-  const product = getProductBySlug(slug, locale);
+  const product = await getProductBySlug(slug, locale);
   if (!product) notFound();
 
-  const allProducts = getAllProducts(locale);
+  const allProducts = await getAllProducts(locale);
   const sameSection = allProducts.filter(
-    (p) => p.section === product.section && p.slug !== product.slug
+    (p) => p.sectionId && p.sectionId === product.sectionId && p.slug !== product.slug
   );
   const related = (
     sameSection.length > 0
@@ -80,9 +74,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
             ]}
           />
           {hasModelCode(product) && <Eyebrow>{product.code}</Eyebrow>}
-          <h1 className="font-heading font-bold text-[clamp(28px,4.2vw,40px)] text-heading mt-2.5 leading-tight max-w-[900px]">
-            {product.name}
-          </h1>
+          <div className="flex items-start justify-between gap-6 flex-wrap mt-2.5">
+            <h1 className="font-heading font-bold text-[clamp(28px,4.2vw,40px)] text-heading leading-tight max-w-[900px]">
+              {product.name}
+            </h1>
+            <ProductDownloadButton
+              slug={product.slug}
+              code={product.code}
+              name={product.name}
+              showModel={hasModelCode(product)}
+              imageSrc={getProductImageSrc(product)}
+              imageAlt={
+                hasModelCode(product)
+                  ? `${product.code} — ${product.name} product photo`
+                  : `${product.name} product photo`
+              }
+              description={product.description}
+              specs={product.specs}
+            />
+          </div>
         </PageContainer>
       </section>
 

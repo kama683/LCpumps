@@ -88,7 +88,16 @@
         "hint": "PDF, DWG, DOCX, XLSX, images — up to 10 MB"
       },
       "submit": "Send Request",
-      "submitHint": "We'll respond within 24 hours."
+      "submitHint": "We'll respond within 24 hours.",
+      "success": "Thank you! We'll get back to you within 24 hours.",
+      "errors": {
+        "missingFields": "Please fill in your name and email.",
+        "invalidFileType": "Unsupported file type: {detail}",
+        "fileTooLarge": "File \"{detail}\" is too large (max 15 MB).",
+        "totalSizeExceeded": "Total attachment size exceeds 40 MB.",
+        "unknown": "Something went wrong. Please try again or contact us directly."
+      },
+      "submitting": "Sending…"
     },
     "direct": {
       "title": "Have questions?",
@@ -145,7 +154,7 @@
   "News": {
     "label": "News",
     "title": "News and Publications",
-    "body": "The news section is under development. You can get up-to-date information on Bellery pumps products and projects through the contact form."
+    "body": "The news section is under development. You can get up-to-date information on LCPumps products and projects through the contact form."
   },
   "Services": {
     "label": "Service",
@@ -170,7 +179,7 @@
     "intro": "Over 3,000 types of products for water supply, fire protection, industry, petrochemicals and energy. Reasonable prices, reliable quality, in-house research and manufacturing.",
     "catalogButton": "Product Catalog",
     "productsEyebrow": "Products",
-    "catalogTitle": "Bellery pumps Catalog",
+    "catalogTitle": "LCPumps Catalog",
     "wholeCatalogButton": "Full Catalog",
     "companyParagraph": "The company owns five major industrial parks located in the economically developed areas of Shanghai, Jiangsu and Zhejiang, covering 550,000 square meters. Headquarters is located in Fengbang Industrial Park, Shanghai.",
     "aboutButton": "More About the Company",
@@ -178,7 +187,7 @@
   },
   "HomeCta": {
     "title": "Need advice on selecting equipment?",
-    "description": "Bellery specialists will help you select a pump or system for your parameters — flow rate, head, medium and operating mode.",
+    "description": "LCPumps specialists will help you select a pump or system for your parameters — flow rate, head, medium and operating mode.",
     "button": "Request a Consultation"
   },
   "Projects": {
@@ -208,7 +217,7 @@
     "productionTitle": "Production and Testing",
     "productionLink": "More About Production",
     "certificationsTitle": "Certifications and Awards",
-    "awardsIntro": "Bellery pumps has been awarded:",
+    "awardsIntro": "LCPumps has been awarded:",
     "certificationsLink": "All Certifications",
     "clientsTitle": "Products Used in Companies' Projects",
     "sectionsTitle": "About Us Sections",
@@ -239,7 +248,9 @@
     "specsHeading": "Technical Specifications",
     "applications": "Applications",
     "relatedTitle": "Related Products",
-    "backLink": "← Back to Catalog"
+    "backLink": "← Back to Catalog",
+    "download": "Download",
+    "downloading": "Downloading…"
   },
   "CategoryPage": {
     "allPumpsTitle": "Industrial Pumps",
@@ -257,9 +268,9 @@
     "title": "Contact Us",
     "responseTime": "We reply within 24 hours",
     "intro": "One request — for both the client and the engineer. Describe your task, and add technical parameters only if needed.",
-    "faqIntro": "Answers to common questions about working with Bellery pumps"
+    "faqIntro": "Answers to common questions about working with LCPumps"
   },
   "RootMetadata": {
-    "title": "Bellery — Product Catalog"
+    "title": "LCPumps — Product Catalog"
   }
 }

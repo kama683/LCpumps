@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { HomeCtaSection } from "@/components/sections/HomeCtaSection";
+import { AboutVideo } from "@/components/ui/AboutVideo";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -12,17 +12,19 @@ import { RevealStagger } from "@/components/ui/RevealStagger";
 import { StatGrid } from "@/components/ui/StatGrid";
 import { PageContainer, SectionHeading } from "@/components/ui/SpecTable";
 import { getCatalogIntro, getProductBySlug } from "@/lib/catalog";
-import { ASSETS } from "@/lib/assets";
 import { getProjectsData } from "@/data/projects";
 import type { AppLocale } from "@/i18n/routing";
 import { COMPANY_NAME, HOME_FEATURED_PRODUCTS, getHomeStats } from "@/lib/site";
+
+// Featured products are DB-backed and admin-editable at runtime.
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations();
   const projectsData = getProjectsData(locale);
-  const featuredProducts = HOME_FEATURED_PRODUCTS.map((slug) =>
-    getProductBySlug(slug, locale)
+  const featuredProducts = (
+    await Promise.all(HOME_FEATURED_PRODUCTS.map((slug) => getProductBySlug(slug, locale)))
   ).filter(Boolean);
 
   return (
@@ -31,11 +33,11 @@ export default async function HomePage() {
         <HeroBgImage variant="home" priority />
         <PageContainer className="relative z-10 pt-5 pb-16 tablet:pt-7 tablet:pb-22">
           <div className="max-w-[640px]">
-            <div className="animate-hero-fade-up inline-block text-xs font-bold tracking-[1.4px] uppercase text-primary bg-[#f4fafc] border border-[#e3f2f7] px-4.5 py-2.5 rounded-pill mb-7">
+            <div className="animate-hero-fade-up inline-block text-[10px] font-bold tracking-[1.1px] uppercase text-primary bg-[#fcf4f5] border border-[#f7e3e5] px-3.5 py-2 rounded-pill mb-7">
               SHANGHAI LIANCHENG (GROUP) CO., LTD.
             </div>
             <h1
-              className="animate-hero-fade-up font-heading font-bold text-[clamp(36px,4.8vw,56px)] leading-[1.12] text-heading"
+              className="animate-hero-fade-up font-heading font-bold text-[clamp(30px,4vw,48px))] leading-[1.12] text-heading"
               style={{ animationDelay: "80ms" }}
             >
               {t("Home.heroPrefix")}{" "}
@@ -67,6 +69,27 @@ export default async function HomePage() {
         <StatGrid items={getHomeStats(locale)} columns={5} compact />
       </PageContainer>
 
+      <section className="bg-surface mt-20 border-y border-[#f7eeef]">
+        <PageContainer className="py-18">
+          <Reveal>
+            <div className="grid grid-cols-1 tablet:grid-cols-2 gap-12 items-center">
+              <div className="group relative aspect-4/3 overflow-hidden rounded-2xl border border-border-light shadow-card-sm">
+                <AboutVideo className="transition-transform duration-500 ease-out group-hover:scale-105" />
+              </div>
+              <div>
+                <SectionHeading eyebrow={t("Nav.aboutUs")} title={COMPANY_NAME} />
+                <p className="text-base leading-relaxed text-muted mt-4.5">
+                  {t("Home.companyParagraph")}
+                </p>
+                <Button href="/about-us" className="mt-6">
+                  {t("Home.aboutButton")}
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+        </PageContainer>
+      </section>
+
       <PageContainer className="pt-20">
         <Reveal>
           <SectionHeading
@@ -89,38 +112,11 @@ export default async function HomePage() {
         </Reveal>
       </PageContainer>
 
-      <section className="bg-surface mt-20 border-y border-[#eef4f7]">
-        <PageContainer className="py-18">
-          <Reveal>
-            <div className="grid grid-cols-1 tablet:grid-cols-2 gap-12 items-center">
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-light shadow-card-sm">
-                <Image
-                  src={ASSETS.aboutPhoto.src}
-                  alt={ASSETS.aboutPhoto.alt}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                />
-              </div>
-              <div>
-                <SectionHeading eyebrow={t("Nav.aboutUs")} title={COMPANY_NAME} />
-                <p className="text-base leading-relaxed text-muted mt-4.5">
-                  {t("Home.companyParagraph")}
-                </p>
-                <Button href="/about-us" className="mt-6">
-                  {t("Home.aboutButton")}
-                </Button>
-              </div>
-            </div>
-          </Reveal>
-        </PageContainer>
-      </section>
-
       <PageContainer className="pt-20">
         <Reveal>
           <SectionHeading eyebrow={t("Nav.projects")} title={t("Projects.completedTitle")} />
           <RevealStagger className="grid grid-cols-1 max-tablet:grid-cols-2 tablet:grid-cols-3 gap-5 mt-8 max-mobile:grid-cols-1">
-            {projectsData.featured.map((project) => (
+            {projectsData.featured.slice(0, 6).map((project) => (
               <Card key={project.slug} href={`/project/${project.slug}`}>
                 <ProjectImage src={project.image} alt={project.name} aspectRatio="16/10" />
                 <div className="p-5.5">
@@ -138,7 +134,7 @@ export default async function HomePage() {
         </Reveal>
       </PageContainer>
 
-      <Reveal>
+      <Reveal className="pb-20">
         <HomeCtaSection />
       </Reveal>
     </>

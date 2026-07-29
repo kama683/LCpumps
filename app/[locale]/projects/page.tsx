@@ -57,7 +57,7 @@ export default async function ProjectsPage() {
         </div>
       </PageContainer>
 
-      <section className="bg-surface border-y border-[#eef4f7]">
+      <section className="bg-surface border-y border-[#f7eeef]">
         <PageContainer className="py-16">
           <Reveal>
             <h2 className="font-heading font-bold text-[clamp(26px,3vw,34px)] text-heading">
