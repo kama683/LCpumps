@@ -47,7 +47,7 @@ export default async function AboutPage() {
             <AboutVideo />
           </div>
 
-          <div className="max-w-205 mt-10">
+          <div className="mt-10">
             <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,48px)] text-heading leading-tight">
               {t("AboutUs.title")}
             </h1>
