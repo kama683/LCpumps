@@ -15,11 +15,17 @@ interface CategoryHeroImageProps {
   fallbackProductSlug?: string;
 }
 
+// TEMPORARY: every category panel shows this one corporate placeholder photo
+// until dedicated per-category banners are ready. To restore per-category
+// images, change `dedicatedSrc` back to `CATEGORY_PANEL_HERO_IMAGES[panelId]`
+// and the className back to the wastewater-submersible-only conditional.
+const PLACEHOLDER_HERO_SRC = CATEGORY_PANEL_HERO_IMAGES["wastewater-submersible"];
+
 export function CategoryHeroImage({
   panelId,
   fallbackProductSlug,
 }: CategoryHeroImageProps) {
-  const dedicatedSrc = CATEGORY_PANEL_HERO_IMAGES[panelId];
+  const dedicatedSrc = PLACEHOLDER_HERO_SRC;
   const fallbackSrc = fallbackProductSlug
     ? getProductImageSrc({ slug: fallbackProductSlug })
     : ASSETS.pump.src;
@@ -37,12 +43,7 @@ export function CategoryHeroImage({
       alt={getCategoryPanelHeroAlt(panelId)}
       fill
       sizes="(max-width: 900px) 100vw, 42vw"
-      className={cn(
-        "object-center",
-        // Dedicated corporate banner for this category — shown in full,
-        // unlike the other panels' cover-cropped product photos.
-        panelId === "wastewater-submersible" ? "object-contain" : "object-cover"
-      )}
+      className={cn("object-center object-contain")}
       priority
       onError={() => {
         if (src !== fallbackSrc) setSrc(fallbackSrc);
