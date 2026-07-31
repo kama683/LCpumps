@@ -14,14 +14,43 @@ export function Header() {
   const pathname = usePathname();
   const t = useTranslations("Nav");
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const isHome = pathname === "/";
+  // Home hero is a fullscreen photo, so the header floats transparent over it
+  // until the user scrolls past it or hovers — every other page keeps the
+  // regular solid header.
+  const transparent = isHome && !scrolled && !hovered;
 
   // Close the mobile menu whenever the route changes.
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!isHome) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/96 backdrop-blur-sm border-b border-border-light">
+    <header
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={cn(
+        "top-0 inset-x-0 z-50 border-b transition-colors duration-300",
+        // Home floats the header over the hero photo, so it must sit outside
+        // normal flow (fixed) instead of reserving its own row (sticky).
+        // Every other page keeps the original in-flow sticky header.
+        isHome ? "fixed" : "sticky",
+        transparent
+          ? "bg-transparent border-transparent"
+          : "bg-white/96 backdrop-blur-sm border-border-light"
+      )}
+    >
       <div className="max-w-[var(--container-content)] mx-auto px-5 tablet:px-8 py-3 tablet:py-3.5 flex items-center gap-4 tablet:gap-8.5">
         <Link
           href="/"
@@ -35,7 +64,12 @@ export function Header() {
             className="object-contain size-20 tablet:h-28 tablet:w-auto"
             priority
           />
-          <span className="font-heading font-bold text-[28px] tablet:text-[32px] text-body tracking-[1.1px] leading-[1.15]">
+          <span
+            className={cn(
+              "font-heading font-bold text-[28px] tablet:text-[32px] tracking-[1.1px] leading-[1.15] transition-colors duration-300",
+              transparent ? "text-white" : "text-body"
+            )}
+          >
             LCPUMPS
           </span>
         </Link>
@@ -48,10 +82,14 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "no-underline pb-0.5",
-                  active
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-nav hover:text-primary"
+                  "no-underline pb-0.5 transition-colors duration-300",
+                  transparent
+                    ? active
+                      ? "text-white border-b-2 border-white"
+                      : "text-white/85 hover:text-white"
+                    : active
+                      ? "text-primary border-b-2 border-primary"
+                      : "text-nav hover:text-primary"
                 )}
               >
                 {t(item.labelKey)}
@@ -61,7 +99,7 @@ export function Header() {
         </nav>
 
         <div className="hidden tablet:block">
-          <LanguageSwitcher />
+          <LanguageSwitcher light={transparent} />
         </div>
 
         <Button href="/contact" variant="header" className="hidden tablet:inline-flex shrink-0">
@@ -73,7 +111,12 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? t("closeMenu") : t("openMenu")}
-          className="tablet:hidden ml-auto flex size-11 shrink-0 items-center justify-center rounded-md border border-border-mid text-heading transition-colors hover:border-primary hover:text-primary"
+          className={cn(
+            "tablet:hidden ml-auto flex size-11 shrink-0 items-center justify-center rounded-md border transition-colors duration-300",
+            transparent
+              ? "border-white/40 text-white hover:border-white hover:text-white"
+              : "border-border-mid text-heading hover:border-primary hover:text-primary"
+          )}
         >
           {open ? (
             <X className="size-5" strokeWidth={2} aria-hidden />

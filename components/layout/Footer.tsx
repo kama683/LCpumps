@@ -10,7 +10,7 @@ import {
 } from "@/lib/site";
 
 const CONTACT_EMAIL = "export@lcpumps.com";
-const CONTACT_PHONE = "+86 21 XXXX XXXX";
+const CONTACT_PHONE = "+7 771 778 68 77";
 
 export function Footer() {
   const t = useTranslations("Footer");

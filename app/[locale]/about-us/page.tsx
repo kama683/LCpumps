@@ -23,6 +23,7 @@ import {
 import { Reveal } from "@/components/ui/Reveal";
 import { StatGrid } from "@/components/ui/StatGrid";
 import { COMPANY_NAME } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "О компании",
@@ -51,48 +52,14 @@ export default async function AboutPage() {
             <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,48px)] text-heading leading-tight">
               {t("AboutUs.title")}
             </h1>
-            <p className="text-[17px] leading-relaxed text-muted mt-6">
-              Bellary Pumps — официальный эксклюзивный представитель Shanghai
-              Liancheng (Group) Co., Ltd. в Казахстане, Центральной Азии и СНГ.
-            </p>
-            <p className="text-[17px] leading-relaxed text-muted mt-5">
-              Shanghai Liancheng — один из ведущих производителей насосного
-              оборудования Китая с более чем 30-летним опытом, собственными
-              научно-исследовательскими институтами, современными
-              производственными мощностями и годовым оборотом 4,8 млрд юаней.
-              Решения компании успешно применяются на промышленных,
-              энергетических, нефтегазовых, инфраструктурных и коммунальных
-              объектах по всему миру.
-            </p>
-            <p className="text-[17px] leading-relaxed text-muted mt-5">
-              Как официальный представитель производителя, Bellary Pumps
-              предоставляет полный ассортимент оборудования, запасных частей и
-              инженерных решений Shanghai Liancheng непосредственно в регионе.
-              Наши клиенты получают прямой доступ к технологиям мирового
-              производителя без посредников.
-            </p>
-            <p className="text-[17px] leading-relaxed text-muted mt-5">
-              В компании сформирована вся необходимая инфраструктура для
-              оперативной реализации проектов: собственный складской комплекс
-              и шоурум площадью 1 600 м², оборудование и комплектующие в
-              наличии, выстроенная система прямых поставок с завода,
-              международной логистики и таможенного сопровождения. Благодаря
-              этому мы обеспечиваем оптимальные сроки поставки,
-              конкурентоспособную стоимость и стабильное наличие оборудования.
-            </p>
-            <p className="text-[17px] leading-relaxed text-muted mt-5">
-              Команда опытных инженеров и технических специалистов в
-              кратчайшие сроки подбирает оптимальное решение под задачи
-              заказчика, сопровождает проект на всех этапах его реализации и
-              обеспечивает профессиональную сервисную поддержку.
-            </p>
-            <p className="text-[17px] leading-relaxed text-muted mt-5">
-              Bellary Pumps — это официальный представитель мирового
-              производителя, оборудование в наличии, прямые поставки, сильная
-              инженерная команда и комплексные решения, позволяющие
-              реализовывать проекты быстро, эффективно и с гарантированным
-              результатом.
-            </p>
+            {(t.raw("AboutUs.intro") as string[]).map((paragraph, index) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className={cn("text-[17px] leading-relaxed text-muted", index === 0 ? "mt-6" : "mt-5")}
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
         </PageContainer>
       </section>

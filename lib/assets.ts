@@ -2,7 +2,7 @@
 
 export const ASSETS = {
   logo: {
-    src: "/assets/logo/newlogo(v3).png",
+    src: "/assets/logo/newlogo(v5).png",
     width: 1024,
     height: 1024,
     alt: "LCPumps",
@@ -14,19 +14,19 @@ export const ASSETS = {
     alt: "",
   },
   logoBackground: {
-    src: "/assets/logo/newlogo(v3).png",
+    src: "/assets/logo/newlogo(v5).png",
     width: 1024,
     height: 1024,
     alt: "",
   },
   logoColor: {
-    src: "/assets/logo/newlogo(v3).png",
+    src: "/assets/logo/newlogo(v5).png",
     width: 1024,
     height: 1024,
     alt: "LCPumps",
   },
   logoFaint: {
-    src: "/assets/logo/newlogo(v3).png",
+    src: "/assets/logo/newlogo(v5).png",
     width: 1024,
     height: 1024,
     alt: "",
@@ -50,6 +50,13 @@ export const ASSETS = {
     alt: "LCPumps",
   },
 } as const;
+
+/** Home hero background slideshow — crossfades through these in order. */
+export const HERO_SLIDES = [
+  { src: "/assets/hero/hero-1.png", alt: "" },
+  { src: "/assets/hero/hero-2.png", alt: "" },
+  { src: "/assets/hero/hero-3.png", alt: "" },
+] as const;
 
 export const LOGO_PATH = ASSETS.logo.src;
 export const HERO_BG_PATH = ASSETS.heroBg.src;

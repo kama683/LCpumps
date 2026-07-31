@@ -14,7 +14,7 @@
     "productsHeading": "Products",
     "contactsHeading": "Contacts",
     "certifications": "Certifications",
-    "address": "Fengbang Industrial Park, Shanghai",
+    "address": "Промзона территория, 205а",
     "rightsReserved": "All rights reserved."
   },
   "LanguageSwitcher": {
@@ -104,7 +104,7 @@
       "description": "Contact us directly — our engineers and project managers are always available.",
       "address": {
         "label": "Address",
-        "value": "Fengbang Industrial Park, Shanghai, China"
+        "value": "Промзона территория, 205а"
       },
       "email": {
         "label": "Email"
@@ -135,7 +135,7 @@
     "home": "Home",
     "products": "Products",
     "contactUs": "Contact Us",
-    "headquartersNote": "Headquarters is located in Fengbang Industrial Park, Shanghai."
+    "headquartersNote": "Our office is located at: Промзона территория, 205а."
   },
   "CatalogNav": {
     "wastewater-submersible": "Submersible sewage pumps, mixers and equipment",
@@ -228,7 +228,15 @@
       "sustainability": "Environment",
       "production": "Production",
       "certifications": "Certifications"
-    }
+    },
+    "intro": [
+      "Bellary Pumps is the official exclusive representative of Shanghai Liancheng (Group) Co., Ltd. in Kazakhstan, Central Asia, and the CIS.",
+      "Shanghai Liancheng is one of China's leading manufacturers of pumping equipment, with more than 30 years of experience, its own R&D institutes, modern production facilities, and annual revenue of 4.8 billion yuan. The company's solutions are successfully used at industrial, power, oil and gas, infrastructure, and utility facilities worldwide.",
+      "As the manufacturer's official representative, Bellary Pumps provides the full range of Shanghai Liancheng equipment, spare parts, and engineering solutions directly in the region. Our clients get direct access to world-class manufacturing technology without intermediaries.",
+      "The company has built all the infrastructure needed for fast project delivery: its own warehouse complex and showroom covering 1,600 m², equipment and components in stock, and an established system of direct factory supply, international logistics, and customs support. This lets us guarantee optimal delivery times, competitive pricing, and stable equipment availability.",
+      "A team of experienced engineers and technical specialists quickly selects the optimal solution for the customer's needs, supports the project at every stage, and provides professional service support.",
+      "Bellary Pumps is an official representative of a world-class manufacturer, with equipment in stock, direct deliveries, a strong engineering team, and comprehensive solutions that let projects be completed quickly, efficiently, and with a guaranteed result."
+    ]
   },
   "AboutSubPage": {
     "extraPages": {

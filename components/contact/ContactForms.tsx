@@ -371,7 +371,7 @@ function DirectContacts() {
         <ContactInfoCard
           icon="phone"
           label={t("phone.label")}
-          html="<strong>+86 21 XXXX XXXX</strong>"
+          html="<strong>+7 771 778 68 77</strong>"
         />
         <ContactInfoCard
           icon="clock"

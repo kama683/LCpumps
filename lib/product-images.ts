@@ -86,7 +86,7 @@ export const PRODUCT_IMAGE_BY_SLUG: Record<string, string> = {
 
 /** Dedicated category hero banners that exist in public/assets. */
 export const CATEGORY_PANEL_HERO_IMAGES: Record<string, string> = {
-  "wastewater-submersible": `${SUBMERSIBLE_SEWAGE_BASE}/submer.png`,
+  "wastewater-submersible": `${SUBMERSIBLE_SEWAGE_BASE}/category-hero.png`,
   "single-suction-centrifugal": `${END_SUCTION_BASE}/End-suction-Centrifugal-Pump_1732707241_WNo_4167d4167.png`,
   "double-suction-split-case": `${DOUBLE_SUCTION_BASE}/Double-Suction-Split-Case-Water-Pump_1732707241_WNo_4167d4167.png`,
   petrochemical: `${OIL_CHEMICAL_BASE}/Petroleum-Chemical-Pump_1732707241_WNo_4167d4167.png`,

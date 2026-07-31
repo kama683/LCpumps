@@ -12,9 +12,11 @@ interface LanguageSwitcherProps {
    * containers with `overflow-hidden` (e.g. an animated collapse panel), since an
    * absolutely-positioned dropdown would otherwise get clipped by that ancestor. */
   inline?: boolean;
+  /** White trigger text — for the transparent header floating over the home hero photo. */
+  light?: boolean;
 }
 
-export function LanguageSwitcher({ inline = false }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ inline = false, light = false }: LanguageSwitcherProps) {
   const t = useTranslations("LanguageSwitcher");
   const locale = useLocale();
   const pathname = usePathname();
@@ -43,10 +45,10 @@ export function LanguageSwitcher({ inline = false }: LanguageSwitcherProps) {
     );
   }
 
-  return <LanguageDropdown />;
+  return <LanguageDropdown light={light} />;
 }
 
-function LanguageDropdown() {
+function LanguageDropdown({ light = false }: { light?: boolean }) {
   const t = useTranslations("LanguageSwitcher");
   const locale = useLocale();
   const pathname = usePathname();
@@ -81,7 +83,10 @@ function LanguageDropdown() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="flex items-center gap-1.5 rounded-sm px-2 py-2.5 tablet:py-1 text-nav transition-colors hover:text-primary cursor-pointer"
+        className={cn(
+          "flex items-center gap-1.5 rounded-sm px-2 py-2.5 tablet:py-1 transition-colors duration-300 cursor-pointer",
+          light ? "text-white hover:text-white/80" : "text-nav hover:text-primary"
+        )}
       >
         {t(locale)}
         <ChevronDown

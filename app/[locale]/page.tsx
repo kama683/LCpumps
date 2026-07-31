@@ -4,7 +4,7 @@ import { AboutVideo } from "@/components/ui/AboutVideo";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { HeroBgImage } from "@/components/ui/HeroBgImage";
+import { HeroSlider } from "@/components/ui/HeroSlider";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { ProjectImage } from "@/components/ui/ProjectImage";
 import { Reveal } from "@/components/ui/Reveal";
@@ -14,6 +14,7 @@ import { PageContainer, SectionHeading } from "@/components/ui/SpecTable";
 import { getCatalogIntro, getProductBySlug } from "@/lib/catalog";
 import { getProjectsData } from "@/data/projects";
 import type { AppLocale } from "@/i18n/routing";
+import { HERO_SLIDES } from "@/lib/assets";
 import { COMPANY_NAME, HOME_FEATURED_PRODUCTS, getHomeStats } from "@/lib/site";
 
 // Featured products are DB-backed and admin-editable at runtime.
@@ -29,15 +30,15 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="relative bg-white overflow-hidden min-h-115 tablet:min-h-155">
-        <HeroBgImage variant="home" priority />
-        <PageContainer className="relative z-10 pt-5 pb-16 tablet:pt-7 tablet:pb-22">
+      <section className="relative bg-heading overflow-hidden min-h-dvh">
+        <HeroSlider images={HERO_SLIDES} />
+        <PageContainer className="relative z-10 pt-31 pb-16 tablet:pt-42 tablet:pb-22">
           <div className="max-w-[640px]">
             <div className="animate-hero-fade-up inline-block text-[10px] font-bold tracking-[1.1px] uppercase text-primary bg-[#fcf4f5] border border-[#f7e3e5] px-3.5 py-2 rounded-pill mb-7">
               SHANGHAI LIANCHENG (GROUP) CO., LTD.
             </div>
             <h1
-              className="animate-hero-fade-up font-heading font-bold text-[clamp(30px,4vw,48px))] leading-[1.12] text-heading"
+              className="animate-hero-fade-up font-heading font-bold text-[clamp(30px,4vw,48px))] leading-[1.12] text-white"
               style={{ animationDelay: "80ms" }}
             >
               {t("Home.heroPrefix")}{" "}
@@ -47,7 +48,7 @@ export default async function HomePage() {
               {t("Home.heroSuffix")}
             </h1>
             <p
-              className="animate-hero-fade-up text-[19px] leading-relaxed text-muted mt-6 max-w-[560px]"
+              className="animate-hero-fade-up text-[19px] leading-relaxed text-white/85 mt-6 max-w-[560px]"
               style={{ animationDelay: "140ms" }}
             >
               {t("Home.intro")}
@@ -63,7 +64,7 @@ export default async function HomePage() {
         </PageContainer>
       </section>
 
-      <PageContainer className="pb-20">
+      <PageContainer className="pt-16 pb-20 tablet:pt-20">
         <StatGrid items={getHomeStats(locale)} columns={5} compact />
       </PageContainer>
 

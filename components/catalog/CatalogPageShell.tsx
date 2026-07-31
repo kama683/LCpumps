@@ -47,7 +47,7 @@ function CatalogPageHeader({
             {intro}
           </p>
         </div>
-        <div className="relative w-full aspect-[440/260]">
+        <div className="relative w-full aspect-[440/260] rounded-2xl overflow-hidden">
           <CategoryHeroImage
             panelId={activePanel}
             fallbackProductSlug={firstProductSlug}

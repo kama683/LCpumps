@@ -8,6 +8,7 @@ import {
   getCategoryPanelHeroAlt,
   getProductImageSrc,
 } from "@/lib/product-images";
+import { cn } from "@/lib/utils";
 
 interface CategoryHeroImageProps {
   panelId: string;
@@ -36,7 +37,12 @@ export function CategoryHeroImage({
       alt={getCategoryPanelHeroAlt(panelId)}
       fill
       sizes="(max-width: 900px) 100vw, 42vw"
-      className="object-cover object-center"
+      className={cn(
+        "object-center",
+        // Dedicated corporate banner for this category — shown in full,
+        // unlike the other panels' cover-cropped product photos.
+        panelId === "wastewater-submersible" ? "object-contain" : "object-cover"
+      )}
       priority
       onError={() => {
         if (src !== fallbackSrc) setSrc(fallbackSrc);
