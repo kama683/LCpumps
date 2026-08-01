@@ -25,7 +25,7 @@ export default async function ProductsWaterPage({
   return (
     <CategoryCatalogPage
       category="water"
-      title={t("waterTitle")}
+      title={t("allPumpsTitle")}
       route="/products/water"
       defaultPanelId="water-supply-complete"
     />

@@ -37,21 +37,20 @@ function CatalogPageHeader({
 
   return (
     <PageContainer className="pt-12">
-      <div className="grid grid-cols-1 tablet:grid-cols-[minmax(0,1fr)_min(440px,42%)] gap-8 tablet:gap-10 items-center">
-        <div>
-          <Breadcrumb items={breadcrumb} />
-          <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,44px)] text-heading mt-6 leading-tight">
+      <div className="relative w-full min-h-100 rounded-2xl overflow-hidden flex flex-col justify-center px-6 py-10 tablet:px-12">
+        <CategoryHeroImage
+          panelId={activePanel}
+          fallbackProductSlug={firstProductSlug}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10">
+          <Breadcrumb items={breadcrumb} light />
+          <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,44px)] text-white mt-6 leading-tight">
             {title}
           </h1>
-          <p className="text-[17px] leading-relaxed text-muted mt-4.5 max-w-[880px]">
+          <p className="text-[17px] leading-relaxed text-white/85 mt-4.5 max-w-[880px]">
             {intro}
           </p>
-        </div>
-        <div className="relative w-full aspect-[440/260] rounded-2xl overflow-hidden">
-          <CategoryHeroImage
-            panelId={activePanel}
-            fallbackProductSlug={firstProductSlug}
-          />
         </div>
       </div>
     </PageContainer>

@@ -38,14 +38,27 @@ interface BreadcrumbItem {
   href?: string;
 }
 
-export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
+export function Breadcrumb({
+  items,
+  light = false,
+}: {
+  items: BreadcrumbItem[];
+  /** White text — for breadcrumbs sitting on a dark photo overlay. */
+  light?: boolean;
+}) {
   return (
-    <nav aria-label="Breadcrumb" className="text-[13px] text-subtle mb-3.5">
+    <nav
+      aria-label="Breadcrumb"
+      className={cn("text-[13px] mb-3.5", light ? "text-white/80" : "text-subtle")}
+    >
       {items.map((item, index) => (
         <span key={`${item.label}-${index}`} className="inline-flex items-center">
-          {index > 0 && <BreadcrumbChevron />}
+          {index > 0 && <BreadcrumbChevron light={light} />}
           {item.href ? (
-            <Link href={item.href} className="text-subtle hover:text-primary">
+            <Link
+              href={item.href}
+              className={light ? "text-white/80 hover:text-white" : "text-subtle hover:text-primary"}
+            >
               {item.label}
             </Link>
           ) : (

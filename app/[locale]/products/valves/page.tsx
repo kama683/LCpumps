@@ -25,7 +25,7 @@ export default async function ProductsValvesPage({
   return (
     <CategoryCatalogPage
       category="valves"
-      title={t("valvesTitle")}
+      title={t("allPumpsTitle")}
       route="/products/valves"
       defaultPanelId="valves"
     />

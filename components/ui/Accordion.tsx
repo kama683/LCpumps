@@ -118,10 +118,13 @@ export function AccordionDetails({
   );
 }
 
-export function BreadcrumbChevron() {
+export function BreadcrumbChevron({ light = false }: { light?: boolean }) {
   return (
     <ChevronRight
-      className="mx-1.5 inline size-3.5 text-subtle align-middle"
+      className={cn(
+        "mx-1.5 inline size-3.5 align-middle",
+        light ? "text-white/70" : "text-subtle"
+      )}
       strokeWidth={2}
       aria-hidden
     />

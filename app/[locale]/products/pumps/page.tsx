@@ -25,7 +25,7 @@ export default async function ProductsPumpsPage({
   return (
     <CategoryCatalogPage
       category="pumps"
-      title={t("pumpsTitle")}
+      title={t("allPumpsTitle")}
       route="/products/pumps"
       defaultPanelId="wastewater-submersible"
     />

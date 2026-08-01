@@ -84,31 +84,42 @@ export const PRODUCT_IMAGE_BY_SLUG: Record<string, string> = {
   zw: `${CATALOG_ROOT_BASE}/ZW.png`,
 };
 
-/** Dedicated category hero banners that exist in public/assets. */
-export const CATEGORY_PANEL_HERO_IMAGES: Record<string, string> = {
-  "wastewater-submersible": `${SUBMERSIBLE_SEWAGE_BASE}/category-hero.png`,
-  "single-suction-centrifugal": `${END_SUCTION_BASE}/End-suction-Centrifugal-Pump_1732707241_WNo_4167d4167.png`,
-  "double-suction-split-case": `${DOUBLE_SUCTION_BASE}/Double-Suction-Split-Case-Water-Pump_1732707241_WNo_4167d4167.png`,
-  petrochemical: `${OIL_CHEMICAL_BASE}/Petroleum-Chemical-Pump_1732707241_WNo_4167d4167.png`,
-  "control-panel": `${CONTROL_PANEL_BASE}/Electrical-Control-Panel_1732707241_WNo_4167d4167.png`,
-  "fire-pump": `${FIRE_PUMP_BASE}/Fire-fighting-Pump_1732707241_WNo_4167d4167.png`,
-  "water-supply-complete": `${MODULAR_SOLUTIONS_BASE}/Compelete-Water-Supply-Equipment_1732707240_WNo_4167d4167.png`,
+/** Dedicated category hero slideshows — each panel crossfades through its own set. */
+export const CATEGORY_PANEL_HERO_IMAGES: Record<string, string[]> = {
+  "wastewater-submersible": [
+    `${SUBMERSIBLE_SEWAGE_BASE}/category-hero-1.png`,
+    `${SUBMERSIBLE_SEWAGE_BASE}/category-hero-2.png`,
+  ],
+  "single-suction-centrifugal": [
+    `${END_SUCTION_BASE}/category-hero-1.png`,
+    `${END_SUCTION_BASE}/category-hero-2.png`,
+    `${END_SUCTION_BASE}/category-hero-3.png`,
+    `${END_SUCTION_BASE}/category-hero-4.png`,
+  ],
+  "double-suction-split-case": [
+    `${DOUBLE_SUCTION_BASE}/category-hero-1.png`,
+    `${DOUBLE_SUCTION_BASE}/category-hero-2.png`,
+    `${DOUBLE_SUCTION_BASE}/category-hero-3.png`,
+    `${DOUBLE_SUCTION_BASE}/category-hero-4.png`,
+  ],
+  petrochemical: [
+    `${OIL_CHEMICAL_BASE}/category-hero-1.png`,
+    `${OIL_CHEMICAL_BASE}/category-hero-2.png`,
+  ],
+  "control-panel": [
+    `${CONTROL_PANEL_BASE}/category-hero-1.png`,
+    `${CONTROL_PANEL_BASE}/category-hero-2.png`,
+    `${CONTROL_PANEL_BASE}/category-hero-3.png`,
+  ],
+  "fire-pump": [
+    `${FIRE_PUMP_BASE}/category-hero-1.png`,
+    `${FIRE_PUMP_BASE}/category-hero-2.png`,
+  ],
+  "water-supply-complete": [
+    `${MODULAR_SOLUTIONS_BASE}/category-hero-1.png`,
+    `${MODULAR_SOLUTIONS_BASE}/category-hero-2.png`,
+  ],
 };
-
-export function getCategoryPanelHeroImage(
-  panelId: string,
-  fallbackProductSlug?: string
-): string {
-  if (CATEGORY_PANEL_HERO_IMAGES[panelId]) {
-    return CATEGORY_PANEL_HERO_IMAGES[panelId];
-  }
-
-  if (fallbackProductSlug) {
-    return getProductImageSrc({ slug: fallbackProductSlug });
-  }
-
-  return ASSETS.pump.src;
-}
 
 export function getCategoryPanelHeroAlt(panelId: string): string {
   return CATALOG_NAV.find((item) => item.id === panelId)?.label ?? "Каталог";

@@ -34,9 +34,6 @@ export default async function HomePage() {
         <HeroSlider images={HERO_SLIDES} />
         <PageContainer className="relative z-10 pt-31 pb-16 tablet:pt-42 tablet:pb-22">
           <div className="max-w-[640px]">
-            <div className="animate-hero-fade-up inline-block text-[10px] font-bold tracking-[1.1px] uppercase text-primary bg-[#fcf4f5] border border-[#f7e3e5] px-3.5 py-2 rounded-pill mb-7">
-              SHANGHAI LIANCHENG (GROUP) CO., LTD.
-            </div>
             <h1
               className="animate-hero-fade-up font-heading font-bold text-[clamp(30px,4vw,48px))] leading-[1.12] text-white"
               style={{ animationDelay: "80ms" }}

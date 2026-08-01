@@ -47,7 +47,7 @@ export function Header() {
         // Every other page keeps the original in-flow sticky header.
         isHome ? "fixed" : "sticky",
         transparent
-          ? "bg-transparent border-transparent"
+          ? "bg-black/20 border-transparent"
           : "bg-white/96 backdrop-blur-sm border-border-light"
       )}
     >

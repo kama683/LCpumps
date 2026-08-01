@@ -138,13 +138,13 @@
     "headquartersNote": "我们的办公室地址：Промзона территория, 205а。"
   },
   "CatalogNav": {
-    "wastewater-submersible": "污水提升泵、搅拌机及成套设备",
-    "single-suction-centrifugal": "通用工业与建筑应用",
-    "double-suction-split-case": "工业应用与农业",
-    "petrochemical": "石油化工行业，API610标准",
-    "control-panel": "电气控制柜",
+    "wastewater-submersible": "污水处理设备",
+    "single-suction-centrifugal": "水利设备",
+    "double-suction-split-case": "工业用泵",
+    "petrochemical": "石油化工设备",
+    "control-panel": "智能控制",
     "fire-pump": "FM / UL标准消防泵设备",
-    "water-supply-complete": "模块化解决方案",
+    "water-supply-complete": "成套给水设备",
     "valves": "管路阀门",
     "valvesFooterLabel": "管路阀门"
   },

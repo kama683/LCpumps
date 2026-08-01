@@ -25,9 +25,9 @@ export default async function ProductsControlPage({
   return (
     <CategoryCatalogPage
       category="control"
-      title={t("controlTitle")}
+      title={t("allPumpsTitle")}
       route="/products/control"
-      defaultPanelId="control"
+      defaultPanelId="control-panel"
     />
   );
 }
