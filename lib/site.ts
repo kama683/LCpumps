@@ -29,9 +29,9 @@ export type MainNavHref = (typeof MAIN_NAV)[number]["href"];
 
 export const CATALOG_NAV: CatalogNavItem[] = [
   {
-    id: "wastewater-submersible",
-    title: "Насосы, смесители и оборудование для сточной воды",
-    label: "Насосы, смесители и оборудование для сточной воды",
+    id: "fire-pump",
+    title: "Пожарное насосное оборудование по стандарту FM / UL",
+    label: "Пожарное насосное оборудование по стандарту FM / UL",
     category: "pumps",
     page: "/products",
   },
@@ -39,6 +39,13 @@ export const CATALOG_NAV: CatalogNavItem[] = [
     id: "single-suction-centrifugal",
     title: "Общепромышленное применение и строительство",
     label: "Общепромышленное применение и строительство",
+    category: "pumps",
+    page: "/products",
+  },
+  {
+    id: "wastewater-submersible",
+    title: "Насосы, смесители и оборудование для сточной воды",
+    label: "Насосы, смесители и оборудование для сточной воды",
     category: "pumps",
     page: "/products",
   },
@@ -60,13 +67,6 @@ export const CATALOG_NAV: CatalogNavItem[] = [
     id: "control-panel",
     title: "Электрические шкафы управления",
     label: "Электрические шкафы управления",
-    category: "pumps",
-    page: "/products",
-  },
-  {
-    id: "fire-pump",
-    title: "Пожарное насосное оборудование по стандарту FM / UL",
-    label: "Пожарное насосное оборудование по стандарту FM / UL",
     category: "pumps",
     page: "/products",
   },
