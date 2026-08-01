@@ -6,6 +6,7 @@ import { ProductEditModal } from "@/components/admin/ProductEditModal";
 import { getProductImageSrc } from "@/lib/product-images";
 import type { AdminProductListItem, ProductInput } from "@/lib/repositories/products";
 import type { SectionOption } from "@/lib/repositories/sections";
+import { formatTenge } from "@/lib/utils";
 
 const FIELD =
   "w-full py-2.5 pl-9 pr-3.5 border border-border-mid rounded-md text-sm text-body bg-white placeholder:text-subtle focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(247,6,32,0.12)] transition-[border-color,box-shadow]";
@@ -29,13 +30,16 @@ function ProductRow({
         <div className="truncate text-sm font-bold text-body">{product.name}</div>
         <div className="mt-0.5 text-xs text-subtle">{product.code}</div>
       </div>
-      <span
-        className={`shrink-0 rounded-pill px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
-          product.stockQuantity > 0 ? "bg-surface-alt text-success" : "bg-surface-alt text-error"
-        }`}
-      >
-        {product.stockQuantity > 0 ? `В наличии: ${product.stockQuantity}` : "Нет в наличии"}
-      </span>
+      <div className="flex shrink-0 flex-col items-end gap-1">
+        <span className="text-sm font-bold text-body">{formatTenge(product.price)}</span>
+        <span
+          className={`rounded-pill px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
+            product.stockQuantity > 0 ? "bg-surface-alt text-success" : "bg-surface-alt text-error"
+          }`}
+        >
+          {product.stockQuantity > 0 ? `В наличии: ${product.stockQuantity}` : "Нет в наличии"}
+        </span>
+      </div>
       <button
         type="button"
         onClick={() => onEdit(product.slug)}

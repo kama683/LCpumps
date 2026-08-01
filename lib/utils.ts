@@ -9,3 +9,13 @@ export function isActiveNav(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
+
+const TENGE_FORMATTER = new Intl.NumberFormat("ru-KZ", {
+  style: "currency",
+  currency: "KZT",
+  maximumFractionDigits: 0,
+});
+
+export function formatTenge(amount: number): string {
+  return TENGE_FORMATTER.format(amount);
+}

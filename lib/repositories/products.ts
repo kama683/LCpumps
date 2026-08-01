@@ -23,6 +23,8 @@ export interface ProductInput {
   sectionId: string | null;
   image: string | null;
   stockQuantity: number;
+  /** Admin-only — never returned by the public read path (getAllProductsPublic). */
+  price: number;
   translations: ProductTranslations;
 }
 
@@ -34,6 +36,7 @@ export interface AdminProductListItem {
   sectionId: string | null;
   image: string | null;
   stockQuantity: number;
+  price: number;
 }
 
 /** RU name only — enough for the admin table/search; full per-locale
@@ -47,6 +50,7 @@ export async function listProductsForAdmin(): Promise<AdminProductListItem[]> {
       sectionId: products.sectionId,
       image: products.image,
       stockQuantity: products.stockQuantity,
+      price: products.price,
       name: productTranslations.name,
     })
     .from(products)
@@ -93,6 +97,7 @@ export async function getProductForAdmin(slug: string): Promise<ProductInput | n
     sectionId: product.sectionId,
     image: product.image,
     stockQuantity: product.stockQuantity,
+    price: product.price,
     translations,
   };
 }
@@ -111,6 +116,7 @@ export async function createProduct(input: ProductInput): Promise<void> {
       sectionId: input.sectionId,
       image: input.image,
       stockQuantity: input.stockQuantity,
+      price: input.price,
     });
 
     for (const locale of LOCALES) {
@@ -137,6 +143,7 @@ export async function updateProduct(slug: string, input: Omit<ProductInput, "slu
         sectionId: input.sectionId,
         image: input.image,
         stockQuantity: input.stockQuantity,
+        price: input.price,
         updatedAt: new Date(),
       })
       .where(eq(products.slug, slug));

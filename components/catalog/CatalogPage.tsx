@@ -54,7 +54,7 @@ export async function PumpsCatalogPage() {
         metadataTitle: t("CategoryPage.allPumpsTitle"),
         categoryFilter: null,
         route: "/products",
-        defaultPanelId: "wastewater-submersible",
+        defaultPanelId: "fire-pump",
         searchPlaceholder: t("CategoryPage.searchPlaceholderAll"),
         breadcrumb: [
           { label: t("Common.home"), href: "/" },

@@ -10,6 +10,7 @@ import { parseSpecRow } from "@/lib/catalog-helpers";
 import type { ProductInput, ProductTranslationInput } from "@/lib/repositories/products";
 import type { ProductCategory } from "@/lib/types";
 import type { AppLocale } from "@/i18n/routing";
+import { formatTenge } from "@/lib/utils";
 
 const FIELD =
   "w-full py-2.5 px-3.5 border border-border-mid rounded-md text-sm text-body bg-white placeholder:text-subtle focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(247,6,32,0.12)] transition-[border-color,box-shadow]";
@@ -72,6 +73,7 @@ export function ProductEditModal({ mode, product, sections, onClose }: ProductEd
   const [sectionId, setSectionId] = useState<string>(product?.sectionId ?? "");
   const [image, setImage] = useState<string | null>(product?.image ?? null);
   const [stockQuantity, setStockQuantity] = useState(String(product?.stockQuantity ?? 0));
+  const [price, setPrice] = useState(String(product?.price ?? 0));
   const [locale, setLocale] = useState<AppLocale>("ru");
   const [forms, setForms] = useState<Record<AppLocale, LocaleForm>>(() =>
     Object.fromEntries(
@@ -101,6 +103,7 @@ export function ProductEditModal({ mode, product, sections, onClose }: ProductEd
       sectionId: sectionId || null,
       image,
       stockQuantity: Math.max(0, Number(stockQuantity) || 0),
+      price: Math.max(0, Number(price) || 0),
       translations,
     };
 
@@ -183,19 +186,35 @@ export function ProductEditModal({ mode, product, sections, onClose }: ProductEd
           </div>
         </div>
 
-        <div>
-          <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-subtle">
-            Количество в наличии
-          </label>
-          <input
-            type="number"
-            min={0}
-            step={1}
-            className={`${FIELD} max-w-40`}
-            value={stockQuantity}
-            onChange={(e) => setStockQuantity(e.target.value)}
-          />
-          <p className="mt-1 text-xs text-subtle">Видно и редактируется только в админ-панели.</p>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-subtle">
+              Количество в наличии
+            </label>
+            <input
+              type="number"
+              min={0}
+              step={1}
+              className={FIELD}
+              value={stockQuantity}
+              onChange={(e) => setStockQuantity(e.target.value)}
+            />
+            <p className="mt-1 text-xs text-subtle">Видно и редактируется только в админ-панели.</p>
+          </div>
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-subtle">Цена</label>
+            <input
+              type="number"
+              min={0}
+              step={1}
+              className={FIELD}
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <p className="mt-1 text-xs text-subtle">
+              {formatTenge(Math.max(0, Number(price) || 0))} · видно и редактируется только в админ-панели.
+            </p>
+          </div>
         </div>
 
         <div>

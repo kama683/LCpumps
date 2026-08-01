@@ -61,6 +61,8 @@ export const products = pgTable(
     sectionId: text("section_id").references(() => sections.id, { onDelete: "set null" }),
     image: text("image"),
     stockQuantity: integer("stock_quantity").notNull().default(0),
+    /** Admin-only — never exposed on the public site (see getAllProductsPublic). */
+    price: integer("price").notNull().default(0),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
   },

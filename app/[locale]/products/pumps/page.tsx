@@ -27,7 +27,7 @@ export default async function ProductsPumpsPage({
       category="pumps"
       title={t("allPumpsTitle")}
       route="/products/pumps"
-      defaultPanelId="wastewater-submersible"
+      defaultPanelId="fire-pump"
     />
   );
 }
