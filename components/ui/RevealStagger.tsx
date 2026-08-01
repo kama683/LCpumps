@@ -2,6 +2,7 @@
 
 import { Children, isValidElement } from "react";
 import { useInView } from "@/hooks/useInView";
+import { REVEAL_TRANSITION } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 const STAGGER_STEP_MS = 60;
@@ -27,7 +28,7 @@ export function RevealStagger({ children, className, itemClassName }: RevealStag
             transitionDelay: `${Math.min(index, STAGGER_CAP) * STAGGER_STEP_MS}ms`,
           }}
           className={cn(
-            "transition-[opacity,transform] duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+            REVEAL_TRANSITION,
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
             itemClassName
           )}

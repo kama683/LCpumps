@@ -146,6 +146,7 @@ export function ProductDownloadButton({
               className="relative bg-white overflow-hidden"
               style={{ aspectRatio: "4/3" }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element -- html2canvas needs a real <img> in the capture node */}
               <img
                 src={imageSrc}
                 alt={imageAlt}

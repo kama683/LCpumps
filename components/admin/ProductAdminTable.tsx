@@ -18,14 +18,14 @@ function ProductRow({
   onEdit: (slug: string) => void;
 }) {
   return (
-    <div className="flex items-center gap-4 border-b border-border-light px-5 py-3.5 last:border-b-0">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-border-light px-5 py-3.5 last:border-b-0 max-mobile:flex-wrap">
       {/* eslint-disable-next-line @next/next/no-img-element -- thumbnail may be an admin-uploaded local file */}
       <img
         src={getProductImageSrc(product)}
         alt=""
         className="size-12 shrink-0 rounded-md border border-border-mid bg-white object-contain p-1"
       />
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex-1 max-mobile:basis-full">
         <div className="truncate text-sm font-bold text-body">{product.name}</div>
         <div className="mt-0.5 text-xs text-subtle">{product.code}</div>
       </div>

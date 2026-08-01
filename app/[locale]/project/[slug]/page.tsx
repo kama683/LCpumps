@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { getProjectBySlug, getProjectSlugs, getProjectsData } from "@/data/projects";
+import { getProjectBySlug, getProjectsData } from "@/data/projects";
 import type { AppLocale } from "@/i18n/routing";
 import { getProductsBySlugs } from "@/lib/catalog";
 import { ProjectEquipmentSection } from "@/components/projects/ProjectEquipmentSection";
@@ -16,10 +16,6 @@ interface ProjectPageProps {
 
 // Equipment products are DB-backed and admin-editable at runtime.
 export const dynamic = "force-dynamic";
-
-export async function generateStaticParams() {
-  return getProjectSlugs().map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({
   params,

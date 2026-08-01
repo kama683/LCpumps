@@ -1,3 +1,5 @@
+import "server-only";
+import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { CATALOG_NAV, CATEGORY_ANCHORS } from "@/lib/site";
 import * as productsRepo from "@/lib/repositories/products";
@@ -25,16 +27,24 @@ export { getCompanyParagraphs, getCatalogIntro, parseSpecRow, hasModelCode } fro
 // these) — caching here only avoids a Postgres round-trip on every
 // request, it doesn't make the route static.
 
-const getCachedProducts = unstable_cache(
-  async (locale: string) => productsRepo.getAllProductsPublic(locale as never),
-  ["catalog-products"],
-  { tags: ["catalog"] }
+// cache() dedupes repeat calls with the same locale within a single request
+// (e.g. generateMetadata + the page body both asking for the same product);
+// unstable_cache below it is what avoids the Postgres round-trip across
+// separate requests.
+const getCachedProducts = cache(
+  unstable_cache(
+    async (locale: string) => productsRepo.getAllProductsPublic(locale as never),
+    ["catalog-products"],
+    { tags: ["catalog"] }
+  )
 );
 
-const getCachedSections = unstable_cache(
-  async (locale: string) => sectionsRepo.listSectionsForCatalog(locale as never),
-  ["catalog-sections"],
-  { tags: ["catalog"] }
+const getCachedSections = cache(
+  unstable_cache(
+    async (locale: string) => sectionsRepo.listSectionsForCatalog(locale as never),
+    ["catalog-sections"],
+    { tags: ["catalog"] }
+  )
 );
 
 export async function getAllProducts(locale: string = "ru"): Promise<ProductDetail[]> {

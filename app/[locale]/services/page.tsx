@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Headphones } from "lucide-react";
 import { getCompanyParagraphs } from "@/lib/catalog-helpers";
 import { Button } from "@/components/ui/Button";
 import { IconBox } from "@/components/ui/IconBox";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 
-export const metadata: Metadata = {
-  title: "Сервис",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.services" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function ServicesPage() {
   const t = useTranslations();

@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 
-export const metadata: Metadata = {
-  title: "Новости",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.news" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function NewsPage() {
   const t = useTranslations();

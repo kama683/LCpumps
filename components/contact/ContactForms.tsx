@@ -84,6 +84,16 @@ export function ContactForms() {
 
           <form ref={formRef} action={formAction} className="space-y-0">
             <input type="hidden" name="mode" value={techOpen ? "technical" : "basic"} />
+            {/* Honeypot — hidden from real visitors, only bots that fill every
+                field trip it. See submitContactAction in actions.ts. */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute left-[-9999px] top-auto size-px overflow-hidden"
+            />
             {/* Block 1 — contacts */}
             <FormSection title={t("contactDataSection")}>
               <FormRows

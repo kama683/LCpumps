@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getFaqItems } from "@/data/content";
 import { AccordionItem } from "@/components/ui/Accordion";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.faq" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function FaqPage() {
   const t = useTranslations();

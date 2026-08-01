@@ -244,14 +244,15 @@ export function CatalogLayout({
             <h2 className="font-heading font-bold text-heading text-[clamp(24px,3vw,32px)] leading-tight">
               {tCatalogNav(panel.id === "valves" ? "valvesFooterLabel" : panel.id)}
             </h2>
-            {panel.section.paragraphs.map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 40)}
-                className="text-base leading-relaxed text-muted mt-4"
-              >
-                {paragraph}
-              </p>
-            ))}
+            {panel.id !== "control-panel" &&
+              panel.section.paragraphs.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 40)}
+                  className="text-base leading-relaxed text-muted mt-4"
+                >
+                  {paragraph}
+                </p>
+              ))}
             <div className="grid grid-cols-1 max-tablet:grid-cols-2 tablet:grid-cols-3 gap-6 mt-7 max-mobile:grid-cols-1">
               {panel.section.products.map((product) => (
                 <ProductCard key={product.slug} product={product} />

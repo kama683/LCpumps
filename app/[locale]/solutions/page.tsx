@@ -4,9 +4,15 @@ import { getWaterProducts } from "@/lib/catalog";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 
-export const metadata: Metadata = {
-  title: "Решения",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.solutions" });
+  return { title: t("title"), description: t("description") };
+}
 
 // Water-supply products are DB-backed and admin-editable at runtime.
 export const dynamic = "force-dynamic";

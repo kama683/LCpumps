@@ -11,9 +11,15 @@ import { Reveal } from "@/components/ui/Reveal";
 import { RevealStagger } from "@/components/ui/RevealStagger";
 import { Breadcrumb, PageContainer, SectionHeading } from "@/components/ui/SpecTable";
 
-export const metadata: Metadata = {
-  title: "Проекты",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.projects" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default async function ProjectsPage() {
   const locale = (await getLocale()) as AppLocale;

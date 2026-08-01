@@ -59,5 +59,3 @@ export const HERO_SLIDES = [
 ] as const;
 
 export const LOGO_PATH = ASSETS.logo.src;
-export const HERO_BG_PATH = ASSETS.heroBg.src;
-export const PRODUCT_IMAGE_PATH = ASSETS.pump.src;

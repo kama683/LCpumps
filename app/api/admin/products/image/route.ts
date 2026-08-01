@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getSession } from "@/lib/auth/dal";
+import { matchesFileSignature } from "@/lib/file-signature";
 import { publicStorage } from "@/lib/storage";
 
 const ALLOWED_TYPES: Record<string, string> = {
@@ -36,6 +37,9 @@ export async function POST(request: NextRequest) {
   }
 
   const buffer = Buffer.from(await file.arrayBuffer());
+  if (!matchesFileSignature(buffer, `.${ext}`)) {
+    return NextResponse.json({ error: "File content doesn't match its declared type" }, { status: 400 });
+  }
   const filename = `${randomUUID()}.${ext}`;
 
   const { url } = await publicStorage.save(buffer, `products/${slug}`, filename);

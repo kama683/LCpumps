@@ -41,6 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local scratch dir for probing Tailwind class output — not part of the app
+/.twcheck-tmp
+
 # local file storage (STORAGE_DRIVER=local) — runtime uploads, not source
 /public/uploads
 /data/uploads

@@ -1,3 +1,4 @@
+import "server-only";
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { productTranslations, products, sectionTranslations, sections } from "@/lib/db/schema";

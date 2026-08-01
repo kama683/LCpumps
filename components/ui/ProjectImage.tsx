@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import { ASSETS } from "@/lib/assets";
 import { cn } from "@/lib/utils";
+import { useImageLoaded } from "@/hooks/useImageLoaded";
 
 interface ProjectImageProps {
   src?: string;
@@ -19,12 +19,7 @@ export function ProjectImage({
   aspectRatio = "16/10",
 }: ProjectImageProps) {
   const hasPhoto = Boolean(src);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (imgRef.current?.complete) setLoaded(true);
-  }, []);
+  const { imgRef, loaded, onLoad } = useImageLoaded();
 
   return (
     <div
@@ -46,7 +41,7 @@ export function ProjectImage({
             alt={alt}
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
-            onLoad={() => setLoaded(true)}
+            onLoad={onLoad}
             className={cn(
               "object-cover transition-[opacity,transform] duration-400 ease-out group-hover:scale-105",
               loaded ? "opacity-100" : "opacity-0"

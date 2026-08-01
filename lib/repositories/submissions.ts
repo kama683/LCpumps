@@ -1,3 +1,4 @@
+import "server-only";
 import { desc, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { contactSubmissions, submissionAttachments } from "@/lib/db/schema";

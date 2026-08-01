@@ -3,7 +3,15 @@ import type { CatalogNavItem } from "@/lib/types";
 export const BRAND = "LCPumps";
 export const COMPANY_NAME = "LCPumps";
 
-export { LOGO_PATH, HERO_BG_PATH, PRODUCT_IMAGE_PATH } from "@/lib/assets";
+/** Canonical public origin, derived from the same DOMAIN env var Caddy uses
+ * for its certificate (see .env.example) — used by sitemap.ts/robots.ts. */
+export function getSiteUrl(): string {
+  const domain = process.env.DOMAIN;
+  if (!domain || domain === "example.com") return "https://lcpumps.com";
+  return `https://${domain}`;
+}
+
+export { LOGO_PATH } from "@/lib/assets";
 
 export const CATALOG_INTRO =
   "LCPumps — ведущий производитель насосов в Китае. Продукция широко используется в таких национальных опорных областях, как муниципальное управление, водное хозяйство, строительство, противопожарная защита, электроэнергетика, охрана окружающей среды, нефтяная, химическая промышленность, горнодобывающая промышленность и медицина. LCPumps предоставляет высококачественные решения в области центробежных насосов для предприятий и проектов по всему миру благодаря своему мощному техническому накоплению и возможностям НИОКР.";

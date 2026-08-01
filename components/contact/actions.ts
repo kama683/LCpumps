@@ -3,10 +3,18 @@
 import { randomUUID } from "node:crypto";
 import { createSubmission, type NewAttachmentInput } from "@/lib/repositories/submissions";
 import { privateStorage } from "@/lib/storage";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { matchesFileSignature } from "@/lib/file-signature";
 
 const ALLOWED_EXTENSIONS = new Set([".pdf", ".doc", ".docx", ".xls", ".xlsx", ".dwg", ".png", ".jpg", ".jpeg"]);
 const MAX_FILE_SIZE = 15 * 1024 * 1024;
 const MAX_TOTAL_SIZE = 40 * 1024 * 1024;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Fixed-window per-IP cap: real customers submit this form once in a while,
+// not repeatedly, so this only needs to stop scripted flooding.
+const RATE_LIMIT_MAX_SUBMISSIONS = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 
 const PRIMARY_TECH_KEYS = [
   "model",
@@ -25,7 +33,14 @@ const EXTRA_TECH_KEYS = ["motor", "voltage", "protection_level", "cooling_method
 
 export interface ContactFormState {
   status: "idle" | "success" | "error";
-  errorCode?: "missing_fields" | "invalid_file_type" | "file_too_large" | "total_size_exceeded" | "unknown";
+  errorCode?:
+    | "missingFields"
+    | "invalidEmail"
+    | "invalidFileType"
+    | "fileTooLarge"
+    | "totalSizeExceeded"
+    | "rateLimited"
+    | "unknown";
   errorDetail?: string;
 }
 
@@ -45,6 +60,19 @@ export async function submitContactAction(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  // Honeypot: a real visitor never sees or fills this field (hidden via CSS
+  // in ContactForms.tsx). Bots that fill every input trip it — pretend
+  // success without persisting anything so they don't retry with a fix.
+  const honeypot = String(formData.get("website") ?? "").trim();
+  if (honeypot) {
+    return { status: "success" };
+  }
+
+  const ip = await getClientIp();
+  if (!checkRateLimit(`contact:${ip}`, RATE_LIMIT_MAX_SUBMISSIONS, RATE_LIMIT_WINDOW_MS)) {
+    return { status: "error", errorCode: "rateLimited" };
+  }
+
   const name = String(formData.get("name") ?? "").trim();
   const company = String(formData.get("company") ?? "").trim();
   const email = String(formData.get("email") ?? "").trim();
@@ -53,7 +81,10 @@ export async function submitContactAction(
   const mode = String(formData.get("mode") ?? "basic") === "technical" ? "technical" : "basic";
 
   if (!name || !email) {
-    return { status: "error", errorCode: "missing_fields" };
+    return { status: "error", errorCode: "missingFields" };
+  }
+  if (!EMAIL_PATTERN.test(email)) {
+    return { status: "error", errorCode: "invalidEmail" };
   }
 
   const techPrimary = mode === "technical" ? collectTechFields(formData, PRIMARY_TECH_KEYS) : null;
@@ -61,24 +92,31 @@ export async function submitContactAction(
 
   const files = formData.getAll("attachments").filter((f): f is File => f instanceof File && f.size > 0);
 
+  const fileBuffers = new Map<File, Buffer>();
   let totalSize = 0;
   for (const file of files) {
     totalSize += file.size;
-    if (!ALLOWED_EXTENSIONS.has(getExtension(file.name))) {
-      return { status: "error", errorCode: "invalid_file_type", errorDetail: file.name };
+    const extension = getExtension(file.name);
+    if (!ALLOWED_EXTENSIONS.has(extension)) {
+      return { status: "error", errorCode: "invalidFileType", errorDetail: file.name };
     }
     if (file.size > MAX_FILE_SIZE) {
-      return { status: "error", errorCode: "file_too_large", errorDetail: file.name };
+      return { status: "error", errorCode: "fileTooLarge", errorDetail: file.name };
     }
+    const buffer = Buffer.from(await file.arrayBuffer());
+    if (!matchesFileSignature(buffer, extension)) {
+      return { status: "error", errorCode: "invalidFileType", errorDetail: file.name };
+    }
+    fileBuffers.set(file, buffer);
   }
   if (totalSize > MAX_TOTAL_SIZE) {
-    return { status: "error", errorCode: "total_size_exceeded" };
+    return { status: "error", errorCode: "totalSizeExceeded" };
   }
 
   try {
     const attachmentInputs: NewAttachmentInput[] = [];
     for (const file of files) {
-      const buffer = Buffer.from(await file.arrayBuffer());
+      const buffer = fileBuffers.get(file)!;
       const storageName = `${randomUUID()}${getExtension(file.name)}`;
       const saved = await privateStorage.save(buffer, "attachments", storageName);
       attachmentInputs.push({

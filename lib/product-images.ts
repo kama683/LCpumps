@@ -13,7 +13,7 @@ const MODULAR_SOLUTIONS_BASE = "/assets/catalog/modular-solutions";
 const CATALOG_ROOT_BASE = "/assets/catalog";
 
 /** Product slug → catalog image path. */
-export const PRODUCT_IMAGE_BY_SLUG: Record<string, string> = {
+const PRODUCT_IMAGE_BY_SLUG: Record<string, string> = {
   lpt: `${LONG_SHAFT_BASE}/LP-T-_1675843651_WNo_800d450.jpg`,
   qz: `${AXIAL_MIXED_BASE}/QZ-QH_1675844509_WNo_800d450.jpg`,
   yw: `${SUBMERSIBLE_SEWAGE_BASE}/1675924789021_1675925578_WNo_252d408.png`,

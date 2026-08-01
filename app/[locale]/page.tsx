@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { HomeCtaSection } from "@/components/sections/HomeCtaSection";
 import { AboutVideo } from "@/components/ui/AboutVideo";
@@ -19,6 +20,16 @@ import { COMPANY_NAME, HOME_FEATURED_PRODUCTS, getHomeStats } from "@/lib/site";
 
 // Featured products are DB-backed and admin-editable at runtime.
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.home" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default async function HomePage() {
   const locale = (await getLocale()) as AppLocale;
@@ -61,11 +72,11 @@ export default async function HomePage() {
         </PageContainer>
       </section>
 
-      <PageContainer className="pt-16 pb-20 tablet:pt-20">
+      <PageContainer className="pt-16 pb-8 tablet:pt-20 tablet:pb-10">
         <StatGrid items={getHomeStats(locale)} columns={5} compact />
       </PageContainer>
 
-      <section className="bg-surface mt-20 border-y border-[#f7eeef]">
+      <section className="bg-surface mt-8 border-y border-[#f7eeef]">
         <PageContainer className="py-18">
           <Reveal>
             <div className="grid grid-cols-1 tablet:grid-cols-2 gap-12 items-center">

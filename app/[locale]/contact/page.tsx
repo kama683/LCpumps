@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import { Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ContactForms } from "@/components/contact/ContactForms";
 import { AccordionItem } from "@/components/ui/Accordion";
 import { HeroBgImage } from "@/components/ui/HeroBgImage";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 import { getFaqItems } from "@/data/content";
 
-export const metadata: Metadata = {
-  title: "Контакты",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PageMetadata.contact" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function ContactPage() {
   const t = useTranslations();

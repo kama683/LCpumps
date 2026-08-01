@@ -1,3 +1,4 @@
+import "server-only";
 import { and, eq } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { sectionTranslations, sections } from "@/lib/db/schema";

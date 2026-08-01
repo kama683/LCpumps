@@ -34,6 +34,7 @@ function CatalogPageHeader({
   const { activePanel } = useCatalogPanel();
   const activePanelData = panels.find((panel) => panel.id === activePanel);
   const firstProductSlug = activePanelData?.section.products[0]?.slug;
+  const heading = activePanelData?.title ?? title;
 
   return (
     <PageContainer className="pt-12">
@@ -46,7 +47,7 @@ function CatalogPageHeader({
         <div className="relative z-10">
           <Breadcrumb items={breadcrumb} light />
           <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,44px)] text-white mt-6 leading-tight">
-            {title}
+            {heading}
           </h1>
           <p className="text-[17px] leading-relaxed text-white/85 mt-4.5 max-w-[880px]">
             {intro}
