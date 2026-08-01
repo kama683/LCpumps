@@ -3,6 +3,7 @@ import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Card } from "@/components/ui/Card";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ProductImage } from "@/components/ui/ProductImage";
+import { RevealStagger } from "@/components/ui/RevealStagger";
 import { hasModelCode } from "@/lib/catalog-helpers";
 import { getProductImageSrc } from "@/lib/product-images";
 import type { ProductDetail } from "@/lib/types";
@@ -62,11 +63,11 @@ export function ProjectEquipmentSection({
       <p className="text-[15px] leading-relaxed text-muted mt-3.5 max-w-[720px]">
         {description}
       </p>
-      <div className="grid grid-cols-2 tablet:grid-cols-4 gap-4 mt-7 max-mobile:grid-cols-1">
+      <RevealStagger className="grid grid-cols-2 tablet:grid-cols-4 gap-4 mt-7 max-mobile:grid-cols-1">
         {products.map((product) => (
           <ProjectEquipmentCard key={product.slug} product={product} />
         ))}
-      </div>
+      </RevealStagger>
       <p className="mt-6 text-sm">
         <ArrowLink href="/products">{t("viewCatalog")}</ArrowLink>
       </p>

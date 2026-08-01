@@ -7,6 +7,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { getProductsBySlugs } from "@/lib/catalog";
 import { ProjectEquipmentSection } from "@/components/projects/ProjectEquipmentSection";
 import { ProjectImage } from "@/components/ui/ProjectImage";
+import { RevealStagger } from "@/components/ui/RevealStagger";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 import { cn } from "@/lib/utils";
 
@@ -133,34 +134,36 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <h2 className="font-heading font-bold text-lg text-heading mb-4.5">
               {t("ProjectDetail.otherProjects")}
             </h2>
-            {projectsData.featured.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/project/${item.slug}`}
-                className={cn(
-                  "flex gap-3.5 p-3.5 rounded-lg border border-border-light bg-white mb-3 transition-all no-underline hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db]",
-                  item.slug === slug &&
-                    "bg-surface-alt border-[#f2d8db] pointer-events-none"
-                )}
-              >
-                <div className="w-[68px] h-[52px] shrink-0 rounded-sm overflow-hidden relative bg-surface">
-                  <ProjectImage
-                    src={item.image}
-                    alt={item.name}
-                    aspectRatio="68/52"
-                    className="h-full w-full"
-                  />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-heading leading-snug">
-                    {item.name}
+            <RevealStagger>
+              {projectsData.featured.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/project/${item.slug}`}
+                  className={cn(
+                    "flex gap-3.5 p-3.5 rounded-lg border border-border-light bg-white mb-3 transition-all no-underline hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db]",
+                    item.slug === slug &&
+                      "bg-surface-alt border-[#f2d8db] pointer-events-none"
+                  )}
+                >
+                  <div className="w-[68px] h-[52px] shrink-0 rounded-sm overflow-hidden relative bg-surface">
+                    <ProjectImage
+                      src={item.image}
+                      alt={item.name}
+                      aspectRatio="68/52"
+                      className="h-full w-full"
+                    />
                   </div>
-                  <div className="text-xs leading-snug text-muted mt-1">
-                    {item.industry}
+                  <div>
+                    <div className="font-bold text-sm text-heading leading-snug">
+                      {item.name}
+                    </div>
+                    <div className="text-xs leading-snug text-muted mt-1">
+                      {item.industry}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </RevealStagger>
           </aside>
         </div>
       </PageContainer>

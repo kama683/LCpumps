@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Headphones } from "lucide-react";
 import { getCompanyParagraphs } from "@/lib/catalog-helpers";
 import { Button } from "@/components/ui/Button";
+import { HeroBgImage } from "@/components/ui/HeroBgImage";
 import { IconBox } from "@/components/ui/IconBox";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 
@@ -24,8 +25,9 @@ export default function ServicesPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-surface to-white">
-        <PageContainer className="py-14 pb-6">
+      <section className="relative bg-gradient-to-b from-surface to-white overflow-hidden">
+        <HeroBgImage variant="page" />
+        <PageContainer className="relative z-10 py-14 pb-6">
           <Breadcrumb
             items={[{ label: t("Common.home"), href: "/" }, { label: t("Services.label") }]}
           />
@@ -39,7 +41,7 @@ export default function ServicesPage() {
       </section>
       <PageContainer className="py-6 pb-20">
         <IconBox icon={Headphones} size="md" className="mb-6" />
-        <p className="text-base leading-relaxed text-muted">{servicePara}</p>
+        <p className="text-base leading-relaxed text-muted max-w-[720px]">{servicePara}</p>
         <Button href="/contact" className="mt-6" arrow>
           {t("Services.button")}
         </Button>

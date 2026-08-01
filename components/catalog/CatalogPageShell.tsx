@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { CatalogLayout } from "@/components/catalog/CatalogLayout";
 import { CatalogPanelProvider, useCatalogPanel } from "@/components/catalog/CatalogPanelContext";
 import { CategoryHeroImage } from "@/components/catalog/CategoryHeroImage";
+import { FloatingContactButton } from "@/components/ui/FloatingContactButton";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 import { getCatalogIntro } from "@/lib/catalog-helpers";
 import type { CatalogPanel, SearchIndexItem } from "@/lib/types";
@@ -88,6 +89,7 @@ export function CatalogPageShell({
           searchPlaceholder={searchPlaceholder}
         />
       </PageContainer>
+      <FloatingContactButton />
     </CatalogPanelProvider>
   );
 }

@@ -16,6 +16,7 @@ export function ProductCard({ product }: ProductCardProps) {
         alt={product.name}
         src={getProductImageSrc(product)}
         imagePadding="p-7"
+        autoFrame
       />
       <div className="px-5.5 py-5">
         {hasModelCode(product) && (

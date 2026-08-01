@@ -5,8 +5,10 @@ import { Link } from "@/i18n/navigation";
 import { HomeCtaSection } from "@/components/sections/HomeCtaSection";
 import { ProductDownloadButton } from "@/components/products/ProductDownloadButton";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { FloatingContactButton } from "@/components/ui/FloatingContactButton";
 import { ProductImage } from "@/components/ui/ProductImage";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { RevealStagger } from "@/components/ui/RevealStagger";
 import { Breadcrumb, PageContainer, SpecTable } from "@/components/ui/SpecTable";
 import { getAllProducts, getProductBySlug, hasModelCode } from "@/lib/catalog";
 import { getProductImageSrc } from "@/lib/product-images";
@@ -106,6 +108,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             }
             src={getProductImageSrc(product)}
             aspectRatio="4/3"
+            tilt
           />
           <div>
             <h2 className="font-heading font-bold text-2xl text-heading">
@@ -123,24 +126,32 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </PageContainer>
 
-      <PageContainer className="pt-12">
-        <h2 className="font-heading font-bold text-[28px] text-heading mb-5">
-          {t("ProductDetail.specsHeading")}
-        </h2>
-        <SpecTable specs={product.specs} />
-        {product.applications.length > 0 && (
-          <>
-            <h3 className="font-heading font-bold text-[22px] text-heading mt-10">
-              {t("ProductDetail.applications")}
-            </h3>
-            <ul className="mt-4 pl-5 text-muted leading-relaxed text-base list-disc">
-              {product.applications.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </>
+      <div className="relative overflow-hidden">
+        {product.applications.length === 0 && (
+          <div
+            aria-hidden
+            className="hero-blueprint-grid pointer-events-none absolute -right-24 top-0 aspect-square w-[min(520px,60vw)] opacity-40"
+          />
         )}
-      </PageContainer>
+        <PageContainer className="relative pt-12 pb-16">
+          <h2 className="font-heading font-bold text-[28px] text-heading mb-5">
+            {t("ProductDetail.specsHeading")}
+          </h2>
+          <SpecTable specs={product.specs} />
+          {product.applications.length > 0 && (
+            <>
+              <h3 className="font-heading font-bold text-[22px] text-heading mt-10">
+                {t("ProductDetail.applications")}
+              </h3>
+              <ul className="mt-4 pl-5 text-muted leading-relaxed text-base list-disc">
+                {product.applications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </PageContainer>
+      </div>
 
       <HomeCtaSection />
 
@@ -149,11 +160,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <h2 className="font-heading font-bold text-[28px] text-heading mb-6">
             {t("ProductDetail.relatedTitle")}
           </h2>
-          <div className="grid grid-cols-1 max-tablet:grid-cols-2 tablet:grid-cols-3 gap-6 max-mobile:grid-cols-1">
+          <RevealStagger className="grid grid-cols-1 max-tablet:grid-cols-2 tablet:grid-cols-3 gap-6 max-mobile:grid-cols-1">
             {related.map((item) => (
               <ProductCard key={item.slug} product={item} />
             ))}
-          </div>
+          </RevealStagger>
           <div className="mt-8">
             <Link href="/products" className="font-bold text-primary">
               {t("ProductDetail.backLink")}
@@ -161,6 +172,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </PageContainer>
       )}
+
+      <FloatingContactButton />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { getFaqItems } from "@/data/content";
 import { AccordionItem } from "@/components/ui/Accordion";
+import { HeroBgImage } from "@/components/ui/HeroBgImage";
 import { Breadcrumb, PageContainer } from "@/components/ui/SpecTable";
 
 export async function generateMetadata({
@@ -21,8 +22,9 @@ export default function FaqPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-surface to-white">
-        <PageContainer className="py-14 pb-6">
+      <section className="relative bg-gradient-to-b from-surface to-white overflow-hidden">
+        <HeroBgImage variant="page" />
+        <PageContainer className="relative z-10 py-14 pb-6">
           <Breadcrumb
             items={[{ label: t("Common.home"), href: "/" }, { label: "FAQ" }]}
           />

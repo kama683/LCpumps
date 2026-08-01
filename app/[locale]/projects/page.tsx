@@ -43,7 +43,7 @@ export default async function ProjectsPage() {
       </section>
 
       <PageContainer className="pb-12">
-        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-7">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-7 [&>*:last-child:nth-child(odd)]:tablet:col-span-2 [&>*:last-child:nth-child(odd)]:tablet:mx-auto [&>*:last-child:nth-child(odd)]:tablet:max-w-[calc(50%-14px)]">
           {projectsData.featured.map((project) => (
             <Card key={project.slug} href={`/project/${project.slug}`}>
               <ProjectImage src={project.image} alt={project.name} />
