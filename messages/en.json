@@ -14,7 +14,7 @@
     "productsHeading": "Products",
     "contactsHeading": "Contacts",
     "certifications": "Certifications",
-    "address": "Промзона территория, 205а",
+    "address": "Industrial Zone, 205a",
     "rightsReserved": "All rights reserved."
   },
   "LanguageSwitcher": {
@@ -104,7 +104,7 @@
       "description": "Contact us directly — our engineers and project managers are always available.",
       "address": {
         "label": "Address",
-        "value": "Промзона территория, 205а"
+        "value": "Industrial Zone, 205a"
       },
       "email": {
         "label": "Email"
@@ -115,7 +115,7 @@
       "hours": {
         "label": "Working Hours",
         "value": "Mon–Fri, 09:00–18:00",
-        "timezoneNote": "(UTC+8, Shanghai)"
+        "timezoneNote": "(UTC+5, Almaty)"
       }
     }
   },
@@ -135,7 +135,7 @@
     "home": "Home",
     "products": "Products",
     "contactUs": "Contact Us",
-    "headquartersNote": "Our office is located at: Промзона территория, 205а."
+    "headquartersNote": "Our office is located at: Industrial Zone, 205a."
   },
   "CatalogNav": {
     "wastewater-submersible": "Submersible sewage pumps, mixers and equipment",

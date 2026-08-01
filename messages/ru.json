@@ -115,7 +115,7 @@
       "hours": {
         "label": "Время работы",
         "value": "Пн–Пт, 09:00–18:00",
-        "timezoneNote": "(UTC+8, Шанхай)"
+        "timezoneNote": "(UTC+5, Алматы)"
       }
     }
   },

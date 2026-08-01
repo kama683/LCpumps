@@ -14,7 +14,7 @@
     "productsHeading": "产品",
     "contactsHeading": "联系方式",
     "certifications": "认证证书",
-    "address": "Промзона территория, 205а",
+    "address": "工业区205a栋",
     "rightsReserved": "版权所有。"
   },
   "LanguageSwitcher": {
@@ -104,7 +104,7 @@
       "description": "直接与我们联系——我们的工程师和项目经理随时为您服务。",
       "address": {
         "label": "地址",
-        "value": "Промзона территория, 205а"
+        "value": "工业区205a栋"
       },
       "email": {
         "label": "邮箱"
@@ -115,7 +115,7 @@
       "hours": {
         "label": "工作时间",
         "value": "周一至周五 09:00–18:00",
-        "timezoneNote": "（UTC+8，上海）"
+        "timezoneNote": "（UTC+5，阿拉木图）"
       }
     }
   },
@@ -135,7 +135,7 @@
     "home": "首页",
     "products": "产品",
     "contactUs": "联系我们",
-    "headquartersNote": "我们的办公室地址：Промзона территория, 205а。"
+    "headquartersNote": "我们的办公室地址：工业区205a栋。"
   },
   "CatalogNav": {
     "wastewater-submersible": "污水处理设备",

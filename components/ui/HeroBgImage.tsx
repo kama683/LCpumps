@@ -19,7 +19,7 @@ const pumpLayouts = {
   },
   contact: {
     frame:
-      "absolute right-30 top-1/2 -translate-y-1/2 w-[min(520px,42vw)] max-tablet:w-[min(400px,78vw)]",
+      "absolute right-63 top-1/2 -translate-y-1/2 w-[min(520px,42vw)] max-tablet:w-[min(400px,78vw)]",
     grid: "w-[min(780px,70vw)] max-tablet:w-[min(560px,95vw)]",
   },
 } as const;
