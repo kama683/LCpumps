@@ -133,6 +133,13 @@ export function getHomeStats(locale: string) {
   return HOME_STATS[locale] ?? HOME_STATS.ru;
 }
 
-export const HOME_FEATURED_PRODUCTS = ["sls", "slw", "gdl", "slg", "wq", "wqc"];
+export const HOME_FEATURED_PRODUCTS = [
+  "xbd-slw2",
+  "xbd-sls2",
+  "xbd-dv",
+  "xbd-dw",
+  "xbd-gdl",
+  "xbd-d",
+];
 
 export const RESERVED_PRODUCT_SLUGS = new Set(["pumps", "valves", "control", "water"]);
