@@ -9,7 +9,7 @@ import {
   LOGO_PATH,
 } from "@/lib/site";
 
-const CONTACT_EMAIL = "export@lcpumps.com";
+const CONTACT_EMAIL = "lcpumpskz@gmail.com";
 const CONTACT_PHONE = "+7 771 778 68 77";
 
 export function Footer() {

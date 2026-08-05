@@ -1,0 +1,7 @@
+# Local-only override: exposes Postgres on the host so `npm run dev` (running
+# outside Docker) can reach it via DATABASE_URL=...@localhost:5433/...
+# Not meant for production — don't merge this into docker-compose.yml itself.
+services:
+  postgres:
+    ports:
+      - "5433:5432"

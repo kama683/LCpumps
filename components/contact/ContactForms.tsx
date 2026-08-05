@@ -376,7 +376,7 @@ function DirectContacts() {
         <ContactInfoCard
           icon="email"
           label={t("email.label")}
-          html='<a href="mailto:export@lcpumps.com">export@lcpumps.com</a>'
+          html='<a href="mailto:lcpumpskz@gmail.com">lcpumpskz@gmail.com</a>'
         />
         <ContactInfoCard
           icon="phone"
