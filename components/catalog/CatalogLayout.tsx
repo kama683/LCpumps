@@ -182,7 +182,7 @@ export function CatalogLayout({
                         setCategoryMenuOpen(false);
                       }}
                       className={cn(
-                        "block w-full text-left py-4 px-5 text-sm font-semibold border-b border-border-light leading-snug transition-[background,color,box-shadow] duration-150",
+                        "block w-full text-left py-4 px-5 text-sm font-semibold border-b border-border-light leading-snug transition-[background,color,box-shadow] duration-150 active:opacity-60",
                         active
                           ? "bg-surface-alt text-primary shadow-[inset_3px_0_0_#f70620]"
                           : "text-muted hover:bg-surface hover:text-primary"
@@ -241,7 +241,7 @@ export function CatalogLayout({
               panelVisible ? "opacity-100" : "opacity-0"
             )}
           >
-            <h2 className="font-heading font-bold text-heading text-[clamp(24px,3vw,32px)] leading-tight">
+            <h2 className="display-heading font-heading font-bold text-heading text-[clamp(24px,3vw,32px)] leading-tight">
               {tCatalogNav(panel.id === "valves" ? "valvesFooterLabel" : panel.id)}
             </h2>
             {panel.id !== "control-panel" &&

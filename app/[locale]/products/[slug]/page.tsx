@@ -77,7 +77,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           />
           {hasModelCode(product) && <Eyebrow>{product.code}</Eyebrow>}
           <div className="flex items-start justify-between gap-6 flex-wrap mt-2.5">
-            <h1 className="font-heading font-bold text-[clamp(28px,4.2vw,40px)] text-heading leading-tight max-w-[900px]">
+            <h1 className="display-heading font-heading font-bold text-[clamp(28px,4.2vw,40px)] text-heading leading-tight max-w-[900px]">
               {product.name}
             </h1>
             <ProductDownloadButton

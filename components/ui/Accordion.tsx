@@ -48,7 +48,7 @@ export function AccordionItem({ title, children, className }: AccordionItemProps
     >
       <summary
         onClick={handleSummaryClick}
-        className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-[17px] text-body [&::-webkit-details-marker]:hidden"
+        className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-[17px] text-body transition-opacity active:opacity-60 [&::-webkit-details-marker]:hidden"
       >
         <span>{title}</span>
         <ChevronDown
@@ -94,7 +94,7 @@ export function AccordionDetails({
     >
       <summary
         onClick={handleSummaryClick}
-        className="flex cursor-pointer list-none items-center justify-between gap-4 px-5.5 py-4.5 font-bold text-[15px] text-body [&::-webkit-details-marker]:hidden"
+        className="flex cursor-pointer list-none items-center justify-between gap-4 px-5.5 py-4.5 font-bold text-[15px] text-body transition-opacity active:opacity-60 [&::-webkit-details-marker]:hidden"
       >
         <span>{title}</span>
         <ChevronDown

@@ -1,10 +1,15 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+// Matches the duration of .animate-modal-panel-out below (the longer of the
+// two exit animations) so the real unmount lands right as it finishes.
+const EXIT_DURATION_MS = 180;
 
 export function Modal({
   title,
@@ -17,6 +22,25 @@ export function Modal({
 }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
+  const [closing, setClosing] = useState(false);
+  // The Escape handler below is registered once (mount-only effect), so it
+  // closes over a stale `closing` state forever. A ref survives that closure
+  // and guards against Escape/backdrop/button firing requestClose twice.
+  const closingRef = useRef(false);
+
+  const requestClose = () => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    const reducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      onClose();
+      return;
+    }
+    setClosing(true);
+    setTimeout(onClose, EXIT_DURATION_MS);
+  };
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -28,7 +52,7 @@ export function Modal({
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        onClose();
+        requestClose();
         return;
       }
       if (e.key !== "Tab") return;
@@ -53,13 +77,17 @@ export function Modal({
       document.removeEventListener("keydown", handleKeyDown);
       previouslyFocused?.focus();
     };
-  }, [onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-footer/60 p-4"
+      className={cn(
+        "fixed inset-0 z-50 flex items-center justify-center bg-footer/60 p-4",
+        closing ? "animate-modal-scrim-out" : "animate-modal-scrim-in"
+      )}
       onMouseDown={(e) => {
-        if (!dialogRef.current?.contains(e.target as Node)) onClose();
+        if (!dialogRef.current?.contains(e.target as Node)) requestClose();
       }}
     >
       <div
@@ -68,7 +96,10 @@ export function Modal({
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className="flex max-h-[90vh] w-full max-w-140 flex-col overflow-hidden rounded-2xl bg-white shadow-card"
+        className={cn(
+          "flex max-h-[90vh] w-full max-w-140 flex-col overflow-hidden rounded-2xl bg-white shadow-card",
+          closing ? "animate-modal-panel-out" : "animate-modal-panel-in"
+        )}
       >
         <div className="flex shrink-0 items-center justify-between border-b border-border-light px-6 py-4.5">
           <h2 id={titleId} className="font-heading text-lg font-bold text-heading">
@@ -76,7 +107,7 @@ export function Modal({
           </h2>
           <button
             type="button"
-            onClick={onClose}
+            onClick={requestClose}
             aria-label="Закрыть"
             className="flex size-8 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-muted transition-colors hover:bg-surface hover:text-primary"
           >

@@ -40,6 +40,7 @@ export function ProductImage({
   const { imgRef, loaded, onLoad } = useImageLoaded();
   const containerRef = useRef<HTMLDivElement>(null);
   const [tiltTransform, setTiltTransform] = useState(TILT_RESET);
+  const [tilting, setTilting] = useState(false);
   const frameScale = useAutoFrameScale(imgRef, autoFrame, aspectRatio);
   const reducedMotion =
     typeof window !== "undefined" &&
@@ -53,16 +54,22 @@ export function ProductImage({
     const py = (e.clientY - rect.top) / rect.height;
     const rotateY = (px - 0.5) * TILT_MAX_DEG * 2;
     const rotateX = (0.5 - py) * TILT_MAX_DEG * 2;
+    setTilting(true);
     setTiltTransform(
       `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`
     );
+  }
+
+  function handleMouseLeave() {
+    setTilting(false);
+    setTiltTransform(TILT_RESET);
   }
 
   return (
     <div
       ref={containerRef}
       onMouseMove={tilt ? handleMouseMove : undefined}
-      onMouseLeave={tilt ? () => setTiltTransform(TILT_RESET) : undefined}
+      onMouseLeave={tilt ? handleMouseLeave : undefined}
       className={cn("relative bg-white overflow-hidden", className)}
       style={{ aspectRatio, transformStyle: tilt ? "preserve-3d" : undefined }}
     >
@@ -85,11 +92,15 @@ export function ProductImage({
           autoFrame
             ? "scale-[calc(var(--auto-scale,1))] group-hover:scale-[calc(var(--auto-scale,1)*1.05)]"
             : "group-hover:scale-105",
-          tilt ? "duration-200" : "duration-400",
+          !tilt && "duration-400",
           imagePadding,
           loaded ? "opacity-100" : "opacity-0"
         )}
         style={{
+          // Order matches transition-[opacity,transform] above: opacity keeps its
+          // load-fade duration; transform is instant while the pointer drives it
+          // (true 1:1 tracking) and only eases on the snap-back to neutral.
+          ...(tilt ? { transitionDuration: `400ms, ${tilting ? "0ms" : "300ms"}` } : undefined),
           ...(tilt ? { transform: tiltTransform } : undefined),
           ...(autoFrame ? { "--auto-scale": frameScale } as React.CSSProperties : undefined),
         }}

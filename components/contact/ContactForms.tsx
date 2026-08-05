@@ -74,7 +74,7 @@ export function ContactForms() {
             <div className="text-xs font-bold tracking-[1.4px] uppercase text-primary mb-3">
               {t("eyebrow")}
             </div>
-            <h2 className="font-heading font-bold text-[clamp(24px,2.8vw,32px)] text-heading leading-tight">
+            <h2 className="display-heading font-heading font-bold text-[clamp(24px,2.8vw,32px)] text-heading leading-tight">
               {t("title")}
             </h2>
             <p className="text-[15px] leading-relaxed text-muted mt-3">

@@ -47,7 +47,7 @@ function CatalogPageHeader({
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10">
           <Breadcrumb items={breadcrumb} light />
-          <h1 className="font-heading font-bold text-[clamp(32px,4.2vw,44px)] text-white mt-6 leading-tight">
+          <h1 className="display-heading font-heading font-bold text-[clamp(32px,4.2vw,44px)] text-white mt-6 leading-tight">
             {heading}
           </h1>
           <p className="text-[17px] leading-relaxed text-white/85 mt-4.5 max-w-[880px]">

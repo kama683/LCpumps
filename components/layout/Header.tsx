@@ -48,7 +48,7 @@ export function Header() {
         isHome ? "fixed" : "sticky",
         transparent
           ? "bg-black/20 border-transparent"
-          : "bg-white/96 backdrop-blur-sm border-border-light"
+          : "header-material bg-white/96 backdrop-blur-sm border-border-light"
       )}
     >
       <div className="max-w-[var(--container-content)] mx-auto px-5 tablet:px-8 py-3 tablet:py-3.5 flex items-center gap-4 tablet:gap-8.5">
@@ -66,7 +66,7 @@ export function Header() {
           />
           <span
             className={cn(
-              "font-heading font-bold text-[28px] tablet:text-[32px] tracking-[1.1px] leading-[1.15] transition-colors duration-300",
+              "font-heading font-bold text-[28px] tablet:text-[32px] tracking-[-0.3px] leading-[1.15] transition-colors duration-300",
               transparent ? "text-white" : "text-body"
             )}
           >
