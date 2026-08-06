@@ -7,21 +7,27 @@ import { manrope, notoSansSC, ptSans } from "@/lib/fonts";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { ASSETS } from "@/lib/assets";
 import { LOGO_PATH, BRAND } from "@/lib/site";
+import "./globals.css";
 
-/** Root fallback for genuinely unmatched URLs — this is the one most real
+/** Fallback for genuinely unmatched URLs — this is the one most real
  * visitors actually hit (typo, dead external link, stale bookmark): Next's
  * router only reaches `app/[locale]/not-found.tsx` when `notFound()` is
  * thrown from *inside* an already-matched page (bad product/project/about-us
- * slug); a path that doesn't match any route at all is "handled at the
- * routing level" (same mechanism as `global-not-found.js`, see Next's docs)
- * and renders this file directly, skipping every nested not-found boundary.
- * That also means it gets neither the `[locale]` layout nor route params, so
- * it needs its own <html>/<body>, its own fonts, and — since there's no
- * `params.locale` here — a locale read straight off the request: next-intl's
- * own middleware already resolved it and stamps it on every request as the
- * `x-next-intl-locale` header, which is what this reads instead of guessing
- * from Accept-Language (confirmed unreliable — it never reflects the
- * visited path, only the browser's own language preference). */
+ * slug); a path that doesn't match any route at all is handled at the
+ * routing level and renders this file directly, skipping every nested
+ * not-found boundary and the `[locale]` layout — no shared layout, no route
+ * params, own <html>/<body>/fonts. A plain `not-found.tsx` shaped like this
+ * doesn't get its imported globals.css linked in <head> in this Next
+ * version (the CSS chunk compiles and is reachable, it's just never
+ * referenced) — `global-not-found.tsx` is the documented fix (requires
+ * `experimental.globalNotFound` in next.config.ts; see
+ * node_modules/next/dist/docs/.../not-found.md).
+ *
+ * No `params.locale` here either, so the locale is read straight off the
+ * request: next-intl's own middleware already resolved it and stamps it on
+ * every request as the `x-next-intl-locale` header — more reliable than
+ * guessing from Accept-Language, which reflects the browser's language
+ * preference, not the path actually visited. */
 export const dynamic = "force-dynamic";
 
 async function resolveLocale(): Promise<AppLocale> {
@@ -45,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t.title, description: t.description };
 }
 
-export default async function RootNotFound() {
+export default async function GlobalNotFound() {
   const locale = await resolveLocale();
   const messages = await getMessages(locale);
   const t = messages.NotFound;
