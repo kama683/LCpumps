@@ -60,7 +60,7 @@ export function AccordionItem({ title, children, className }: AccordionItemProps
       <div
         onTransitionEnd={handleTransitionEnd}
         className={cn(
-          "grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "grid transition-[grid-template-rows] duration-500 ease-(--ease-entrance)",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >
@@ -106,7 +106,7 @@ export function AccordionDetails({
       <div
         onTransitionEnd={handleTransitionEnd}
         className={cn(
-          "grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "grid transition-[grid-template-rows] duration-500 ease-(--ease-entrance)",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >

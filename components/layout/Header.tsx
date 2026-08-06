@@ -118,17 +118,30 @@ export function Header() {
               : "border-border-mid text-heading hover:border-primary hover:text-primary"
           )}
         >
-          {open ? (
-            <X className="size-5" strokeWidth={2} aria-hidden />
-          ) : (
-            <Menu className="size-5" strokeWidth={2} aria-hidden />
-          )}
+          <span className="relative block size-5">
+            <Menu
+              className={cn(
+                "absolute inset-0 transition-[opacity,transform] duration-200 ease-(--ease-entrance)",
+                open ? "scale-75 rotate-45 opacity-0" : "scale-100 rotate-0 opacity-100"
+              )}
+              strokeWidth={2}
+              aria-hidden
+            />
+            <X
+              className={cn(
+                "absolute inset-0 transition-[opacity,transform] duration-200 ease-(--ease-entrance)",
+                open ? "scale-100 rotate-0 opacity-100" : "scale-75 -rotate-45 opacity-0"
+              )}
+              strokeWidth={2}
+              aria-hidden
+            />
+          </span>
         </button>
       </div>
 
       <div
         className={cn(
-          "tablet:hidden grid overflow-hidden border-t border-border-light bg-white transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "tablet:hidden grid overflow-hidden border-t border-border-light bg-white transition-[grid-template-rows] duration-300 ease-(--ease-entrance)",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >

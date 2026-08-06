@@ -109,7 +109,7 @@ export function StatGrid({
             transitionDelay: `${Math.min(index, STAGGER_CAP) * STAGGER_STEP_MS}ms`,
           }}
           className={cn(
-            "bg-white transition-[opacity,transform] duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+            "bg-white transition-[opacity,transform] duration-[420ms] ease-(--ease-entrance)",
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
             compact ? "px-[18px] py-5.5 text-center" : "px-6 py-7"
           )}

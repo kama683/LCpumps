@@ -106,7 +106,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               {prev ? (
                 <Link
                   href={`/project/${prev.slug}`}
-                  className="flex flex-col gap-1.5 font-bold text-body p-5 border border-border-mid rounded-lg flex-1 max-w-full tablet:max-w-[48%] hover:border-primary hover:text-primary hover:shadow-[0_8px_20px_rgba(38,51,60,0.06)] no-underline transition-all"
+                  className="flex flex-col gap-1.5 font-bold text-body p-5 border border-border-mid rounded-lg flex-1 max-w-full tablet:max-w-[48%] hover:border-primary hover:text-primary hover:shadow-[0_8px_20px_rgba(38,51,60,0.06)] no-underline transition-[color,border-color,box-shadow] duration-200"
                 >
                   <span className="text-xs font-semibold text-subtle uppercase tracking-wide">
                     {t("ProjectDetail.previous")}
@@ -119,7 +119,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               {next ? (
                 <Link
                   href={`/project/${next.slug}`}
-                  className="flex flex-col gap-1.5 font-bold text-body p-5 border border-border-mid rounded-lg flex-1 max-w-full tablet:max-w-[48%] text-right items-end hover:border-primary hover:text-primary hover:shadow-[0_8px_20px_rgba(38,51,60,0.06)] no-underline transition-all"
+                  className="flex flex-col gap-1.5 font-bold text-body p-5 border border-border-mid rounded-lg flex-1 max-w-full tablet:max-w-[48%] text-right items-end hover:border-primary hover:text-primary hover:shadow-[0_8px_20px_rgba(38,51,60,0.06)] no-underline transition-[color,border-color,box-shadow] duration-200"
                 >
                   <span className="text-xs font-semibold text-subtle uppercase tracking-wide">
                     {t("ProjectDetail.next")}
@@ -140,7 +140,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   key={item.slug}
                   href={`/project/${item.slug}`}
                   className={cn(
-                    "flex gap-3.5 p-3.5 rounded-lg border border-border-light bg-white mb-3 transition-all no-underline hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db]",
+                    "flex gap-3.5 p-3.5 rounded-lg border border-border-light bg-white mb-3 transition-[transform,border-color,box-shadow] duration-200 no-underline hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db]",
                     item.slug === slug &&
                       "bg-surface-alt border-[#f2d8db] pointer-events-none"
                   )}

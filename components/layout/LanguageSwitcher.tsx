@@ -102,10 +102,10 @@ function LanguageDropdown({ light = false }: { light?: boolean }) {
       <div
         role="listbox"
         className={cn(
-          "absolute right-0 top-full z-10 mt-1.5 min-w-23 overflow-hidden rounded-md border border-border-mid bg-white py-1 shadow-card transition-[opacity,transform] duration-150 ease-out",
+          "absolute right-0 top-full z-10 mt-1.5 min-w-23 origin-top-right overflow-hidden rounded-md border border-border-mid bg-white py-1 shadow-card transition-[opacity,transform] duration-150 ease-out",
           open
-            ? "opacity-100 translate-y-0"
-            : "pointer-events-none opacity-0 -translate-y-1"
+            ? "scale-100 opacity-100 translate-y-0"
+            : "pointer-events-none scale-95 opacity-0 -translate-y-1"
         )}
       >
         {routing.locales.map((loc) => (

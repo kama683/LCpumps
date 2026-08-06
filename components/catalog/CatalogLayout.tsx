@@ -159,7 +159,7 @@ export function CatalogLayout({
           </button>
           <div
             className={cn(
-              "grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              "grid transition-[grid-template-rows] duration-300 ease-(--ease-entrance)",
               "tablet:grid-rows-[1fr]",
               categoryMenuOpen ? "grid-rows-[1fr] mt-2 tablet:mt-0" : "grid-rows-[0fr] tablet:mt-0"
             )}

@@ -16,7 +16,7 @@ export function RequestCard({ submission }: { submission: SubmissionListItem }) 
   return (
     <Link
       href={`/admin/requests/${submission.id}`}
-      className="group relative block rounded-2xl border border-border bg-white p-5 no-underline transition-all hover:-translate-y-0.5 hover:border-[#f2d8db] hover:shadow-card-sm"
+      className="group relative block rounded-2xl border border-border bg-white p-5 no-underline transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[#f2d8db] hover:shadow-card-sm"
     >
       {submission.status === "new" && (
         <span

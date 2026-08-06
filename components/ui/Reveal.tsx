@@ -3,7 +3,7 @@
 import { useInView } from "@/hooks/useInView";
 import { cn } from "@/lib/utils";
 
-export const REVEAL_TRANSITION = "transition-[opacity,transform] duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+export const REVEAL_TRANSITION = "transition-[opacity,transform] duration-[420ms] ease-(--ease-entrance)";
 
 interface RevealProps {
   children: React.ReactNode;

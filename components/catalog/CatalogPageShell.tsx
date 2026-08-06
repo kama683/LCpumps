@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { CatalogLayout } from "@/components/catalog/CatalogLayout";
 import { CatalogPanelProvider, useCatalogPanel } from "@/components/catalog/CatalogPanelContext";
 import { CategoryHeroImage } from "@/components/catalog/CategoryHeroImage";
@@ -32,10 +32,13 @@ function CatalogPageHeader({
   panels: CatalogPanel[];
   breadcrumb: { label: string; href?: string }[];
 }) {
+  const tCatalogNav = useTranslations("CatalogNav");
   const { activePanel } = useCatalogPanel();
   const activePanelData = panels.find((panel) => panel.id === activePanel);
   const firstProductSlug = activePanelData?.section.products[0]?.slug;
-  const heading = activePanelData?.title ?? title;
+  const heading = activePanelData
+    ? tCatalogNav(activePanel === "valves" ? "valvesFooterLabel" : activePanel)
+    : title;
 
   return (
     <PageContainer className="pt-12">

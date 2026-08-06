@@ -147,7 +147,7 @@ export function ContactForms() {
             <div
               id={techPanelId}
               className={cn(
-                "grid overflow-clip transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "grid overflow-clip transition-[grid-template-rows] duration-500 ease-(--ease-entrance)",
                 techOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
               )}
             >
@@ -323,13 +323,13 @@ export function ContactForms() {
             </div>
 
             {state.status === "success" && (
-              <p className="mb-4 flex items-center justify-center gap-2 rounded-md bg-[#eef8f0] px-4 py-3 text-sm font-semibold text-success">
+              <p className="starting:opacity-0 starting:-translate-y-1 mb-4 flex translate-y-0 items-center justify-center gap-2 rounded-md bg-[#eef8f0] px-4 py-3 text-sm font-semibold text-success opacity-100 transition-[opacity,transform] duration-250 ease-(--ease-entrance)">
                 <CheckCircle2 className="size-4 shrink-0" strokeWidth={2.25} aria-hidden />
                 {t("success")}
               </p>
             )}
             {state.status === "error" && (
-              <p className="mb-4 flex items-center justify-center gap-2 rounded-md bg-[#fdeeee] px-4 py-3 text-sm font-semibold text-error">
+              <p className="starting:opacity-0 starting:-translate-y-1 mb-4 flex translate-y-0 items-center justify-center gap-2 rounded-md bg-[#fdeeee] px-4 py-3 text-sm font-semibold text-error opacity-100 transition-[opacity,transform] duration-250 ease-(--ease-entrance)">
                 <AlertCircle className="size-4 shrink-0" strokeWidth={2.25} aria-hidden />
                 {t(`errors.${state.errorCode ?? "unknown"}`, { detail: state.errorDetail ?? "" })}
               </p>
@@ -461,7 +461,7 @@ function ContactInfoCard({
   const Icon = CONTACT_ICONS[icon];
 
   return (
-    <div className="bg-white border border-border-light rounded-2xl p-6 min-h-[148px] flex flex-col hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db] transition-all">
+    <div className="bg-white border border-border-light rounded-2xl p-6 min-h-[148px] flex flex-col hover:shadow-card-sm hover:-translate-y-0.5 hover:border-[#f2d8db] transition-[transform,border-color,box-shadow] duration-200">
       <IconBox icon={Icon} size="sm" className="mb-4" />
       <div className="text-xs font-bold tracking-wide uppercase text-primary mb-2">
         {label}

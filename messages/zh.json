@@ -139,6 +139,14 @@
     "contactUs": "联系我们",
     "headquartersNote": "我们的办公室地址：工业区205a栋。"
   },
+  "NotFound": {
+    "eyebrow": "404 错误",
+    "title": "页面未找到",
+    "description": "链接可能已失效，或网址输入有误。请检查网址，或使用下方链接。",
+    "homeButton": "返回首页",
+    "catalogButton": "产品目录",
+    "contactLink": "联系我们"
+  },
   "CatalogNav": {
     "wastewater-submersible": "污水处理设备",
     "single-suction-centrifugal": "水利设备",
@@ -311,6 +319,10 @@
     "solutions": {
       "title": "解决方案",
       "description": "LCPumps为供水、污水处理及工业设施提供的模块化工程解决方案。"
+    },
+    "notFound": {
+      "title": "页面未找到",
+      "description": "未找到您请求的页面。请返回首页，或浏览LCPumps产品目录。"
     }
   }
 }

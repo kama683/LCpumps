@@ -24,26 +24,32 @@ export function CategoryHeroImage({
   const images = CATEGORY_PANEL_HERO_IMAGES[panelId];
   const alt = getCategoryPanelHeroAlt(panelId);
 
-  if (!images || images.length === 0) {
-    const fallbackSrc = fallbackProductSlug
-      ? getProductImageSrc({ slug: fallbackProductSlug })
-      : ASSETS.pump.src;
+  const fallbackSrc = fallbackProductSlug
+    ? getProductImageSrc({ slug: fallbackProductSlug })
+    : ASSETS.pump.src;
 
-    return (
-      <Image
-        src={fallbackSrc}
-        alt={alt}
-        fill
-        sizes="100vw"
-        className="object-center object-cover"
-        priority
-      />
-    );
-  }
-
-  // Remount on panelId change so the slideshow always restarts at slide 1
-  // for the newly-selected category instead of carrying over the index.
-  return <CategoryHeroSlideshow key={panelId} images={images} alt={alt} />;
+  return (
+    // Keyed on panelId so switching categories remounts this (restarting any
+    // slideshow at slide 1) and, via @starting-style, fades the new photo in
+    // instead of hard-cutting the background when a filter tab is clicked.
+    <div
+      key={panelId}
+      className="starting:opacity-0 absolute inset-0 opacity-100 transition-opacity duration-350 ease-(--ease-entrance)"
+    >
+      {!images || images.length === 0 ? (
+        <Image
+          src={fallbackSrc}
+          alt={alt}
+          fill
+          sizes="100vw"
+          className="object-center object-cover"
+          priority
+        />
+      ) : (
+        <CategoryHeroSlideshow images={images} alt={alt} />
+      )}
+    </div>
+  );
 }
 
 function CategoryHeroSlideshow({ images, alt }: { images: string[]; alt: string }) {
